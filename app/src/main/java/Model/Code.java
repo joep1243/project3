@@ -1,7 +1,7 @@
 package Model;
 
 public class Code {
-    Integer StudentID = 0;
+    String StudentID = "";
     Integer QID = 0;
     Boolean ESE = Boolean.FALSE;
 }

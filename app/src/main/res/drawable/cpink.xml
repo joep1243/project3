@@ -4,6 +4,6 @@
     <size
         android:width="80dp" android:height="80dp"/>
     <gradient
-        android:endColor="#5454CA"
-        android:startColor="#8C8CFF"/>
+        android:endColor="#CC356C"
+        android:startColor="#F679A3"/>
 </shape>

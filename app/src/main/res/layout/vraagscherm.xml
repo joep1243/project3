@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:backgroundTint="@android:color/background_light"
-    tools:context=".Main.MainActivity">
+    tools:context=".Main.Vraagscherm">
 
     <ImageView
         android:id="@+id/cPink"
@@ -73,6 +73,7 @@
 
     <Button
         android:id="@+id/btnJa"
+        android:onClick="openInfoscherm"
         android:layout_width="129dp"
         android:layout_height="48dp"
         android:background="@drawable/btn_stroke"

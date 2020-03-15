@@ -73,20 +73,25 @@
 
     <RadioGroup
         android:id="@+id/rdgIntake"
-        android:layout_width="326dp"
-        android:layout_height="102dp"
+        android:layout_width="363dp"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.611"
+        app:layout_constraintHorizontal_bias="0.812"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.771">
+        app:layout_constraintVertical_bias="0.703">
 
         <RadioButton
             android:id="@+id/rdbIntake1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="100dp"
+            android:background="#ff0000"
             android:text="Eens"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -97,7 +102,10 @@
             android:id="@+id/rdbIntake2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="#ff0000"
+            android:backgroundTint="#EF1212"
             android:text="Oneens"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -106,6 +114,16 @@
 
 
     </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="333dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdgIntake"
+        app:layout_constraintVertical_bias="0.121" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

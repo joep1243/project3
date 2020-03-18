@@ -20,7 +20,8 @@ public class Vraagscherm extends AppCompatActivity {
     }
 
     public void openInfoscherm(View v) {
-        Intent intent = new Intent(this, Infoscherm.class);
+        Intent intent = new Intent(this, VolgendScherm.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

@@ -6,10 +6,13 @@
         android:allowBackup="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".Feedback.Feedback"
-                  android:exported="true"/>>
-        <activity android:name=".Main.Infoscherm" />
-        <activity android:name=".Main.Vraagscherm">
+
+        <activity android:name=".Feedback.Feedback" android:exported="true"/>
+        <activity android:name=".Main.Infoscherm" android:exported="true"/>
+        <activity android:name=".Main.Vraagscherm" android:exported="true"/>
+        <activity android:name=".Promo.Promoscherm" android:exported="true"/>
+        <activity android:name=".Promo.Promoinfoscherm" android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:backgroundTint="@android:color/background_light"
-    tools:context=".Promo.Promoscherm">
+    tools:context=".Promo.Promoinfoscherm">
 
     <ImageView
         android:id="@+id/cPink"
@@ -42,25 +42,25 @@
 
     <TextView
         android:id="@+id/txtPromo"
-        android:layout_width="222dp"
-        android:layout_height="62dp"
+        android:layout_width="146dp"
+        android:layout_height="65dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Promostudent"
+        android:text="Vraag #"
         android:textColor="#4D5693"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406" />
+        app:layout_constraintVertical_bias="0.408" />
 
     <TextView
         android:id="@+id/txtPromoVraag"
         android:layout_width="317dp"
         android:layout_height="102dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="placeholder promo text"
+        android:text="Welk antwoord heeft deze vraag?"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -73,12 +73,12 @@
 
     <Button
         android:id="@+id/btnPinfo"
-        android:layout_width="247dp"
-        android:layout_height="34dp"
+        android:onClick="openInfoscherm"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:onClick="openinfoPromo"
-        android:text="Meer informatie"
+        android:text="Ja"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"
@@ -87,10 +87,30 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
+        app:layout_constraintVertical_bias="0.785"
+        />
 
 
+    <Button
+        android:id="@+id/btnNee"
+        android:layout_width="131dp"
+        android:layout_height="45dp"
+        android:background="@drawable/btn_stroke"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:text="Nee"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textColorLink="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.785" />
 </androidx.constraintlayout.widget.ConstraintLayout>

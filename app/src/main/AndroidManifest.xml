@@ -6,7 +6,9 @@
         android:allowBackup="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".Main.Infoscherm"></activity>
+        <activity android:name=".Feedback.Feedback"
+                  android:exported="true">></activity>
+        <activity android:name=".Main.Infoscherm" />
         <activity android:name=".Main.Vraagscherm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

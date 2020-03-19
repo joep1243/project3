@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:backgroundTint="@android:color/background_light"
-    tools:context=".Main.MainActivity">
+    tools:context=".Feedback.Feedback">
 
     <ImageView
         android:id="@+id/cPink"
@@ -112,6 +112,7 @@
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Eens"
+        android:onClick="IntakeEens"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"
@@ -202,7 +203,7 @@
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
-
+        app:layout_constraintVertical_bias="0.879"
+        tools:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

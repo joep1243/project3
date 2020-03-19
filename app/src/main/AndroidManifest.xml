@@ -7,7 +7,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity android:name=".Feedback.Feedback"
-                  android:exported="true">></activity>
+                  android:exported="true"/>>
         <activity android:name=".Main.Infoscherm" />
         <activity android:name=".Main.Vraagscherm">
             <intent-filter>

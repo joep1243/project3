@@ -135,6 +135,7 @@
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Oneens"
+        android:onClick="IntakeOneens"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"
@@ -154,6 +155,7 @@
         android:layout_height="48dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
+        android:onClick="OpenEens"
         android:text="Eens"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
@@ -167,7 +169,8 @@
         app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.785"
+         />
 
 
     <Button
@@ -177,6 +180,7 @@
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Oneens"
+        android:onClick="OpenOneens"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"
@@ -191,19 +195,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.785" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="402dp"
-        android:layout_height="195dp"
-        android:background="@android:color/holo_blue_bright"
-        android:backgroundTintMode="add"
-        android:text="TextView"
+    <EditText
+        android:id="@+id/txtFeedback"
+        android:layout_width="379dp"
+        android:layout_height="190dp"
+        android:backgroundTint="@android:color/background_dark"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879"
-        tools:visibility="invisible" />
+        app:layout_constraintVertical_bias="0.9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

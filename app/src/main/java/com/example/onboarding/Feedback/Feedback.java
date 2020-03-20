@@ -16,6 +16,7 @@ public class Feedback extends AppCompatActivity {
     private Button btnIntakeOneens;
     private Button btnOpenEens;
     private Button btnOpenOneens;
+    private Button btnNext;
     private TextView txtFeedback;
     private TextView txtIntake;
     private TextView txtOpenDag;
@@ -30,6 +31,7 @@ public class Feedback extends AppCompatActivity {
         btnIntakeOneens = findViewById(R.id.btnIntakeOneens);
         btnOpenEens = findViewById(R.id.btnOpenEens);
         btnOpenOneens = findViewById(R.id.btnOpenOneens);
+        btnNext = findViewById(R.id.btnNext);
         txtFeedback = findViewById(R.id.txtFeedback);
         txtIntake = findViewById(R.id.txtIntake);
         txtOpenDag = findViewById(R.id.txtOpendag);
@@ -65,6 +67,7 @@ public class Feedback extends AppCompatActivity {
         txtFeedback.setVisibility(View.VISIBLE);
         txtOpenDag.setVisibility(View.INVISIBLE);
         txtOpenVraag.setVisibility(View.VISIBLE);
+        btnNext.setVisibility(View.VISIBLE);
     }
 
     public void OpenOneens(View v) {
@@ -74,6 +77,11 @@ public class Feedback extends AppCompatActivity {
         txtFeedback.setVisibility(View.VISIBLE);
         txtOpenDag.setVisibility(View.INVISIBLE);
         txtOpenVraag.setVisibility(View.VISIBLE);
+        btnNext.setVisibility(View.VISIBLE);
+    }
+
+    public void Verder (View v) {
+        System.out.println("Button works");
     }
 
 

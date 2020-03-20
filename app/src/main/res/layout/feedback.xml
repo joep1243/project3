@@ -12,8 +12,8 @@
         android:id="@+id/cPink"
         android:layout_width="371dp"
         android:layout_height="284dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginBottom="592dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginBottom="520dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cpink" />
@@ -22,8 +22,8 @@
         android:id="@+id/cBlue"
         android:layout_width="339dp"
         android:layout_height="401dp"
-        android:layout_marginEnd="208dp"
-        android:layout_marginBottom="540dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="460dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/cblue" />
@@ -34,10 +34,10 @@
         android:layout_height="78dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintHorizontal_bias="0.912"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.161"
+        app:layout_constraintVertical_bias="0.039"
         app:srcCompat="@drawable/ic_logo_ada_main" />
 
     <TextView
@@ -195,10 +195,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.785" />
 
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="131dp"
+        android:layout_height="45dp"
+        android:background="@drawable/btn_stroke"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:text="Verder"
+        android:onClick="Verder"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textColorLink="@android:color/background_light"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
+
     <EditText
         android:id="@+id/txtFeedback"
         android:layout_width="379dp"
-        android:layout_height="190dp"
+        android:layout_height="138dp"
         android:backgroundTint="@android:color/background_dark"
         android:ems="10"
         android:inputType="textPersonName"
@@ -208,6 +230,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.854" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

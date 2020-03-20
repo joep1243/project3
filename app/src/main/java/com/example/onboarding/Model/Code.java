@@ -1,4 +1,4 @@
-package Model;
+package com.example.onboarding.Model;
 
 public class Code {
     String StudentID = "";

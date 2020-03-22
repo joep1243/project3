@@ -8,7 +8,7 @@ public class PromoModel {
         public String GetPtext(){
             String item = "";
 
-    
+
 
             return item;
         }

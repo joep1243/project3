@@ -26,7 +26,6 @@ public class Promoinfoscherm extends AppCompatActivity {
                 @Override
                 public void run() {
                         btnTerug.setVisibility(View.VISIBLE);
-            //to change delay change the number after *
                 }
             }, 1000 * 15);
 

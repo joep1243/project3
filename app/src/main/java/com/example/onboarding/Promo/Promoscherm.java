@@ -9,14 +9,16 @@ import android.widget.Button;
 
 import com.example.onboarding.R;
 
-public class Promoscherm extends AppCompatActivity {
 
+public class Promoscherm extends AppCompatActivity {
     private Button btnPinfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.promoscherm);
+
+
     }
 
     public void openinfoPromo(View v){

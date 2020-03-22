@@ -21,10 +21,12 @@ public class Promoinfoscherm extends AppCompatActivity {
 
             btnTerug = findViewById(R.id.btnTerug);
 
+            //Button delay because nobody likes to read text but i'm a evil developer so they need to read the text
             btnTerug.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                         btnTerug.setVisibility(View.VISIBLE);
+            //to change delay change the number after *
                 }
             }, 1000 * 15);
 

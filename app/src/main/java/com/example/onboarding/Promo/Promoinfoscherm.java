@@ -9,29 +9,26 @@ import android.widget.Button;
 
 import com.example.onboarding.R;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class Promoinfoscherm extends AppCompatActivity {
 
-
-        Timer timer;
+        private Button btnTerug;
 
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.promoscherm);
+            setContentView(R.layout.promoinfoscherm);
 
-            timer = new Timer();
-            timer.schedule(new TimerTask() {
+            btnTerug = findViewById(R.id.btnTerug);
+
+            //Button delay because nobody likes to read text but i'm a evil developer so they need to read the text
+            btnTerug.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-
-                    //startActivity();
-                    finish();
+                        btnTerug.setVisibility(View.VISIBLE);
                 }
-            }, 5000);
+            }, 1000 * 15);
+
         }
 
 

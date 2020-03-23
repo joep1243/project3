@@ -12,8 +12,9 @@ import com.example.onboarding.R;
 
 
 public class Promoscherm extends AppCompatActivity {
-
     private PromoModel PromoModel;
+
+
 
     private Button btnPinfo;
 
@@ -23,11 +24,23 @@ public class Promoscherm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.promoscherm);
+
+        //PromoModel PromoModel = new PromoModel();
+
+        btnPinfo = findViewById(R.id.btnPinfo);
+
     }
 
     public void openinfoPromo(View v){
-        Intent intent = new Intent(this, Promoinfoscherm.class);
-        startActivity(intent);
+        try {
+            PromoModel.GetPtext();
+        }catch (Exception e){
+
+            System.out.println(e);
+        }
+
+        //Intent intent = new Intent(this, Promoinfoscherm.class);
+       // startActivity(intent);
     }
 
 

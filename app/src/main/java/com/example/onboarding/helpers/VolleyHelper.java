@@ -58,5 +58,4 @@ public class VolleyHelper {
         JsonObjectRequest objRequest = new JsonObjectRequest(Request.Method.DELETE, contructUrl(method), jsonRequest, listener, errorListener);
         requestQueue.add(objRequest);
     }
-
 }

@@ -19,7 +19,11 @@ import com.android.volley.toolbox.Volley;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 
-public class Feedback extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class Feedback extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
     private Button btnIntakeEens;
     private Button btnIntakeOneens;
@@ -31,6 +35,13 @@ public class Feedback extends AppCompatActivity {
     private TextView txtOpenDag;
     private TextView txtOpenVraag;
     private int iTeller = 0;
+    Boolean bIntakeEens = Boolean.FALSE;
+    Boolean bIntakeOneens = Boolean.FALSE;
+    Boolean bOpenEens = Boolean.FALSE;
+    Boolean bOpenOneens = Boolean.FALSE;
+
+    VolleyHelper helper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +90,7 @@ public class Feedback extends AppCompatActivity {
         btnOpenOneens.setVisibility(View.VISIBLE);
         txtIntake.setVisibility(View.INVISIBLE);
         txtOpenDag.setVisibility(View.VISIBLE);
+        bIntakeEens = true;
 
     }
 
@@ -91,10 +103,12 @@ public class Feedback extends AppCompatActivity {
         txtIntake.setVisibility(View.INVISIBLE);
         txtOpenDag.setVisibility(View.VISIBLE);
         iTeller=1;
+        bIntakeOneens = true;
     }
 
     public void OpenEens(View v) {
         System.out.println("Eens Open");
+        bOpenEens = true;
 
         if (iTeller==0){
             System.out.println("Next Screen");
@@ -121,10 +135,57 @@ public class Feedback extends AppCompatActivity {
         btnOpenEens.setVisibility(View.INVISIBLE);
         btnOpenOneens.setVisibility(View.INVISIBLE);
         txtOpenDag.setVisibility(View.INVISIBLE);
-        }
+        bOpenOneens = true;
+
+    }
 
     public void Verder (View v) {
+        TextView tvFeedback = findViewById(R.id.txtFeedback);
+        String txtFeedback = tvFeedback.getText().toString();
+
+        String sIntake = "Oneens";
+        String sOpenDag = "Oneens";
+
+        String sStudent = "test";
+
+        if(bIntakeEens == true){
+            sIntake = "Eens";
+        }
+
+        if(bOpenEens == true){
+            sOpenDag = "Eens";
+        }
+
+        helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
+        helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
+
+        //System.out.println("Intake is " + sIntake + " en open dag is " + sOpenDag);
+
         System.out.println("Button works");
+    }
+
+    /**
+     *
+     * @param error Als er een error is met het ophalen van json
+     */
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        System.out.println(error);
+    }
+
+    /**
+     *
+     * @param response Wat er gebeurt als er json teruggegeven wordt uit de api
+     */
+    @Override
+    public void onResponse(JSONObject response) {
+        txtFeedback.setText("Helemaal mooi");
+        System.out.println(response.toString());
+        try {
+            JSONObject jsonObject = new JSONObject (response.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
 }

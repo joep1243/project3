@@ -1,5 +1,8 @@
 package com.example.onboarding.Model;
 
+/**
+ *
+ */
 public class Code {
     String StudentID = "";
     String StudentKlas = "";

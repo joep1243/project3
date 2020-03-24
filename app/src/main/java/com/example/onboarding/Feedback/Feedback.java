@@ -7,23 +7,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import com.example.onboarding.Model.Feedback.SetFB;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
-
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Feedback extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
+public class Feedback extends AppCompatActivity {
 
     private Button btnIntakeEens;
     private Button btnIntakeOneens;
@@ -156,37 +149,11 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             sOpenDag = "Eens";
         }
 
-        helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
-        helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
-
-        //System.out.println("Intake is " + sIntake + " en open dag is " + sOpenDag);
-
-        System.out.println("Button works");
+        SetFB setFB = new SetFB();
+        setFB.SetFB(getBaseContext(), sIntake, sOpenDag, txtFeedback, sStudent);
+        System.out.println("Mooie verbinding");
     }
 
-    /**
-     *
-     * @param error Als er een error is met het ophalen van json
-     */
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        System.out.println(error);
-    }
-
-    /**
-     *
-     * @param response Wat er gebeurt als er json teruggegeven wordt uit de api
-     */
-    @Override
-    public void onResponse(JSONObject response) {
-        txtFeedback.setText("Helemaal mooi");
-        System.out.println(response.toString());
-        try {
-            JSONObject jsonObject = new JSONObject (response.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 
 }
 

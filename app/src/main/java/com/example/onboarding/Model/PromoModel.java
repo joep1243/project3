@@ -12,11 +12,48 @@ import com.example.onboarding.helpers.VolleyHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.example.onboarding.R;
-
-public class  PromoModel extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
+public class  PromoModel extends AppCompatActivity{
     private VolleyHelper helper;
         private String item;
+            private String test;
+
+  /*  public String Getp(Context Context, String Value) {
+
+        item = Value;
+
+        VolleyHelper secondHelper = new VolleyHelper(Context, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
+        secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    JSONObject jsonObject = new JSONObject (response.toString());
+
+                    String promo = jsonObject.getString("Promo");
+                    JSONObject jsonObject1 = new JSONObject (promo);
+
+                    String promo1 = jsonObject1.getString(item);
+
+                    test = promo1;
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+        return test ;
+    }
+
 
         public void GetPtext(Context Context, String Value){
 
@@ -53,5 +90,11 @@ public class  PromoModel extends AppCompatActivity implements Response.Listener<
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
+    }*/
+
+
+
+
+
+
 }

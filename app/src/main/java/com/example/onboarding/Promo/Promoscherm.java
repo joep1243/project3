@@ -2,24 +2,37 @@ package com.example.onboarding.Promo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.example.onboarding.Model.PromoModel;
 import com.example.onboarding.R;
+import com.example.onboarding.helpers.VolleyHelper;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class Promoscherm extends AppCompatActivity {
-    private PromoModel PromoModel;
+    //private PromoModel PromoModel;
+    private VolleyHelper helper;
+    private Integer Nothing;
 
     private TextView txtPromoVraag;
 
     private Button btnPinfo;
+
+    private Button btnnothing;
 
 
 
@@ -28,46 +41,89 @@ public class Promoscherm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.promoscherm);
         btnPinfo = findViewById(R.id.btnPinfo);
+        btnnothing = findViewById(R.id.btnnothing);
+        Nothing =0;
+
         txtPromoVraag = findViewById(R.id.txtPromoVraag);
+        Getpt("Vraag", txtPromoVraag );
 
         PromoModel PromoModel = new PromoModel();
 
-        PromoModel.GetPtext(getBaseContext(), "Vraag");
-
-
-
-        try {
-
-        }catch (Exception e){
-
-            System.out.println(e);
-        }
     }
 
     public void openinfoPromo(View v){
-        try {
-
-            /*Intent i = new Intent(Intent.ACTION_SENDTO);
-            i.setType("message/rfc822");
-            i.setData(Uri.parse("mailto: luuk.witters@gmail.com"));
-            //i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-            i.putExtra(Intent.EXTRA_SUBJECT, "Test mail");
-            i.putExtra(Intent.EXTRA_TEXT   , "kan nu mailen via de app");
-            try {
-                startActivity(Intent.createChooser(i, "Send mail..."));
-            } catch (android.content.ActivityNotFoundException ex) {
-                Toast.makeText(Promoscherm.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
-            }*/
-
-        }catch (Exception e){
-
-            System.out.println(e);
-        }
-
-        //Intent intent = new Intent(this, Promoinfoscherm.class);
-       // startActivity(intent);
+        Intent intent = new Intent(this, Promoinfoscherm.class);
+        startActivity(intent);
     }
 
+
+    public void Nothing(View v){
+        if(Nothing == 7){
+            LayoutInflater inflater = getLayoutInflater();
+            View view = inflater.inflate(R.layout.cust_toast_layout,
+                    (ViewGroup)findViewById(R.id.relativeLayout1));
+
+
+            Toast toast = new Toast(this);
+            toast.setGravity(Gravity.TOP, 0, 0);
+            toast.setView(view);
+            toast.show();
+
+            btnnothing.setEnabled(false);
+        }else{Nothing++;}
+    }
+
+
+    @Override
+    public void onBackPressed() {
+
+    }
+
+
+    //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE
+    /**
+     * @param Value
+     * @param idt
+     */
+    public void Getpt(String Value, TextView idt) {
+        String item = null;
+        TextView id = null;
+
+        id = idt;
+        item = Value;
+
+        final String finalItem = item;
+        final TextView finalId = id;
+
+        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
+        secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    JSONObject jsonObject = new JSONObject (response.toString());
+
+                    String promo = jsonObject.getString("Promo");
+                    JSONObject jsonObject1 = new JSONObject (promo);
+
+                    String promo1 = jsonObject1.getString(finalItem);
+                    finalId.setText(promo1);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+    }
 
 
 }

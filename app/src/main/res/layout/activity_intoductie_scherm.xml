@@ -78,7 +78,7 @@
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:onClick="openinfoPromo"
-        android:text="Meer informatie"
+        android:text="Promo student scherm"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"

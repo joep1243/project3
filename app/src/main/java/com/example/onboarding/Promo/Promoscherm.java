@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.onboarding.Model.PromoModel;
@@ -16,7 +17,7 @@ import com.example.onboarding.R;
 public class Promoscherm extends AppCompatActivity {
     private PromoModel PromoModel;
 
-
+    private TextView txtPromoVraag;
 
     private Button btnPinfo;
 
@@ -26,12 +27,17 @@ public class Promoscherm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.promoscherm);
-
-        //PromoModel PromoModel = new PromoModel();
-
         btnPinfo = findViewById(R.id.btnPinfo);
+        txtPromoVraag = findViewById(R.id.txtPromoVraag);
+
+        PromoModel PromoModel = new PromoModel();
+
+        PromoModel.GetPtext(getBaseContext(), "Vraag");
+
+
+
         try {
-            PromoModel.GetPtext();
+
         }catch (Exception e){
 
             System.out.println(e);
@@ -53,7 +59,6 @@ public class Promoscherm extends AppCompatActivity {
                 Toast.makeText(Promoscherm.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
             }*/
 
-            PromoModel.GetPtext();
         }catch (Exception e){
 
             System.out.println(e);

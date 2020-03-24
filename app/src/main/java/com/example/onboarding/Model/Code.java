@@ -12,7 +12,7 @@ public class Code extends AppCompatActivity {
     Integer QID = 0;
     Boolean ESE = Boolean.FALSE;
 
-    
+
 
 
 

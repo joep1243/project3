@@ -22,7 +22,6 @@ import org.json.JSONObject;
 
 
 public class Promoscherm extends AppCompatActivity {
-    //private PromoModel PromoModel;
     private VolleyHelper helper;
     private Integer Nothing;
 
@@ -52,27 +51,24 @@ public class Promoscherm extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //We have our own back buttons so they don't need their own makes them more depended
+    @Override
+    public void onBackPressed(){}
 
+
+
+    //Nothing to see here
     public void Nothing(View v){
         if(Nothing == 7){
             LayoutInflater inflater = getLayoutInflater();
             View view = inflater.inflate(R.layout.cust_toast_layout,
                     (ViewGroup)findViewById(R.id.relativeLayout1));
-
-
             Toast toast = new Toast(this);
             toast.setGravity(Gravity.TOP, 0, 0);
             toast.setView(view);
             toast.show();
-
             btnnothing.setEnabled(false);
         }else{Nothing++;}
-    }
-
-
-    @Override
-    public void onBackPressed() {
-
     }
 
 

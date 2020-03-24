@@ -1,17 +1,16 @@
-package com.example.onboarding.Main;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.onboarding.Vragen;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.R;
 
 public class Vraagscherm extends AppCompatActivity {
-
-    private Button jaBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +20,11 @@ public class Vraagscherm extends AppCompatActivity {
 
     public void openInfoscherm(View v) {
         Intent intent = new Intent(this, Infoscherm.class);
+        startActivity(intent);
+    }
+
+    public void openPromo(View v) {
+        Intent intent = new Intent(this, Promoscherm.class);
         startActivity(intent);
     }
 }

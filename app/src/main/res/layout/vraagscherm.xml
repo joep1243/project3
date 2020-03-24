@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:backgroundTint="@android:color/background_light"
-    tools:context=".Main.Vraagscherm">
+    tools:context=".Vragen.Vraagscherm">
 
     <ImageView
         android:id="@+id/cPink"
@@ -96,6 +96,7 @@
 
     <Button
         android:id="@+id/btnNee"
+        android:onClick="openPromo"
         android:layout_width="131dp"
         android:layout_height="45dp"
         android:background="@drawable/btn_stroke"

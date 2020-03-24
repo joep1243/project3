@@ -5,9 +5,22 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true"
+<<<<<<< Updated upstream
         android:theme="@style/Theme.AppCompat">
         <activity android:name=".Main.Infoscherm"></activity>
         <activity android:name=".Main.Vraagscherm">
+=======
+        android:theme="@style/Theme.AppCompat"
+        android:usesCleartextTraffic="true">
+
+        <activity android:name=".Beginscherm.Beginscherm" android:exported="true"/>
+        <activity android:name=".Feedback.Feedback" android:exported="true"/>
+        <activity android:name=".Main.Infoscherm" android:exported="true"/>
+        <activity android:name=".Main.Vraagscherm" android:exported="true"/>
+        <activity android:name=".Promo.Promoscherm" android:exported="true"/>
+        <activity android:name=".Promo.Promoinfoscherm" android:exported="true">
+
+>>>>>>> Stashed changes
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

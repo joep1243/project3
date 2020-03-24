@@ -2,7 +2,6 @@ package com.example.onboarding.Promo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.example.onboarding.Model.PromoModel;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 
@@ -46,8 +44,6 @@ public class Promoscherm extends AppCompatActivity {
 
         txtPromoVraag = findViewById(R.id.txtPromoVraag);
         Getpt("Vraag", txtPromoVraag );
-
-        PromoModel PromoModel = new PromoModel();
 
     }
 

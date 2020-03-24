@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/ic_logo_ada_main" />
 
     <TextView
-        android:id="@+id/txtPromo"
+        android:id="@+id/txtIntro"
         android:layout_width="222dp"
         android:layout_height="62dp"
         android:fontFamily="@font/frutiger_lt_std_light"
@@ -60,7 +60,7 @@
         android:layout_width="317dp"
         android:layout_height="102dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="placeholder promo text"
+        android:text="introductie text"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -77,8 +77,8 @@
         android:layout_height="34dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:onClick="openinfoPromo"
-        android:text="Promo student scherm"
+        android:onClick=""
+        android:text="Volgend scherm"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"

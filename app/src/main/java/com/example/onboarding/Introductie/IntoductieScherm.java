@@ -1,14 +1,45 @@
 package com.example.onboarding.Introductie;
 
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
+import com.android.volley.VolleyError;
+import com.example.onboarding.helpers.VolleyHelper;
+import com.android.volley.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import android.os.Bundle;
 
-public class IntoductieScherm extends AppCompatActivity {
+public class IntoductieScherm extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener
+{
+    private VolleyHelper helper;
+    private String item;
+    public void GetPtext(Context Context, String Value)
+    {
+        item = Value;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intoductie_scherm);
+        helper = new VolleyHelper(Context, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
+        helper.get("index.php", null, this, this);
+        JSONObject jsonObject1 = new JSONObject (Introductie);
+        String Introductie = jsonObject.getString("Introductie");
+
+        @Override
+        public void onErrorResponse(VolleyError error) { System.out.println(error); }
+        @Override
+        public void onResponse(JSONObject response)
+        {
+            try
+             {
+                JSONObject jsonObject = new JSONObject(response.toString());
+
+                String promo = jsonObject.getString("Introductie");
+                JSONObject jsonObject1 = new JSONObject(Introductie);
+
+                String Introductie = jsonObject1.getString(item); ///wat moet hier komen te staan, Intro1?
+             }
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

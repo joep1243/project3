@@ -20,26 +20,29 @@ public class IntoductieScherm extends AppCompatActivity implements Response.List
         helper = new VolleyHelper(Context, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
         helper.get("index.php", null, this, this);
         JSONObject jsonObject1 = new JSONObject (Introductie);
-        String Introductie = jsonObject.getString("Introductie");
+        String Introductie = jsonObject1.getString("Introductie");
 
-        @Override
-        public void onErrorResponse(VolleyError error) { System.out.println(error); }
-        @Override
-        public void onResponse(JSONObject response)
+
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error)
+    {
+        System.out.println(error);
+    }
+    @Override
+    public void onResponse(JSONObject response)
+    {
+        try
         {
-            try
-             {
-                JSONObject jsonObject = new JSONObject(response.toString());
+            JSONObject jsonObject = new JSONObject(response.toString());
 
-                String promo = jsonObject.getString("Introductie");
-                JSONObject jsonObject1 = new JSONObject(Introductie);
+            String promo = jsonObject.getString("Introductie");
 
-                String Introductie = jsonObject1.getString(item); ///wat moet hier komen te staan, Intro1?
-             }
         }
-        catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
+    }
+        catch(JSONException e)
+    {
+        e.printStackTrace();
     }
 }

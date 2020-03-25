@@ -65,7 +65,6 @@ public class Promoinfoscherm extends AppCompatActivity {
                         btnTerug.setVisibility(View.VISIBLE);
                 }
             }, 1000 * 15);
-
         }
 
 
@@ -172,10 +171,6 @@ public class Promoinfoscherm extends AppCompatActivity {
                     String promo1 = jsonObject1.getString(finalItemi);
 
                     Picasso.get().load(promo1).resize(412, 161).into(finalIdi);
-
-                    //Loading image using Picasso
-                    //Picasso.get().load(promo1).into(idi);
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();

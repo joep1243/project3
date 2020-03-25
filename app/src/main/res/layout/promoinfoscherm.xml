@@ -8,109 +8,62 @@
     android:backgroundTint="@android:color/background_light"
     tools:context=".Promo.Promoinfoscherm">
 
-    <ImageView
-        android:id="@+id/cPink"
-        android:layout_width="371dp"
-        android:layout_height="284dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="520dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/cpink" />
-
-    <ImageView
-        android:id="@+id/cBlue"
-        android:layout_width="339dp"
-        android:layout_height="401dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="460dp"
+    <Button
+        android:id="@+id/btnTerug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="Terug naar vraag"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/cblue" />
-
-    <ImageView
-        android:id="@+id/Logo"
-        android:layout_width="114dp"
-        android:layout_height="78dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.039"
-        app:srcCompat="@drawable/ic_logo_ada_main" />
+        app:layout_constraintVertical_bias="0.918" />
 
     <TextView
-        android:id="@+id/txtPromo"
-        android:layout_width="146dp"
-        android:layout_height="65dp"
+        android:id="@+id/txtInfo"
+        android:layout_width="377dp"
+        android:layout_height="481dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Vraag #"
-        android:textColor="#4D5693"
+        android:text="Hier komt de text van het infoscherm"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+
+        android:id="@+id/txthead"
+
+        android:layout_width="374dp"
+        android:layout_height="44dp"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:text="Kopje"
+        android:textColor="#000000"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.27" />
 
-    <TextView
-        android:id="@+id/txtPromoVraag"
-        android:layout_width="317dp"
-        android:layout_height="102dp"
-        android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Welk antwoord heeft deze vraag?"
-        android:textAlignment="center"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
+    <ImageView
+        android:id="@+id/imgFoto"
+        android:layout_width="412dp"
+        android:layout_height="161dp"
+        android:background="#000000"
+        android:padding="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.001"
+         />
 
-    <Button
-        android:id="@+id/btnPinfo"
-        android:onClick="openInfoscherm"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
-        android:background="@drawable/btn_stroke"
-        android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Ja"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textColorHighlight="@android:color/background_light"
-        android:textColorHint="@android:color/background_light"
-        android:textColorLink="@android:color/background_light"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785"
-        />
-
-
-    <Button
-        android:id="@+id/btnNee"
-        android:layout_width="131dp"
-        android:layout_height="45dp"
-        android:background="@drawable/btn_stroke"
-        android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Nee"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textColorHighlight="@android:color/background_light"
-        android:textColorHint="@android:color/background_light"
-        android:textColorLink="@android:color/background_light"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
 </androidx.constraintlayout.widget.ConstraintLayout>

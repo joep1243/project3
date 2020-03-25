@@ -4,17 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".Main.Infoscherm" >
+    android:background="@android:color/background_light"
+    android:backgroundTint="@android:color/background_light"
+    tools:context=".Vragen.Infoscherm">
 
     <Button
         android:id="@+id/btnTerug"
-        android:onClick="openTerug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="openTerug"
         android:text="Terug naar vraag"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.918" />
+
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="376dp"
+        android:layout_height="449dp"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:text="Hier komt de text van het infoscherm"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="374dp"
+        android:layout_height="44dp"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:text="Kopje"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.27" />
+
+    <ImageView
+        android:id="@+id/imgFoto"
+        android:layout_width="412dp"
+        android:layout_height="161dp"
+        android:background="#000000"
+        android:padding="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.005" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

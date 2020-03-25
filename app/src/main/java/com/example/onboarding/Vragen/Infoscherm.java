@@ -1,10 +1,10 @@
-package com.example.onboarding.Main;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.onboarding.Vragen;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onboarding.R;
 

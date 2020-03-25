@@ -7,6 +7,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+
 import android.widget.TextView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -15,170 +16,177 @@ import com.example.onboarding.helpers.VolleyHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Feedback extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener{
 
-    private Button btnIntakeEens;
-    private Button btnIntakeOneens;
-    private Button btnOpenEens;
-    private Button btnOpenOneens;
-    private Button btnNext;
-    private TextView txtFeedback;
-    private TextView txtIntake;
-    private TextView txtOpenDag;
-    private TextView txtOpenVraag;
-    private int iTeller = 0;
-    Boolean bIntakeEens = Boolean.FALSE;
-    Boolean bIntakeOneens = Boolean.FALSE;
-    Boolean bOpenEens = Boolean.FALSE;
-    Boolean bOpenOneens = Boolean.FALSE;
+public class Feedback extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    VolleyHelper helper;
+    public class Feedback extends AppCompatActivity {
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.feedback);
+        private Button btnIntakeEens;
+        private Button btnIntakeOneens;
+        private Button btnOpenEens;
+        private Button btnOpenOneens;
+        private Button btnNext;
+        private TextView txtFeedback;
+        private TextView txtIntake;
+        private TextView txtOpenDag;
+        private TextView txtOpenVraag;
+        private int iTeller = 0;
+        Boolean bIntakeEens = Boolean.FALSE;
+        Boolean bIntakeOneens = Boolean.FALSE;
+        Boolean bOpenEens = Boolean.FALSE;
+        Boolean bOpenOneens = Boolean.FALSE;
 
-        btnIntakeEens = findViewById(R.id.btnIntakeEens);
-        btnIntakeOneens = findViewById(R.id.btnIntakeOneens);
-        btnOpenEens = findViewById(R.id.btnOpenEens);
-        btnOpenOneens = findViewById(R.id.btnOpenOneens);
-        btnNext = findViewById(R.id.btnNext);
-        txtFeedback = findViewById(R.id.txtFeedback);
-        txtIntake = findViewById(R.id.txtIntake);
-        txtOpenDag = findViewById(R.id.txtOpendag);
-        txtOpenVraag = findViewById(R.id.txtOpenVraag);
+        private VolleyHelper helper;
 
-        txtFeedback.addTextChangedListener(feedbackTextWatcher);
-
-    }
-
-    private TextWatcher feedbackTextWatcher = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
 
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String feedbackInput = txtFeedback.getText().toString().trim();
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.feedback);
 
-            btnNext.setEnabled(!feedbackInput.isEmpty());
+            btnIntakeEens = findViewById(R.id.btnIntakeEens);
+            btnIntakeOneens = findViewById(R.id.btnIntakeOneens);
+            btnOpenEens = findViewById(R.id.btnOpenEens);
+            btnOpenOneens = findViewById(R.id.btnOpenOneens);
+            btnNext = findViewById(R.id.btnNext);
+            txtFeedback = findViewById(R.id.txtFeedback);
+            txtIntake = findViewById(R.id.txtIntake);
+            txtOpenDag = findViewById(R.id.txtOpendag);
+            txtOpenVraag = findViewById(R.id.txtOpenVraag);
+
+            txtFeedback.addTextChangedListener(feedbackTextWatcher);
+
         }
 
-        @Override
-        public void afterTextChanged(Editable s) {
+        private TextWatcher feedbackTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String feedbackInput = txtFeedback.getText().toString().trim();
+
+                btnNext.setEnabled(!feedbackInput.isEmpty());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        };
+
+
+        public void IntakeEens(View v) {
+            System.out.println("Eens Intake");
+            btnIntakeEens.setVisibility(View.INVISIBLE);
+            btnIntakeOneens.setVisibility(View.INVISIBLE);
+            btnOpenEens.setVisibility(View.VISIBLE);
+            btnOpenOneens.setVisibility(View.VISIBLE);
+            txtIntake.setVisibility(View.INVISIBLE);
+            txtOpenDag.setVisibility(View.VISIBLE);
+            bIntakeEens = true;
 
         }
-    };
 
-
-    public void IntakeEens(View v) {
-        System.out.println("Eens Intake");
-        btnIntakeEens.setVisibility(View.INVISIBLE);
-        btnIntakeOneens.setVisibility(View.INVISIBLE);
-        btnOpenEens.setVisibility(View.VISIBLE);
-        btnOpenOneens.setVisibility(View.VISIBLE);
-        txtIntake.setVisibility(View.INVISIBLE);
-        txtOpenDag.setVisibility(View.VISIBLE);
-        bIntakeEens = true;
-
-    }
-
-    public void IntakeOneens(View v) {
-        System.out.println("Oneens Intake");
-        btnIntakeEens.setVisibility(View.INVISIBLE);
-        btnIntakeOneens.setVisibility(View.INVISIBLE);
-        btnOpenEens.setVisibility(View.VISIBLE);
-        btnOpenOneens.setVisibility(View.VISIBLE);
-        txtIntake.setVisibility(View.INVISIBLE);
-        txtOpenDag.setVisibility(View.VISIBLE);
-        iTeller=1;
-        bIntakeOneens = true;
-    }
-
-    public void OpenEens(View v) {
-        System.out.println("Eens Open");
-        bOpenEens = true;
-
-        if (iTeller==0){
-            System.out.println("Next Screen");
-            btnOpenEens.setVisibility(View.INVISIBLE);
-            btnOpenOneens.setVisibility(View.INVISIBLE);
-            txtOpenDag.setVisibility(View.INVISIBLE);
+        public void IntakeOneens(View v) {
+            System.out.println("Oneens Intake");
+            btnIntakeEens.setVisibility(View.INVISIBLE);
+            btnIntakeOneens.setVisibility(View.INVISIBLE);
+            btnOpenEens.setVisibility(View.VISIBLE);
+            btnOpenOneens.setVisibility(View.VISIBLE);
+            txtIntake.setVisibility(View.INVISIBLE);
+            txtOpenDag.setVisibility(View.VISIBLE);
+            iTeller = 1;
+            bIntakeOneens = true;
         }
-        else {
+
+        public void OpenEens(View v) {
+            System.out.println("Eens Open");
+            bOpenEens = true;
+
+            if (iTeller == 0) {
+                System.out.println("Next Screen");
+                btnOpenEens.setVisibility(View.INVISIBLE);
+                btnOpenOneens.setVisibility(View.INVISIBLE);
+                txtOpenDag.setVisibility(View.INVISIBLE);
+            } else {
+                txtOpenVraag.setVisibility(View.VISIBLE);
+                txtFeedback.setVisibility(View.VISIBLE);
+                btnNext.setVisibility(View.VISIBLE);
+                btnOpenEens.setVisibility(View.INVISIBLE);
+                btnOpenOneens.setVisibility(View.INVISIBLE);
+                txtOpenDag.setVisibility(View.INVISIBLE);
+            }
+
+        }
+
+        public void OpenOneens(View v) {
+            System.out.println("Oneens Open");
             txtOpenVraag.setVisibility(View.VISIBLE);
             txtFeedback.setVisibility(View.VISIBLE);
             btnNext.setVisibility(View.VISIBLE);
             btnOpenEens.setVisibility(View.INVISIBLE);
             btnOpenOneens.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.INVISIBLE);
+            bOpenOneens = true;
+
         }
 
-    }
+        public void Verder(View v) {
+            TextView tvFeedback = findViewById(R.id.txtFeedback);
+            String txtFeedback = tvFeedback.getText().toString();
 
-    public void OpenOneens(View v) {
-        System.out.println("Oneens Open");
-        txtOpenVraag.setVisibility(View.VISIBLE);
-        txtFeedback.setVisibility(View.VISIBLE);
-        btnNext.setVisibility(View.VISIBLE);
-        btnOpenEens.setVisibility(View.INVISIBLE);
-        btnOpenOneens.setVisibility(View.INVISIBLE);
-        txtOpenDag.setVisibility(View.INVISIBLE);
-        bOpenOneens = true;
+            String sIntake = "Oneens";
+            String sOpenDag = "Oneens";
 
-    }
+            String sStudent = "test";
 
-    public void Verder (View v) {
-        TextView tvFeedback = findViewById(R.id.txtFeedback);
-        String txtFeedback = tvFeedback.getText().toString();
+            if (bIntakeEens == true) {
+                sIntake = "Eens";
+            }
 
-        String sIntake = "Oneens";
-        String sOpenDag = "Oneens";
+            if (bOpenEens == true) {
+                sOpenDag = "Eens";
+            }
 
-        String sStudent = "test";
 
-        if(bIntakeEens == true){
-            sIntake = "Eens";
+            helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
+            helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
+
+            //System.out.println("Intake is " + sIntake + " en open dag is " + sOpenDag);
+
+            System.out.println("Button works");
         }
 
-        if(bOpenEens == true){
-            sOpenDag = "Eens";
+        /**
+         * @param error Als er een error is met het ophalen van json
+         */
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            System.out.println(error);
         }
 
-        helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
-        helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
+        /**
+         * @param response Wat er gebeurt als er json teruggegeven wordt uit de api
+         */
+        @Override
+        public void onResponse(JSONObject response) {
+            System.out.println(response.toString());
+            try {
+                JSONObject jsonObject = new JSONObject(response.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
 
-        //System.out.println("Intake is " + sIntake + " en open dag is " + sOpenDag);
-
-        System.out.println("Button works");
-    }
-
-    /**
-     *
-     * @param error Als er een error is met het ophalen van json
-     */
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        System.out.println(error);
-    }
-
-    /**
-     *
-     * @param response Wat er gebeurt als er json teruggegeven wordt uit de api
-     */
-    @Override
-    public void onResponse(JSONObject response) {
-        System.out.println(response.toString());
-        try {
-            JSONObject jsonObject = new JSONObject (response.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
+
     }
 
 }
+
+
 
 

@@ -37,8 +37,10 @@ public class Beginscherm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beginscherm);
+        btnbegin = findViewById(R.id.btnbegin);
 
-        VolleyHelper secondHelper = new VolleyHelper(Context, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
+
+        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
         secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
 
             @Override
@@ -47,9 +49,14 @@ public class Beginscherm extends AppCompatActivity {
                 try {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
+                    String opleidingen = jsonObject.getString("opleidingen");
 
-                    String opleiding = jsonObject.getString("opleidingen");
-                    JSONObject jsonObject1 = new JSONObject (opleiding);
+                    for (int i = 0; i < jsonObject.length(); i++) {
+                        JSONObject Opleiding = jsonObject.getJSONObject(String.valueOf(i));
+
+                        String opleiding = Opleiding.getString("opleiding");
+
+                    }
 
 
                 } catch (JSONException e) {
@@ -64,6 +71,7 @@ public class Beginscherm extends AppCompatActivity {
                 // Locale error handlin
             }
         });
+
     }
     @Override
     public void onBackPressed() {

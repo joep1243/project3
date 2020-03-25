@@ -171,7 +171,6 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
      */
     @Override
     public void onResponse(JSONObject response) {
-        txtFeedback.setText("Helemaal mooi");
         System.out.println(response.toString());
         try {
             JSONObject jsonObject = new JSONObject (response.toString());

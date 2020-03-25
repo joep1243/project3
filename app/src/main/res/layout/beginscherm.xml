@@ -56,27 +56,27 @@
         android:id="@+id/txtwelkom"
         android:layout_width="171dp"
         android:layout_height="37dp"
-        android:text="Welkom <naam!>"
+        android:text="Welkom Pieter!"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.527"
-        android:textColor="#000000"/>
+        app:layout_constraintVertical_bias="0.527" />
 
     <TextView
         android:id="@+id/txtinfo"
         android:layout_width="303dp"
         android:layout_height="138dp"
-        android:text="Leuk dat je hebt gekozen voor de Associate Degree Academie! Je gaat de opleiding <opleiding> volgen. Je hebt je natuurlijk al geörienteerd over de opleiding en de school zelf, maar ben je echt van alles op de hoogte? Je krijgt nu een paar korte vragen die je kunnen helpen met een goede start van je nieuwe collegejaar!"
+        android:text="Leuk dat je hebt gekozen voor de Associate Degree Academie! Je gaat de opleiding Logistiek volgen. Je hebt je natuurlijk al geörienteerd over de opleiding en de school zelf, maar ben je echt van alles op de hoogte? Je krijgt nu een paar korte vragen die je kunnen helpen met een goede start van je nieuwe collegejaar!"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.638"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703"
-        android:textColor="#000000"/>
+        app:layout_constraintVertical_bias="0.703" />
 
     <Button
         android:id="@+id/btnbegin"

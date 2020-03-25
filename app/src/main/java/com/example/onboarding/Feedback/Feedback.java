@@ -7,6 +7,18 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+
+import android.widget.TextView;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.example.onboarding.Model.Feedback.SetFB;
+import com.example.onboarding.R;
+import com.example.onboarding.helpers.VolleyHelper;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class Feedback extends AppCompatActivity {
+
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -156,6 +168,13 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             sOpenDag = "Eens";
         }
 
+
+        SetFB setFB = new SetFB();
+        setFB.SetFB(getBaseContext(), sIntake, sOpenDag, txtFeedback, sStudent);
+        System.out.println("Mooie verbinding");
+    }
+
+
         helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
         helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
 
@@ -187,6 +206,7 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             e.printStackTrace();
         }
     }
+
 
 }
 

@@ -2,6 +2,7 @@ package com.example.onboarding.Promo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,18 @@ public class Promoinfoscherm extends AppCompatActivity {
         private TextView txthead;
         private ImageView imgFoto;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.onboarding.R;
+
+public class Promoinfoscherm extends AppCompatActivity {
+
+        private Button btnTerug;
+
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +48,14 @@ public class Promoinfoscherm extends AppCompatActivity {
             setContentView(R.layout.promoinfoscherm);
 
             btnTerug = findViewById(R.id.btnTerug);
+
             txthead = findViewById(R.id.txthead);
             Getpt("Vraag", txthead );
             txtInfo = findViewById(R.id.txtInfo);
             Getpt("InfoText", txtInfo );
             imgFoto = findViewById(R.id.imgFoto);
             Getpi("Image", imgFoto );
+
 
 
 
@@ -53,6 +68,7 @@ public class Promoinfoscherm extends AppCompatActivity {
             }, 1000 * 15);
 
         }
+
 
             //We have our own back buttons so they don't need their own makes them more depended
             @Override
@@ -151,4 +167,5 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
         });
     }
+
 }

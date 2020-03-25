@@ -19,9 +19,6 @@ import org.json.JSONObject;
 
 public class Feedback extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
-    public class Feedback extends AppCompatActivity {
-
-
         private Button btnIntakeEens;
         private Button btnIntakeOneens;
         private Button btnOpenEens;
@@ -185,7 +182,6 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
 
     }
 
-}
 
 
 

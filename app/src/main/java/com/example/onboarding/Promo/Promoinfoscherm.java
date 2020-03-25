@@ -17,6 +17,12 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import com.example.onboarding.R;
 
 public class Promoinfoscherm extends AppCompatActivity {
     //private com.example.onboarding.Model.PromoModel PromoModel;
@@ -28,17 +34,6 @@ public class Promoinfoscherm extends AppCompatActivity {
         private TextView txtInfo;
         private TextView txthead;
         private ImageView imgFoto;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import com.example.onboarding.R;
-
-public class Promoinfoscherm extends AppCompatActivity {
-
-        private Button btnTerug;
 
 
 

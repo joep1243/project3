@@ -14,14 +14,14 @@
 
         <activity android:name=".Feedback.Feedback" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Main.Infoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+        <activity android:name=".Vragen.Infoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Main.Vraagscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+        <activity android:name=".Vragen.Vraagscherm" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".Promo.Promoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".Promo.Promoinfoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
-            tools:ignore="LockedOrientationActivity" >
+            tools:ignore="LockedOrientationActivity" />
 
         <activity android:name=".Main.testStart">
             <intent-filter>
@@ -31,22 +31,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Vragen.Vraagscherm"
-            android:exported="true" />
-        <activity
-            android:name=".Vragen.Infoscherm"
-            android:exported="true" />
-        <activity
-            android:name=".Feedback.Feedback"
-            android:exported="true" />
-        <activity
-            android:name=".Promo.Promoscherm"
-            android:exported="true" />
-        <activity
-            android:name=".Promo.Promoinfoscherm"
-            android:exported="true">
-        </activity>
     </application>
 
 </manifest>

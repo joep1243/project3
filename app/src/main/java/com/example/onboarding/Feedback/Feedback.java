@@ -156,7 +156,7 @@ public class Feedback extends AppCompatActivity{
 
 
         SetFB setFB = new SetFB();
-        setFB.SetFB(getBaseContext(), sIntake, sOpenDag, txtFeedback, sStudent);
+       setFB.SetFB(getBaseContext(), sIntake, sOpenDag, txtFeedback, sStudent);
         System.out.println("Mooie verbinding");
     }
 }

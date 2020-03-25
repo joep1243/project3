@@ -1,29 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
+@ -1,5 +1,6 @@
+    <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.onboarding">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    @ -11,12 +12,25 @@
+    android:theme="@style/Theme.AppCompat"
+    android:usesCleartextTraffic="true">
 
-    <application
-        android:allowBackup="true"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat"
-        android:usesCleartextTraffic="true">
-
-        <activity android:name=".Beginscherm.Beginscherm" android:exported="true"/>
-        <activity android:name=".Feedback.Feedback" android:exported="true"/>
-        <activity android:name=".Main.Infoscherm" android:exported="true"/>
-        <activity android:name=".Main.Vraagscherm" android:exported="true"/>
-        <activity android:name=".Promo.Promoscherm" android:exported="true"/>
-        <activity android:name=".Promo.Promoinfoscherm" android:exported="true">
+    <<<<<<< HEAD
+    <activity android:name=".Beginscherm.Beginscherm" android:exported="true"/>
+    <activity android:name=".Feedback.Feedback" android:exported="true"/>
+    <activity android:name=".Main.Infoscherm" android:exported="true"/>
+    <activity android:name=".Main.Vraagscherm" android:exported="true"/>
+    <activity android:name=".Promo.Promoscherm" android:exported="true"/>
+    <activity android:name=".Promo.Promoinfoscherm" android:exported="true">
+        =======
+        <activity android:name=".Feedback.Feedback" android:exported="true" android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".Main.Infoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".Main.Vraagscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".Promo.Promoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".Promo.Promoinfoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" >
+            >>>>>>> development
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-    </application>
-
-</manifest>

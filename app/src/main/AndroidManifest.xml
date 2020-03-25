@@ -22,8 +22,8 @@
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".Promo.Promoinfoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity android:name=".Main.testStart">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

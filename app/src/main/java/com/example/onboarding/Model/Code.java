@@ -1,9 +1,18 @@
 package com.example.onboarding.Model;
 
-public class Code {
+
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ *
+ */
+
+public class Code extends AppCompatActivity {
+
     String StudentID = "";
     String StudentKlas = "";
     Integer QID = 0;
     Boolean ESE = Boolean.FALSE;
+
 
 }

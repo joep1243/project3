@@ -92,8 +92,8 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
 
             //We have our own back buttons so they don't need their own makes them more depended
-            @Override
-            public void onBackPressed(){}
+//            @Override
+//            public void onBackPressed(){}
 
 
             //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE

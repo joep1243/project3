@@ -40,9 +40,10 @@ public class IntoductieScherm extends AppCompatActivity implements Response.List
             String promo = jsonObject.getString("Introductie");
 
         }
-    }
         catch(JSONException e)
-    {
-        e.printStackTrace();
+        {
+            e.printStackTrace();
+        }
     }
+
 }

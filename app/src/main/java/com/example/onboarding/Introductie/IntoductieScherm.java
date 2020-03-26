@@ -19,8 +19,8 @@ public class IntoductieScherm extends AppCompatActivity implements Response.List
 
         helper = new VolleyHelper(Context, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
         helper.get("index.php", null, this, this);
-        JSONObject jsonObject1 = new JSONObject (Introductie);
-        String Introductie = jsonObject1.getString("Introductie");
+///        JSONObject jsonObject1 = new JSONObject (Introductie);
+///        String Introductie = jsonObject1.getString("Introductie");
 
 
     }

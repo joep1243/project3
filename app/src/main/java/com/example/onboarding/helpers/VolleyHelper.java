@@ -9,6 +9,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class VolleyHelper {
@@ -31,12 +32,21 @@ public class VolleyHelper {
         return imageLoader;
     }
 
+
+
     public void get(String method, JSONObject jsonRequest,
                     Response.Listener<JSONObject> listener, Response.ErrorListener errorListener){
 
         JsonObjectRequest objRequest = new JsonObjectRequest(Request.Method.GET, contructUrl(method), jsonRequest, listener, errorListener);
         requestQueue.add(objRequest);
     }
+    public void getin2(String method, JSONObject jsonRequest,
+                    Response.Listener<JSONObject> listener, Response.ErrorListener errorListener){
+
+        JsonObjectRequest objRequest = new JsonObjectRequest(Request.Method.GET, contructUrl(method), jsonRequest, listener, errorListener);
+        requestQueue.add(objRequest);
+    }
+
 
     public void put(String method, JSONObject jsonRequest,
                     Response.Listener<JSONObject> listener, Response.ErrorListener errorListener){

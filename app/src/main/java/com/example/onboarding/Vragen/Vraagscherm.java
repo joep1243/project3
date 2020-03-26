@@ -8,24 +8,33 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.R;
+import com.example.onboarding.helpers.VolleyHelper;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Vraagscherm extends AppCompatActivity {
-    private TextView jsonResultaat;
-    private RequestQueue mQueue;
+
+    private ArrayList<JsonArrayRequest> mQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraagscherm);
 
-        jsonResultaat = findViewById(R.id.txtVraag);
         Button btnTest = findViewById(R.id.btnTest);
-
+        TextView txtVraag = findViewById(R.id.txtVraag);
     }
-
 
     public void openInfoscherm(View v) {
         Intent intent = new Intent(this, VraagInfoscherm.class);

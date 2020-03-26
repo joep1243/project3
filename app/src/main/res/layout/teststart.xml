@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".Main.Infoscherm" >
+    android:background="#FB7A7A"
+    tools:context=".Main.testStart">
 
     <Button
-        android:id="@+id/btnTerug"
-        android:onClick="openTerug"
+        android:id="@+id/button"
+        android:onClick="openVragen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Terug naar vraag"
+        android:text="Start App"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

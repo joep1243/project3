@@ -2,25 +2,24 @@ package com.example.onboarding.Main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.example.onboarding.R;
+import com.example.onboarding.Vragen.Vraagscherm;
 
-public class Vraagscherm extends AppCompatActivity {
-
-    private Button jaBtn;
+public class testStart extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.vraagscherm);
+        setContentView(R.layout.teststart);
     }
 
-    public void openInfoscherm(View v) {
-        Intent intent = new Intent(this, Infoscherm.class);
+    public void openVragen(View v) {
+        Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
     }
 }

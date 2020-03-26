@@ -56,7 +56,7 @@
         android:id="@+id/txtwelkom"
         android:layout_width="171dp"
         android:layout_height="37dp"
-        android:text="Welkom Pieter!"
+        android:text="Welkom!"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,7 +69,7 @@
         android:id="@+id/txtinfo"
         android:layout_width="303dp"
         android:layout_height="138dp"
-        android:text="Leuk dat je hebt gekozen voor de Associate Degree Academie! Je gaat de opleiding Logistiek volgen. Je hebt je natuurlijk al geörienteerd over de opleiding en de school zelf, maar ben je echt van alles op de hoogte? Je krijgt nu een paar korte vragen die je kunnen helpen met een goede start van je nieuwe collegejaar!"
+        android:text="Leuk dat je hebt gekozen voor de Associate Degree Academie! Je hebt je natuurlijk al geörienteerd over de opleiding en de school zelf, maar ben je echt van alles op de hoogte? Je krijgt nu een paar korte vragen die je kunnen helpen met een goede start van je nieuwe collegejaar!"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -88,5 +88,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.942"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/StudentID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Student ID"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.833"
         android:textColor="#000000"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,14 +3,21 @@ package com.example.onboarding.Promo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -25,9 +32,11 @@ public class Promoscherm extends AppCompatActivity {
     private VolleyHelper helper;
     private Integer Nothing;
 
+
     private TextView txtPromoVraag;
 
     private Button btnPinfo;
+
 
     private Button btnnothing;
 
@@ -38,6 +47,7 @@ public class Promoscherm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.promoscherm);
         btnPinfo = findViewById(R.id.btnPinfo);
+
         btnnothing = findViewById(R.id.btnnothing);
         Nothing =0;
 
@@ -50,6 +60,7 @@ public class Promoscherm extends AppCompatActivity {
         Intent intent = new Intent(this, Promoinfoscherm.class);
         startActivity(intent);
     }
+
 
     //We have our own back buttons so they don't need their own makes them more depended
     @Override
@@ -72,7 +83,7 @@ public class Promoscherm extends AppCompatActivity {
     }
 
 
-    //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE
+    //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE OwO
     /**
      * @param Value
      * @param idt
@@ -116,6 +127,4 @@ public class Promoscherm extends AppCompatActivity {
             }
         });
     }
-
-
 }

@@ -2,6 +2,8 @@ package com.example.onboarding.Promo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,13 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.example.onboarding.R;
 
 public class Promoinfoscherm extends AppCompatActivity {
     //private com.example.onboarding.Model.PromoModel PromoModel;
@@ -24,9 +33,11 @@ public class Promoinfoscherm extends AppCompatActivity {
 
 
         private Button btnTerug;
+        private Button btnmail;
         private TextView txtInfo;
         private TextView txthead;
         private ImageView imgFoto;
+
 
 
         @Override
@@ -35,12 +46,15 @@ public class Promoinfoscherm extends AppCompatActivity {
             setContentView(R.layout.promoinfoscherm);
 
             btnTerug = findViewById(R.id.btnTerug);
+            btnmail = findViewById(R.id.btnmail);
+
             txthead = findViewById(R.id.txthead);
             Getpt("Vraag", txthead );
             txtInfo = findViewById(R.id.txtInfo);
             Getpt("InfoText", txtInfo );
             imgFoto = findViewById(R.id.imgFoto);
             Getpi("Image", imgFoto );
+
 
 
 
@@ -51,8 +65,31 @@ public class Promoinfoscherm extends AppCompatActivity {
                         btnTerug.setVisibility(View.VISIBLE);
                 }
             }, 1000 * 15);
-
         }
+
+
+            public void Openmail(View v){
+                try {
+
+                    Intent i = new Intent(Intent.ACTION_SENDTO);
+                    i.setType("message/rfc822");
+                    i.setData(Uri.parse("mailto: luuk.witters@gmail.com"));
+                    //i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Test mail");
+                    i.putExtra(Intent.EXTRA_TEXT   , "kan nu mailen via de app");
+                    try {
+                        startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(Promoinfoscherm.this, "er is geen Email app Geinstaleerd.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }catch (Exception e){
+
+                    System.out.println(e);
+                }
+
+
+            }
 
             //We have our own back buttons so they don't need their own makes them more depended
             @Override
@@ -104,6 +141,7 @@ public class Promoinfoscherm extends AppCompatActivity {
                 });
             }
 
+
     /**
      * @param Value
      * @param id
@@ -134,10 +172,6 @@ public class Promoinfoscherm extends AppCompatActivity {
 
                     Picasso.get().load(promo1).resize(412, 161).into(finalIdi);
 
-                    //Loading image using Picasso
-                    //Picasso.get().load(promo1).into(idi);
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -151,4 +185,5 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
         });
     }
+
 }

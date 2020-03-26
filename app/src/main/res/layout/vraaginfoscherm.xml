@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:backgroundTint="@android:color/background_light"
-    tools:context=".Vragen.Infoscherm">
+    tools:context=".Vragen.VraagInfoscherm">
 
     <Button
         android:id="@+id/btnTerug"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txthead"
         android:layout_width="374dp"
         android:layout_height="44dp"
         android:fontFamily="@font/frutiger_lt_std_light"

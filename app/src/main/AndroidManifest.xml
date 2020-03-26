@@ -14,7 +14,7 @@
 
         <activity android:name=".Feedback.Feedback" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Vragen.Infoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+        <activity android:name=".Vragen.VraagInfoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".Vragen.Vraagscherm" android:exported="true" android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />

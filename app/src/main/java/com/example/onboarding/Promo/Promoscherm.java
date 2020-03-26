@@ -83,7 +83,7 @@ public class Promoscherm extends AppCompatActivity {
     }
 
 
-    //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE
+    //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE OwO
     /**
      * @param Value
      * @param idt

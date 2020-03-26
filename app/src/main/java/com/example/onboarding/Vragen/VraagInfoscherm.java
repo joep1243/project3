@@ -8,12 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.onboarding.R;
 
-public class Infoscherm extends AppCompatActivity {
+public class VraagInfoscherm extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.infoscherm);
+        setContentView(R.layout.vraaginfoscherm);
     }
     public void openTerug(View v) {
         Intent intent = new Intent(this, Vraagscherm.class);

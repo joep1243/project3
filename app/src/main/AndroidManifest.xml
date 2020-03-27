@@ -12,12 +12,12 @@
 
         android:theme="@style/Theme.AppCompat"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".Beginscherm.Beginscherm"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
             android:name=".Feedback.Feedback"
             android:exported="true"
@@ -43,6 +43,7 @@
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
+
         <activity android:name=".Main.testStart">
 
 

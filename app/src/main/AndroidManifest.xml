@@ -41,7 +41,7 @@
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
 
-            tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".Promo.Promoinfoscherm"
             android:exported="true"

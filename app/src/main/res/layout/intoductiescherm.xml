@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/background_light"
     android:backgroundTint="@android:color/background_light"
-    tools:context=".Vragen.Vraagscherm">
+    tools:context=".Introductie.IntoductieScherm">
 
     <ImageView
         android:id="@+id/cPink"
@@ -41,44 +41,60 @@
         app:srcCompat="@drawable/ic_logo_ada_main" />
 
     <TextView
-        android:id="@+id/txtVraagNmr"
-        android:layout_width="146dp"
-        android:layout_height="65dp"
+        android:id="@+id/txtIntro"
+        android:layout_width="222dp"
+        android:layout_height="62dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Vraag #"
+        android:text="Introductie"
         android:textColor="#4D5693"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.406" />
 
     <TextView
-        android:id="@+id/txtVraag"
-        android:layout_width="317dp"
-        android:layout_height="102dp"
+        android:id="@+id/txtIntroVraag"
+        android:layout_width="316dp"
+        android:layout_height="159dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Vraag placeholder"
+        android:text="introductie vraag"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.749" />
+
+    <TextView
+        android:id="@+id/txtIntroText"
+        android:layout_width="316dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:text="introductie text"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.546" />
 
     <Button
-        android:id="@+id/btnJa"
-        android:onClick="openInfoscherm"
-        android:layout_width="129dp"
-        android:layout_height="48dp"
+        android:id="@+id/btnPinfo"
+        android:layout_width="247dp"
+        android:layout_height="34dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Ja"
+        android:onClick="openFeedback"
+        android:text="Volgend scherm"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"
@@ -87,33 +103,9 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785"
-        />
-
-
-    <Button
-        android:id="@+id/btnNee"
-        android:onClick="openPromo"
-        android:layout_width="131dp"
-        android:layout_height="45dp"
-        android:background="@drawable/btn_stroke"
-        android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Nee"
-        android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textColorHighlight="@android:color/background_light"
-        android:textColorHint="@android:color/background_light"
-        android:textColorLink="@android:color/background_light"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintVertical_bias="0.916" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

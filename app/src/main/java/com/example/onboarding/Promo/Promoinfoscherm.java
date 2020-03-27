@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Feedback.Feedback;
+import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 import com.squareup.picasso.Picasso;
@@ -92,8 +94,8 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
 
             //We have our own back buttons so they don't need their own makes them more depended
-            @Override
-            public void onBackPressed(){}
+//            @Override
+//            public void onBackPressed(){}
 
 
             //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE
@@ -184,6 +186,11 @@ public class Promoinfoscherm extends AppCompatActivity {
                 // Locale error handlin
             }
         });
+    }
+
+    public void openIntro(View v) {
+        Intent intent = new Intent(this, IntoductieScherm.class);
+        startActivity(intent);
     }
 
 }

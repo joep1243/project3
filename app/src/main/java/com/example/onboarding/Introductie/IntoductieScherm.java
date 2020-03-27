@@ -2,12 +2,17 @@ package com.example.onboarding.Introductie;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.android.volley.VolleyError;
+import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.R;
+import com.example.onboarding.Vragen.Vraagscherm;
+
 import com.example.onboarding.helpers.VolleyHelper;
 import com.android.volley.Response;
 import org.json.JSONException;
@@ -15,6 +20,7 @@ import org.json.JSONObject;
 
 
 public class IntoductieScherm extends AppCompatActivity
+
 {
     private VolleyHelper helper;
     private TextView txtIntroVraag;
@@ -58,6 +64,23 @@ public class IntoductieScherm extends AppCompatActivity
                             JSONObject jsonObject1 = new JSONObject (introductie);
                             String intro1 = jsonObject1.getString(finalItem);
                             finalId.setText(intro1);
+
+        //implements Response.Listener<JSONObject>, Response.ErrorListener
+{
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.intoductiescherm);
+
+    }
+
+
+    public void openFeedback(View v) {
+        Intent intent = new Intent(this, Feedback.class);
+        startActivity(intent);
+    }
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -33,22 +33,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txthead" />
 
     <TextView
         android:id="@+id/txthead"
         android:layout_width="374dp"
         android:layout_height="44dp"
+        android:layout_marginTop="24dp"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Kopje"
         android:textColor="#000000"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFoto" />
 
     <ImageView
         android:id="@+id/imgFoto"

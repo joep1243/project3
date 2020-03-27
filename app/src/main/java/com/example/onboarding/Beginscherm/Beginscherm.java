@@ -95,5 +95,6 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
     public void openVragen(View v) {
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

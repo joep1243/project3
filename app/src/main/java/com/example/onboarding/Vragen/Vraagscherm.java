@@ -3,25 +3,19 @@ package com.example.onboarding.Vragen;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
+import com.example.onboarding.Beginscherm.Beginscherm;
 import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 public class Vraagscherm extends AppCompatActivity {
 
@@ -37,10 +31,7 @@ public class Vraagscherm extends AppCompatActivity {
 
         Getpt("Vraag", txtVraag );
 
-
     }
-
-
     /**
      * @param Value
      * @param idt
@@ -65,7 +56,7 @@ public class Vraagscherm extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject (response.toString());
                     String sVraag = null, promo1;
 
-                    if (iTeller < 4) {
+                    if (iTeller <= 3) {
                     sVraag = jsonObject.getString("Vraag"+iTeller);
                     JSONObject jsonObject1 = new JSONObject (sVraag);
 
@@ -98,17 +89,38 @@ public class Vraagscherm extends AppCompatActivity {
     public void openInfoscherm(View v) {
         Intent intent = new Intent(this, VraagInfoscherm.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
 
     }
 
     public void openPromo(View v) {
         if (iTeller < 3){
             iTeller++;
-            recreate();
+            finish();
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            startActivity(getIntent());
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
         else {
             Intent intent = new Intent(this, Promoscherm.class);
             startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+    }
+
+    @Override
+    public void onBackPressed(){
+        if (iTeller == 1){
+            Intent i = new Intent(Vraagscherm.this, Beginscherm.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
+        else{
+        iTeller--;
+            finish();
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            startActivity(getIntent());
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
     }
 }

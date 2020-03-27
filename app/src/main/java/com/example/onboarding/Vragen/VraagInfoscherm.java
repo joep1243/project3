@@ -42,6 +42,8 @@ public class VraagInfoscherm extends AppCompatActivity {
     public void openTerug(View v) {
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
+
     }
 
     /**

@@ -56,19 +56,22 @@
 
     <TextView
         android:id="@+id/txtinfo"
-        android:layout_width="315dp"
-        android:layout_height="132dp"
+        android:layout_width="303dp"
+        android:layout_height="151dp"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Leuk dat je hebt gekozen voor de Associate Degree Academie! Je hebt je natuurlijk al geörienteerd over de opleiding en de school zelf, maar ben je echt van alles op de hoogte? Je krijgt nu een paar korte vragen die je kunnen helpen met een goede start van je nieuwe collegejaar!"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="16sp"
+        android:textSize="24sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="5sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <Button
         android:id="@+id/btnbegin"

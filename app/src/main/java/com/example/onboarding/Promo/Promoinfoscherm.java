@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Feedback.Feedback;
+import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 import com.squareup.picasso.Picasso;
@@ -184,6 +186,11 @@ public class Promoinfoscherm extends AppCompatActivity {
                 // Locale error handlin
             }
         });
+    }
+
+    public void openIntro(View v) {
+        Intent intent = new Intent(this, IntoductieScherm.class);
+        startActivity(intent);
     }
 
 }

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.android.volley.VolleyError;
+import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.R;
 import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
@@ -60,8 +61,8 @@ public class IntoductieScherm extends AppCompatActivity
 //            e.printStackTrace();
 //        }
 
-    public void openVragen(View v) {
-        Intent intent = new Intent(this, Vraagscherm.class);
+    public void openFeedback(View v) {
+        Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);
     }
 

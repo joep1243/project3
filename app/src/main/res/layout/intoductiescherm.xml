@@ -77,7 +77,7 @@
         android:layout_height="34dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:onClick="openVragen"
+        android:onClick="openFeedback"
         android:text="Volgend scherm"
         android:textAllCaps="false"
         android:textColor="@android:color/black"

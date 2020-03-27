@@ -17,7 +17,11 @@
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
+        <activity
+            android:name=".Promo.Promoscherm"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
 
         <activity
             android:name=".Feedback.Feedback"
@@ -36,10 +40,6 @@
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
 
-        <activity
-            android:name=".Promo.Promoscherm"
-            android:exported="true"
-            android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Promo.Promoinfoscherm"
@@ -48,6 +48,7 @@
             tools:ignore="LockedOrientationActivity" />
 
         <activity android:name=".Beginscherm.Beginscherm">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

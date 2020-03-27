@@ -23,6 +23,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.onboarding.Vragen.Vraagscherm;
+
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 
@@ -52,10 +54,8 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beginscherm);
-
-        StudentID = (EditText) findViewById(R.id.StudentID);
+//Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
-        txtwelkom = (TextView) findViewById(R.id.txtwelkom);
 
 //        btnbegin.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -85,14 +85,18 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 //            result = true;
 //        }
 //        return result;
-
-
-    }
-
-
+//}
 //        @Override
 //        protected void onPostExecute(String result) {
 //            txtwelkom.setText(result);
 //        }
+
+
 //    }
-//}
+
+    public void openVragen(View v) {
+        Intent intent = new Intent(this, Vraagscherm.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+}

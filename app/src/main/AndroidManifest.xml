@@ -49,7 +49,7 @@
             tools:ignore="LockedOrientationActivity" />
 
 
-        <activity android:name=".Main.testStart">
+
 
 
         <activity android:name=".Beginscherm.Beginscherm">

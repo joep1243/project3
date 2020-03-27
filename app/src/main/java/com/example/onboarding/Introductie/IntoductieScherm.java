@@ -2,48 +2,75 @@ package com.example.onboarding.Introductie;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+
 import com.android.volley.VolleyError;
+import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 import com.android.volley.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class IntoductieScherm extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener
+public class IntoductieScherm extends AppCompatActivity
 {
     private VolleyHelper helper;
-    private String item;
-    public void GetPtext(Context Context, String Value)
+    private TextView txtIntroVraag;
+    private TextView txtIntroText;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
     {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_intoductie_scherm);
+
+        txtIntroVraag = findViewById(R.id.txtIntroVraag);
+        GetIT("Vraag", txtIntroVraag);
+        txtIntroText = findViewById(R.id.txtIntroText);
+        GetIT("InfoText", txtIntroText );
+
+    }
+    public void GetIT(String Value, TextView idt) {
+        String item = null;
+        TextView id = null;
+
+        id = idt;
         item = Value;
 
-        helper = new VolleyHelper(Context, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
-        helper.get("index.php", null, this, this);
-///        JSONObject jsonObject1 = new JSONObject (Introductie);
-///        String Introductie = jsonObject1.getString("Introductie");
+        final String finalItem = item;
+        final TextView finalId = id;
+
+        VolleyHelper helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
+                helper.get("index.php", null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+
+                            JSONObject jsonObject = new JSONObject (response.toString());
+
+                            String introductie = jsonObject.getString("Introductie");
+                            System.out.println(introductie);
+                            JSONObject jsonObject1 = new JSONObject (introductie);
+                            String intro1 = jsonObject1.getString(finalItem);
+                            finalId.setText(intro1);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
 
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        // Locale error handling
+                    }
+                });
     }
-
-    @Override
-    public void onErrorResponse(VolleyError error)
-    {
-        System.out.println(error);
-    }
-    @Override
-    public void onResponse(JSONObject response)
-    {
-        try
-        {
-            JSONObject jsonObject = new JSONObject(response.toString());
-
-            String promo = jsonObject.getString("Introductie");
-
-        }
-        catch(JSONException e)
-        {
-            e.printStackTrace();
-        }
-    }
-
 }
+

@@ -85,14 +85,17 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 //            result = true;
 //        }
 //        return result;
-
-
-    }
-
-
+//}
 //        @Override
 //        protected void onPostExecute(String result) {
 //            txtwelkom.setText(result);
 //        }
+
+
 //    }
-//}
+
+    public void openVragen(View v) {
+        Intent intent = new Intent(this, Vraagscherm.class);
+        startActivity(intent);
+    }
+}

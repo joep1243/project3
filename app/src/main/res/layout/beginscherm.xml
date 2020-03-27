@@ -11,7 +11,7 @@
         android:layout_width="371dp"
         android:layout_height="284dp"
         android:layout_marginStart="136dp"
-        android:layout_marginBottom="520dp"
+        android:layout_marginBottom="480dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cpink" />
@@ -21,7 +21,7 @@
         android:layout_width="339dp"
         android:layout_height="401dp"
         android:layout_marginEnd="176dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginBottom="420dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/cblue" />
@@ -40,67 +40,55 @@
 
     <TextView
         android:id="@+id/txtonboarding"
-        android:layout_width="116dp"
-        android:layout_height="40dp"
         android:text="Onboarding"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="222dp"
+        android:layout_height="62dp"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:textColor="#4D5693"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.183"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.448"
-        android:textColor="#4D5693"/>
+        app:layout_constraintVertical_bias="0.406" />
 
-    <TextView
-        android:id="@+id/txtwelkom"
-        android:layout_width="171dp"
-        android:layout_height="37dp"
-        android:text="Welkom!"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.527" />
 
     <TextView
         android:id="@+id/txtinfo"
-        android:layout_width="303dp"
-        android:layout_height="138dp"
+        android:layout_width="315dp"
+        android:layout_height="132dp"
+        android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Leuk dat je hebt gekozen voor de Associate Degree Academie! Je hebt je natuurlijk al geörienteerd over de opleiding en de school zelf, maar ben je echt van alles op de hoogte? Je krijgt nu een paar korte vragen die je kunnen helpen met een goede start van je nieuwe collegejaar!"
-        android:textColor="#000000"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.638"
+        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintVertical_bias="0.588" />
 
     <Button
         android:id="@+id/btnbegin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Begin"
+        android:onClick="openVragen"
+        android:layout_width="247dp"
+        android:layout_height="34dp"
+        android:background="@drawable/btn_stroke"
+        android:fontFamily="@font/frutiger_lt_std_light"
+        android:textAllCaps="false"
+        android:textColor="@android:color/black"
+        android:textColorHighlight="@android:color/background_light"
+        android:textColorHint="@android:color/background_light"
+        android:textColorLink="@android:color/background_light"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942"
-        android:textColor="#000000"/>
+        app:layout_constraintVertical_bias="0.787" />
 
-    <EditText
-        android:id="@+id/StudentID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Student ID"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.833"
-        android:textColor="#000000"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

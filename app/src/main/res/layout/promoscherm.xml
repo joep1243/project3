@@ -13,7 +13,7 @@
         android:layout_width="371dp"
         android:layout_height="284dp"
         android:layout_marginStart="136dp"
-        android:layout_marginBottom="520dp"
+        android:layout_marginBottom="480dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cpink" />
@@ -23,7 +23,7 @@
         android:layout_width="339dp"
         android:layout_height="401dp"
         android:layout_marginEnd="176dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginBottom="420dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/cblue" />
@@ -42,10 +42,10 @@
 
     <TextView
         android:id="@+id/txtPromo"
+        android:text="Promostudent"
         android:layout_width="222dp"
         android:layout_height="62dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="Promostudent"
         android:textColor="#4D5693"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,10 +57,10 @@
 
     <TextView
         android:id="@+id/txtPromoVraag"
+        android:text="placeholder promo text"
         android:layout_width="317dp"
         android:layout_height="102dp"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:text="placeholder promo text"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="24sp"
@@ -73,12 +73,12 @@
 
     <Button
         android:id="@+id/btnPinfo"
+        android:text="Meer informatie"
+        android:onClick="openinfoPromo"
         android:layout_width="247dp"
         android:layout_height="34dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
-        android:onClick="openinfoPromo"
-        android:text="Meer informatie"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"

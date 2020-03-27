@@ -22,11 +22,15 @@ public class VraagInfoscherm extends AppCompatActivity {
     private TextView txtInfo;
     private TextView txthead;
     private ImageView imgFoto;
+    private int iTeller;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraaginfoscherm);
+
+        iTeller = Vraagscherm.iTeller;
 
         txthead = findViewById(R.id.txthead);
         Getpt("Vraag", txthead );
@@ -38,6 +42,8 @@ public class VraagInfoscherm extends AppCompatActivity {
     public void openTerug(View v) {
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
+
     }
 
     /**
@@ -64,7 +70,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag1");
+                    String promo = jsonObject.getString("Vraag"+iTeller);
                     JSONObject jsonObject1 = new JSONObject (promo);
 
                     String promo1 = jsonObject1.getString(finalItem);
@@ -79,7 +85,7 @@ public class VraagInfoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                // Locale error handling
             }
         });
     }
@@ -109,7 +115,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag1");
+                    String promo = jsonObject.getString("Vraag"+iTeller);
                     JSONObject jsonObject1 = new JSONObject (promo);
                     String promo1 = jsonObject1.getString(finalItemi);
 

@@ -73,7 +73,7 @@
 
     <Button
         android:id="@+id/btnJa"
-        android:onClick="openInfoscherm"
+        android:onClick="openJa"
         android:layout_width="129dp"
         android:layout_height="48dp"
         android:background="@drawable/btn_stroke"
@@ -96,7 +96,7 @@
 
     <Button
         android:id="@+id/btnNee"
-        android:onClick="openPromo"
+        android:onClick="openNee"
         android:layout_width="131dp"
         android:layout_height="45dp"
         android:background="@drawable/btn_stroke"

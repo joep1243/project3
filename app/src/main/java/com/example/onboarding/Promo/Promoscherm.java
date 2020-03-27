@@ -21,7 +21,9 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Beginscherm.Beginscherm;
 import com.example.onboarding.R;
+import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
 
 import org.json.JSONException;
@@ -57,10 +59,12 @@ public class Promoscherm extends AppCompatActivity {
     }
 
 
-    //We have our own back buttons so they don't need their own makes them more depended
-//    @Override
-//    public void onBackPressed(){}
-
+    @Override
+    public void onBackPressed(){
+            Intent i = new Intent(this, Vraagscherm.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
 
     //Nothing to see here

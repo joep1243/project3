@@ -22,12 +22,16 @@ public class VraagInfoscherm extends AppCompatActivity {
     private TextView txtInfo;
     private TextView txthead;
     private ImageView imgFoto;
+    private int iTeller;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraaginfoscherm);
 
+
+        iTeller = Vraagscherm.iTeller;
         txthead = findViewById(R.id.txthead);
         Getpt("Vraag", txthead );
         txtInfo = findViewById(R.id.txtInfo);
@@ -64,7 +68,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag1");
+                    String promo = jsonObject.getString("Vraag"+iTeller);
                     JSONObject jsonObject1 = new JSONObject (promo);
 
                     String promo1 = jsonObject1.getString(finalItem);
@@ -109,7 +113,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag1");
+                    String promo = jsonObject.getString("Vraag"+iTeller);
                     JSONObject jsonObject1 = new JSONObject (promo);
                     String promo1 = jsonObject1.getString(finalItemi);
 

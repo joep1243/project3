@@ -25,15 +25,21 @@ import java.util.ArrayList;
 
 public class Vraagscherm extends AppCompatActivity {
 
+    public static int iTeller = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraagscherm);
         TextView txtVraag = findViewById(R.id.txtVraag);
+        TextView txtVraagNummer = findViewById(R.id.txtVraagNmr);
+        txtVraagNummer.setText("Vraag "+ iTeller);
+
         Getpt("Vraag", txtVraag );
 
+
     }
+
 
     /**
      * @param Value
@@ -56,15 +62,22 @@ public class Vraagscherm extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
-
                     JSONObject jsonObject = new JSONObject (response.toString());
+                    String sVraag = null, promo1;
 
-                    String promo = jsonObject.getString("Vraag1");
+                    if (iTeller < 4) {
+                    sVraag = jsonObject.getString("Vraag"+iTeller);
+                    JSONObject jsonObject1 = new JSONObject (sVraag);
 
-                    JSONObject jsonObject1 = new JSONObject (promo);
-
-                    String promo1 = jsonObject1.getString(finalItem);
+                    promo1 = jsonObject1.getString(finalItem);
                     finalId.setText(promo1);
+
+                    }
+
+                    else {
+                        Intent i = new Intent(Vraagscherm.this, Promoscherm.class);
+                        startActivity(i);
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -78,15 +91,24 @@ public class Vraagscherm extends AppCompatActivity {
                 // Locale error handlin
             }
         });
+
+
     }
 
     public void openInfoscherm(View v) {
         Intent intent = new Intent(this, VraagInfoscherm.class);
         startActivity(intent);
+
     }
 
     public void openPromo(View v) {
-       Intent intent = new Intent(this, Promoscherm.class);
-       startActivity(intent);
+        if (iTeller < 3){
+            iTeller++;
+            recreate();
+        }
+        else {
+            Intent intent = new Intent(this, Promoscherm.class);
+            startActivity(intent);
+        }
     }
 }

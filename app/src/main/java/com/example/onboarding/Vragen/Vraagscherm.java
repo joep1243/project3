@@ -20,6 +20,8 @@ import org.json.JSONObject;
 public class Vraagscherm extends AppCompatActivity {
 
     public static int iTeller = 1;
+    public int iTotaalAantalVragen = 3; // erg belangrijk, zo weet het programma of het doormoet naar de volgende vraag of het volgende scherm
+    public String sAntwoord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class Vraagscherm extends AppCompatActivity {
         TextView txtVraagNummer = findViewById(R.id.txtVraagNmr);
         txtVraagNummer.setText("Vraag "+ iTeller);
 
-        Getpt("Vraag", txtVraag );
+        Getpt("Vraag", txtVraag);
 
     }
     /**
@@ -54,15 +56,18 @@ public class Vraagscherm extends AppCompatActivity {
 
                 try {
                     JSONObject jsonObject = new JSONObject (response.toString());
-                    String sVraag = null, promo1;
+                    String sVraag = null, promo1, promo2;
 
-                    if (iTeller <= 3) {
+                    if (iTeller <= iTotaalAantalVragen) {
                     sVraag = jsonObject.getString("Vraag"+iTeller);
                     JSONObject jsonObject1 = new JSONObject (sVraag);
+                    JSONObject jsonObject2 = new JSONObject (sVraag);
 
                     promo1 = jsonObject1.getString(finalItem);
                     finalId.setText(promo1);
+                    sAntwoord = jsonObject2.getString("Antwoord");
 
+                    sAntwoord = jsonObject2.getString("Antwoord");
                     }
 
                     else {
@@ -86,25 +91,45 @@ public class Vraagscherm extends AppCompatActivity {
 
     }
 
-    public void openInfoscherm(View v) {
-        Intent intent = new Intent(this, VraagInfoscherm.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
-
+    public void openJa(View v) {
+        System.out.println(sAntwoord + " is het ingevoerde antwoord");
+        if (sAntwoord.equals("ja")) {
+            Intent intent = new Intent(this, VraagInfoscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+        } else if (sAntwoord.equals("nee")) {
+            if (iTeller < iTotaalAantalVragen) {
+                iTeller++;
+                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                startActivity(getIntent());
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            } else if (iTeller == iTotaalAantalVragen){
+                Intent intent = new Intent(this, Promoscherm.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        }
     }
 
-    public void openPromo(View v) {
-        if (iTeller < 3){
-            iTeller++;
-            finish();
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            startActivity(getIntent());
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
-        else {
-            Intent intent = new Intent(this, Promoscherm.class);
+    public void openNee(View v) {
+        System.out.println(sAntwoord + " is het ingevoerde antwoord");
+        if (sAntwoord.equals("nee")) {
+            Intent intent = new Intent(this, VraagInfoscherm.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+        } else if (sAntwoord.equals("ja")) {
+            if (iTeller < iTotaalAantalVragen) {
+                iTeller++;
+                finish();
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                startActivity(getIntent());
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            } else if (iTeller == iTotaalAantalVragen){
+                Intent intent = new Intent(this, Promoscherm.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
         }
     }
 

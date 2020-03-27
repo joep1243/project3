@@ -30,8 +30,8 @@ public class VraagInfoscherm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraaginfoscherm);
 
-
         iTeller = Vraagscherm.iTeller;
+
         txthead = findViewById(R.id.txthead);
         Getpt("Vraag", txthead );
         txtInfo = findViewById(R.id.txtInfo);
@@ -85,7 +85,7 @@ public class VraagInfoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                // Locale error handling
             }
         });
     }

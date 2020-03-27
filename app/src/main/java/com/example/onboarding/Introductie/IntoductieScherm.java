@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.android.volley.VolleyError;
 import com.example.onboarding.Feedback.Feedback;
@@ -17,50 +18,62 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class IntoductieScherm extends AppCompatActivity
-        //implements Response.Listener<JSONObject>, Response.ErrorListener
-{
+public class IntoductieScherm extends AppCompatActivity {
+
+    private TextView txtPromoVraag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intoductiescherm);
 
-    }
-//    private VolleyHelper helper;
-//    private String item;
-//    public void GetPtext(Context Context, String Value)
-//    {
-//        item = Value;
-//
-//        helper = new VolleyHelper(Context, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
-//        helper.get("index.php", null, this, this);
-/////        JSONObject jsonObject1 = new JSONObject (Introductie);
-/////        String Introductie = jsonObject1.getString("Introductie");
-//
-//
-//    }
-//
-//    @Override
-//    public void onErrorResponse(VolleyError error)
-//    {
-//        System.out.println(error);
-//    }
-//    @Override
-//    public void onResponse(JSONObject response)
-//    {
-//        try
-//        {
-//            JSONObject jsonObject = new JSONObject(response.toString());
-//
-//            String promo = jsonObject.getString("Introductie");
-//
-//        }
-//        catch(JSONException e)
-//        {
-//            e.printStackTrace();
-//        }
+        txtPromoVraag = findViewById(R.id.txtPromoVraag);
+        Getpt("Vraag", txtPromoVraag );
 
+    }
+    /**
+     * @param Value
+     * @param idt
+     */
+    public void Getpt(String Value, TextView idt) {
+        String item = null;
+        TextView id = null;
+
+        id = idt;
+        item = Value;
+
+        final String finalItem = item;
+        final TextView finalId = id;
+
+        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
+        secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+
+                    JSONObject jsonObject = new JSONObject (response.toString());
+
+                    String promo = jsonObject.getString("Promo");
+                    JSONObject jsonObject1 = new JSONObject (promo);
+
+                    String promo1 = jsonObject1.getString(finalItem);
+                    finalId.setText(promo1);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+    }
     public void openFeedback(View v) {
         Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);

@@ -45,6 +45,9 @@ public class IntoductieScherm extends AppCompatActivity
         Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);
     }
+
+
+
     public void GetIT(String Value, TextView idt) {
         String item = null;
         TextView id = null;

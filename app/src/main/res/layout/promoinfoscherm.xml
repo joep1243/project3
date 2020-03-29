@@ -12,6 +12,7 @@
         android:id="@+id/btnTerug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="NextScreen"
         android:text="Terug naar vraag"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/txthead" />
 
     <TextView
         android:id="@+id/txthead"
@@ -45,18 +46,20 @@
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFoto"
+        app:layout_constraintVertical_bias="0.038" />
 
     <ImageView
         android:id="@+id/imgFoto"
         android:layout_width="412dp"
-        android:layout_height="161dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="490dp"
         android:background="#000000"
-        android:padding="1dp"
+        android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,10 +70,25 @@
         android:id="@+id/btnmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="29dp"
         android:onClick="Openmail"
         android:text="Promostudent worden!"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="654dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFoto" />
+
+    <Button
+        android:id="@+id/btnVolgende"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Volgende (DEBUG)"
+        android:onClick="openIntro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.869" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

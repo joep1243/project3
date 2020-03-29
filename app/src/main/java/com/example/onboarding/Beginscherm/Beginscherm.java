@@ -43,9 +43,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
     private android.content.Context Context;
     private EditText StudentID;
     private TextView txtwelkom;
-    private static final String url = "http://localhost/phpmyadmin/db_structure.php?server=1&db=onboarding";
-    private static final String user = "root";
-    private static final String pass = "root";
+
 
 
     @Override
@@ -57,42 +55,4 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
         btnbegin = (Button) findViewById(R.id.btnbegin);
         txtwelkom = (TextView) findViewById(R.id.txtwelkom);
 
-//        btnbegin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
- //               if (validate()) {
-//
 
-                    // db check true/false hier
-
-                    //SELECT * FROM studentminuutdatumvraag WHERE sID = "%s"', $SID
-                    //INSERT INTO studentminuutdatumvraag VALUES(StudentID, current_timestamp(), NULL, NULL)';
-                }
-//            }
-//        });
-//    }
-//    private void setupUIViews() {
-//        StudentID = (EditText) findViewById(R.id.StudentID);
-//        btnbegin = (Button) findViewById(R.id.btnbegin);
-//    }
-
-//    private Boolean validate( ){
-//        Boolean result = false;
-//        String student = StudentID.getText().toString();
-//       if(student.isEmpty()) {
-//            Toast.makeText(this, "Vul je student id in", Toast.LENGTH_SHORT).show();
-//        }else{
-//            result = true;
-//        }
-//        return result;
-
-
-    }
-
-
-//        @Override
-//        protected void onPostExecute(String result) {
-//            txtwelkom.setText(result);
-//        }
-//    }
-//}

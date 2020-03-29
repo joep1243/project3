@@ -12,8 +12,14 @@
 
         android:theme="@style/Theme.AppCompat"
         android:usesCleartextTraffic="true">
+
         <activity
-            android:name=".Beginscherm.Beginscherm"
+            android:name=".Introductie.IntoductieScherm"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".Promo.Promoscherm"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
@@ -24,7 +30,9 @@
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
 
-        <activity android:name=".Vragen.VraagInfoscherm" android:exported="true" android:screenOrientation="sensorPortrait"
+        <activity android:name=".Vragen.VraagInfoscherm"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
 
         <activity
@@ -33,17 +41,18 @@
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
 
-        <activity
-            android:name=".Promo.Promoscherm"
-            android:exported="true"
-            android:screenOrientation="sensorPortrait"
-            tools:ignore="LockedOrientationActivity" />
+
         <activity
             android:name=".Promo.Promoinfoscherm"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".Main.testStart">
+
+
+
+
+
+        <activity android:name=".Beginscherm.Beginscherm">
 
 
             <intent-filter>

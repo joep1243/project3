@@ -21,7 +21,9 @@ import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Beginscherm.Beginscherm;
 import com.example.onboarding.R;
+import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
 
 import org.json.JSONException;
@@ -31,13 +33,8 @@ import org.json.JSONObject;
 public class Promoscherm extends AppCompatActivity {
     private VolleyHelper helper;
     private Integer Nothing;
-
-
     private TextView txtPromoVraag;
-
     private Button btnPinfo;
-
-
     private Button btnnothing;
 
 
@@ -49,7 +46,7 @@ public class Promoscherm extends AppCompatActivity {
         btnPinfo = findViewById(R.id.btnPinfo);
 
         btnnothing = findViewById(R.id.btnnothing);
-        Nothing =0;
+        Nothing = 0;
 
         txtPromoVraag = findViewById(R.id.txtPromoVraag);
         Getpt("Vraag", txtPromoVraag );
@@ -62,10 +59,12 @@ public class Promoscherm extends AppCompatActivity {
     }
 
 
-    //We have our own back buttons so they don't need their own makes them more depended
     @Override
-    public void onBackPressed(){}
-
+    public void onBackPressed(){
+            Intent i = new Intent(this, Vraagscherm.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
 
 
     //Nothing to see here

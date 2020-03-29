@@ -43,56 +43,79 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 
     private Button btnbegin;
     private android.content.Context Context;
-    private EditText StudentID;
-    private TextView txtwelkom;
-    private static final String url = "http://localhost/phpmyadmin/db_structure.php?server=1&db=onboarding";
-    private static final String user = "root";
-    private static final String pass = "root";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beginscherm);
-//Ik heb hier alvast student id weggehaalt
+
+        //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
 
-//        btnbegin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
- //               if (validate()) {
-//
+        StartDB("test");
 
-                    // db check true/false hier
 
-                    //SELECT * FROM studentminuutdatumvraag WHERE sID = "%s"', $SID
-                    //INSERT INTO studentminuutdatumvraag VALUES(StudentID, current_timestamp(), NULL, NULL)';
+    }
+
+
+    //i Don't know why this works but it does it's some Demon Shit
+    public void StartDB(String sid) {
+
+        String SID = null;
+
+        SID = sid;
+
+        final String finalSID = SID;
+
+        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
+        secondHelper.get("GetSID/index.php?SID=" + finalSID , null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response.toString());
+                    String result = jsonObject.getString("result");
+
+                    if(result =="false") {
+                        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
+                        secondHelper.get("StartDB/index.php?SID=" + finalSID, null, new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                System.out.println(response.toString());
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response.toString());
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // Locale error handlin
+                            }
+                        });
+
+                    }else {    }
+
+                    
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-//            }
-//        });
-//    }
-//    private void setupUIViews() {
-//        StudentID = (EditText) findViewById(R.id.StudentID);
-//        btnbegin = (Button) findViewById(R.id.btnbegin);
-//    }
-
-//    private Boolean validate( ){
-//        Boolean result = false;
-//        String student = StudentID.getText().toString();
-//       if(student.isEmpty()) {
-//            Toast.makeText(this, "Vul je student id in", Toast.LENGTH_SHORT).show();
-//        }else{
-//            result = true;
-//        }
-//        return result;
-//}
-//        @Override
-//        protected void onPostExecute(String result) {
-//            txtwelkom.setText(result);
-//        }
 
 
-//    }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+    }
 
     public void openVragen(View v) {
         Intent intent = new Intent(this, Vraagscherm.class);

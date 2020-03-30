@@ -14,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.Introductie.IntoductieScherm;
+import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 import com.squareup.picasso.Picasso;
@@ -32,6 +33,7 @@ public class Promoinfoscherm extends AppCompatActivity {
     //private com.example.onboarding.Model.PromoModel PromoModel;
 
     private VolleyHelper helper;
+    Code code = new Code();
 
 
         private Button btnTerug;
@@ -72,6 +74,7 @@ public class Promoinfoscherm extends AppCompatActivity {
 
             public void Openmail(View v){
                 try {
+                    code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
 
                     Intent i = new Intent(Intent.ACTION_SENDTO);
                     i.setType("message/rfc822");
@@ -91,6 +94,19 @@ public class Promoinfoscherm extends AppCompatActivity {
                 }
 
 
+            }
+
+
+              public void NextScreen(){
+                  code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"nee");
+                  Intent intent = new Intent(this, IntoductieScherm.class);
+                  startActivity(intent);
+              }
+
+            //TEMP
+            public void openIntro(View v) {
+                Intent intent = new Intent(this, IntoductieScherm.class);
+                startActivity(intent);
             }
 
             //We have our own back buttons so they don't need their own makes them more depended
@@ -187,10 +203,4 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
         });
     }
-
-    public void openIntro(View v) {
-        Intent intent = new Intent(this, IntoductieScherm.class);
-        startActivity(intent);
-    }
-
 }

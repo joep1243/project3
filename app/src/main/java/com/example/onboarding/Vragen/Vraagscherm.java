@@ -104,6 +104,8 @@ public class Vraagscherm extends AppCompatActivity {
         } else if (sAntwoord.equals("nee")) {
             if (code.VID < iTotaalAantalVragen) {
                 code.VID++;
+                code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
                 System.out.println(code.VID + " is vid na Ja IF");
                 finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -111,6 +113,8 @@ public class Vraagscherm extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             } else if (code.VID == iTotaalAantalVragen){
                 code.VID++;
+                code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
                 System.out.println(code.VID + " is vid na Ja");
                 Intent intent = new Intent(this, Promoscherm.class);
                 startActivity(intent);
@@ -129,6 +133,8 @@ public class Vraagscherm extends AppCompatActivity {
         } else if (sAntwoord.equals("ja")) {
             if (code.VID < iTotaalAantalVragen) {
                 code.VID++;
+                code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
                 System.out.println(code.VID + " is vid na Nee IF");
                 finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -136,6 +142,8 @@ public class Vraagscherm extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             } else if (code.VID == iTotaalAantalVragen){
                 code.VID++;
+                code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
                 System.out.println(code.VID + " is vid na Nee");
                 Intent intent = new Intent(this, Promoscherm.class);
                 startActivity(intent);
@@ -153,6 +161,7 @@ public class Vraagscherm extends AppCompatActivity {
         }
         else{
             code.VID--;
+            code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
             finish();
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             startActivity(getIntent());

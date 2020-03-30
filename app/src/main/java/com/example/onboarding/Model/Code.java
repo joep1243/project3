@@ -33,8 +33,8 @@ public class Code extends AppCompatActivity {
     public Integer getvid(){ return VID; }
 
 
-    public void Next(Context context){
 
+    public void getVIDdb(Context context){
 
         Context Context = null;
         Context = context;
@@ -87,6 +87,42 @@ public class Code extends AppCompatActivity {
 
         VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI");
         secondHelper.get("SetNTW/index.php?SID=" + finalSID + "&VID=" + finalVID + "&NTW=" + finalNTW , null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response.toString());
+                try {
+                    JSONObject jsonObject = new JSONObject(response.toString());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+    }
+
+    public void SetVIDdb(Context context, String sid, Integer vid) {
+        Context Context = null;
+        String SID = null;
+        Integer VID = null;
+
+        Context = context;
+        SID = sid;
+        VID = vid;
+
+        final Context finalContext = Context;
+        final String finalSID = SID;
+        final Integer finalVID = VID;
+
+        VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI");
+        secondHelper.get("SetVID/?SID=" + finalSID + "&VID=" + finalVID , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {

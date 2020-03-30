@@ -55,7 +55,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
         StartDB("test");
-        code.Next(getBaseContext());
+        code.getVIDdb(getBaseContext());
     }
 
     public void openVragen(View v) {

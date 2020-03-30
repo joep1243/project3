@@ -140,13 +140,16 @@ public class VraagInfoscherm extends AppCompatActivity {
 
     public void openTerug(View v){
         if (code.VID < 3) {
-            System.out.println(code.VID + " is vid na Nee IF");
+            code.VID++;
+            code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
             Intent intent = new Intent(this, Vraagscherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
         } else if (code.VID == 3){
             code.VID++;
-            System.out.println(code.VID + " is vid na Nee");
+            code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
             Intent intent = new Intent(this, Promoscherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 import com.squareup.picasso.Picasso;
@@ -22,15 +23,15 @@ public class VraagInfoscherm extends AppCompatActivity {
     private TextView txtInfo;
     private TextView txthead;
     private ImageView imgFoto;
-    private int iTeller;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraaginfoscherm);
+        Code code = new Code();
 
-        iTeller = Vraagscherm.iTeller;
+
 
         txthead = findViewById(R.id.txthead);
         Getpt("Vraag", txthead );
@@ -39,11 +40,11 @@ public class VraagInfoscherm extends AppCompatActivity {
         imgFoto = findViewById(R.id.imgFoto);
         Getpi("Image", imgFoto );
     }
-    public void openTerug(View v) {
+    @Override
+    public void onBackPressed() {
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
-
     }
 
     /**
@@ -70,7 +71,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag"+iTeller);
+                    String promo = jsonObject.getString("Vraag"+Code.VID);
                     JSONObject jsonObject1 = new JSONObject (promo);
 
                     String promo1 = jsonObject1.getString(finalItem);
@@ -115,7 +116,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag"+iTeller);
+                    String promo = jsonObject.getString("Vraag"+Code.VID);
                     JSONObject jsonObject1 = new JSONObject (promo);
                     String promo1 = jsonObject1.getString(finalItemi);
 
@@ -133,5 +134,13 @@ public class VraagInfoscherm extends AppCompatActivity {
                 // Locale error handlin
             }
         });
+    }
+
+    public void openTerug(View v){
+        Code.VID++;
+        finish();
+        Intent intent = new Intent(this, Vraagscherm.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
     }
 }

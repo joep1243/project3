@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.onboarding.Beginscherm.Beginscherm;
+import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
 import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
@@ -61,6 +62,7 @@ public class Promoscherm extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
+            Code.VID--;
             Intent i = new Intent(this, Vraagscherm.class);
             startActivity(i);
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);

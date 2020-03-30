@@ -2,11 +2,15 @@ package com.example.onboarding.Model;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Promo.Promoscherm;
+import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
 
 import org.json.JSONException;
@@ -17,18 +21,16 @@ import org.json.JSONObject;
  */
 
 public class Code extends AppCompatActivity {
-
+    public static int VID;
     String StudentID = "test";
     String StudentKlas = "";
-    Integer VID = 1;
+    //Integer VID = iTellerTest;// normaal is deze Null
     Boolean ESE = Boolean.FALSE;
-
 
     //get sid
     public String getsid(){ return StudentID; }
     //get vid
     public Integer getvid(){ return VID; }
-
 
 
     public void Next(Context context){
@@ -46,17 +48,10 @@ public class Code extends AppCompatActivity {
                 System.out.println(response.toString());
                 try {
                     JSONObject jsonObject = new JSONObject(response.toString());
-                    Integer result = jsonObject.getInt("vID");
+                    Integer result = Integer.parseInt(jsonObject.getString("result"));
+                    VID = result;
+                    System.out.println(VID + "TESTVID");
 
-                    if(result == VID){
-
-                        //hier ga je verder als ze gelijk zijn
-
-                    }else{
-
-                        //hier gga je verder als ze niet gelijk zijn
-
-                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -71,16 +66,6 @@ public class Code extends AppCompatActivity {
             }
         });
     }
-
-
-
-
-
-
-
-
-
-
 
     //set the anwser
     public void Setntw(Context context, String sid, Integer vid, String ntw) {

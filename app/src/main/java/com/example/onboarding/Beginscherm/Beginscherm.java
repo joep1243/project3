@@ -23,6 +23,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import com.example.onboarding.Model.Code;
+import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.Vragen.Vraagscherm;
 
 import com.example.onboarding.R;
@@ -43,6 +45,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 
     private Button btnbegin;
     private android.content.Context Context;
+    Code code = new Code();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
         StartDB("test");
+        code.Next(getBaseContext());
     }
 
     public void openVragen(View v) {
@@ -79,7 +83,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response.toString());
                     String result = jsonObject.getString("result");
 
-                    if(result =="false") {
+                    if(result.equals("false")) {
                         VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
                         secondHelper.get("StartDB/index.php?SID=" + finalSID, null, new Response.Listener<JSONObject>() {
 
@@ -107,7 +111,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
                         //hier nog toast
                         //============================================================
                         //
-                        btnbegin.setEnabled(false); }
+                        btnbegin.setEnabled(true); }// DEBUG deze moet dadelijk of false
 
 
                 } catch (JSONException e) {

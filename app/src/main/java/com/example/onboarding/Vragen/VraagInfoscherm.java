@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.onboarding.Model.Code;
+import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 import com.squareup.picasso.Picasso;
@@ -23,13 +24,13 @@ public class VraagInfoscherm extends AppCompatActivity {
     private TextView txtInfo;
     private TextView txthead;
     private ImageView imgFoto;
-
+    Code code = new Code();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraaginfoscherm);
-        Code code = new Code();
+
 
 
 
@@ -136,11 +137,19 @@ public class VraagInfoscherm extends AppCompatActivity {
         });
     }
 
+
     public void openTerug(View v){
-        Code.VID++;
-        finish();
-        Intent intent = new Intent(this, Vraagscherm.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
+        if (code.VID < 3) {
+            System.out.println(code.VID + " is vid na Nee IF");
+            Intent intent = new Intent(this, Vraagscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
+        } else if (code.VID == 3){
+            code.VID++;
+            System.out.println(code.VID + " is vid na Nee");
+            Intent intent = new Intent(this, Promoscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 }

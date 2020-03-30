@@ -45,7 +45,7 @@ public class VraagInfoscherm extends AppCompatActivity {
     public void onBackPressed() {
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
+        overridePendingTransition(R.anim.nothing, R.anim.slide_down);
     }
 
     /**
@@ -143,9 +143,10 @@ public class VraagInfoscherm extends AppCompatActivity {
             code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
-            Intent intent = new Intent(this, Vraagscherm.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
+//            Intent intent = new Intent(this, Vraagscherm.class);
+//            startActivity(intent);
+            overridePendingTransition(R.anim.nothing, R.anim.slide_down);
+
         } else if (code.VID == 3){
             code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());

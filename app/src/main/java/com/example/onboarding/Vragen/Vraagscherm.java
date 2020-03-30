@@ -100,7 +100,7 @@ public class Vraagscherm extends AppCompatActivity {
         if (sAntwoord.equals("ja")) {
             Intent intent = new Intent(this, VraagInfoscherm.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+            overridePendingTransition(R.anim.slide_up, R.anim.nothing);
         } else if (sAntwoord.equals("nee")) {
             if (code.VID < iTotaalAantalVragen) {
                 code.VID++;

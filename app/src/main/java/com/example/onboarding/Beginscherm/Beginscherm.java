@@ -51,12 +51,14 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
-
         StartDB("test");
-
-
     }
 
+    public void openVragen(View v) {
+        Intent intent = new Intent(this, Vraagscherm.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
 
     //i Don't know why this works but it does it's some Demon Shit
     public void StartDB(String sid) {
@@ -100,9 +102,14 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
                             }
                         });
 
-                    }else {    }
+                    }else {
 
-                    
+                        //hier nog toast
+                        //============================================================
+                        //
+                        btnbegin.setEnabled(false); }
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -117,9 +124,5 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
         });
     }
 
-    public void openVragen(View v) {
-        Intent intent = new Intent(this, Vraagscherm.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
+
 }

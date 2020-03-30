@@ -84,7 +84,6 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenOneens.setVisibility(View.VISIBLE);
             txtIntake.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.VISIBLE);
-            bIntakeEens = true;
 
         }
 
@@ -96,27 +95,17 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenOneens.setVisibility(View.VISIBLE);
             txtIntake.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.VISIBLE);
-            iTeller = 1;
-            bIntakeOneens = true;
+
         }
 
         public void OpenEens(View v) {
             System.out.println("Eens Open");
-            bOpenEens = true;
-
-            if (iTeller == 0) {
-                System.out.println("Next Screen");
-                btnOpenEens.setVisibility(View.INVISIBLE);
-                btnOpenOneens.setVisibility(View.INVISIBLE);
-                txtOpenDag.setVisibility(View.INVISIBLE);
-            } else {
-                txtOpenVraag.setVisibility(View.VISIBLE);
-                txtFeedback.setVisibility(View.VISIBLE);
-                btnNext.setVisibility(View.VISIBLE);
-                btnOpenEens.setVisibility(View.INVISIBLE);
-                btnOpenOneens.setVisibility(View.INVISIBLE);
-                txtOpenDag.setVisibility(View.INVISIBLE);
-            }
+            txtOpenVraag.setVisibility(View.VISIBLE);
+            txtFeedback.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnOpenEens.setVisibility(View.INVISIBLE);
+            btnOpenOneens.setVisibility(View.INVISIBLE);
+            txtOpenDag.setVisibility(View.INVISIBLE);
 
         }
 
@@ -128,8 +117,6 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenEens.setVisibility(View.INVISIBLE);
             btnOpenOneens.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.INVISIBLE);
-            bOpenOneens = true;
-
         }
 
         public void Verder(View v) {
@@ -164,6 +151,7 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
         @Override
         public void onErrorResponse(VolleyError error) {
             System.out.println(error);
+            //Tosti
         }
 
         /**

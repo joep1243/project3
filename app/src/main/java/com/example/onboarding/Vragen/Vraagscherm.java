@@ -60,15 +60,15 @@ public class Vraagscherm extends AppCompatActivity {
 
                 try {
                     JSONObject jsonObject = new JSONObject (response.toString());
-                    String sVraag = null, promo1, promo2;
+                    String sVraag = null, sVraag1;
 
                     if (code.VID <= iTotaalAantalVragen) {
                     sVraag = jsonObject.getString("Vraag"+code.VID);
                     JSONObject jsonObject1 = new JSONObject (sVraag);
                     JSONObject jsonObject2 = new JSONObject (sVraag);
 
-                    promo1 = jsonObject1.getString(finalItem);
-                    finalId.setText(promo1);
+                    sVraag1 = jsonObject1.getString(finalItem);
+                    finalId.setText(sVraag1);
                     sAntwoord = jsonObject2.getString("Antwoord");
                     }
 

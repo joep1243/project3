@@ -62,13 +62,15 @@ public class Promoscherm extends AppCompatActivity {
 
 
     @Override
-    public void onBackPressed(){
-            Code.VID--;
-            code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
-
+    public void onBackPressed() {
+        if (Code.VID > 3) {
+            Code.VID = 3;
+            System.out.println(Code.VID);
+            code.SetVIDdb(getBaseContext(), code.getsid(), code.getvid());
             Intent i = new Intent(this, Vraagscherm.class);
             startActivity(i);
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
     }
 
 

@@ -18,9 +18,9 @@ import org.json.JSONObject;
 
 public class Code extends AppCompatActivity {
 
-    String StudentID = "";
+    String StudentID = "test";
     String StudentKlas = "";
-    Integer VID = null;
+    Integer VID = 1;
     Boolean ESE = Boolean.FALSE;
 
 
@@ -28,6 +28,58 @@ public class Code extends AppCompatActivity {
     public String getsid(){ return StudentID; }
     //get vid
     public Integer getvid(){ return VID; }
+
+
+
+    public void Next(Context context){
+
+
+        Context Context = null;
+        Context = context;
+        final Context finalContext = Context;
+
+        VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI");
+        secondHelper.get("GetVID/index.php?SID=" + StudentID , null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+                System.out.println(response.toString());
+                try {
+                    JSONObject jsonObject = new JSONObject(response.toString());
+                    Integer result = jsonObject.getInt("vID");
+
+                    if(result == VID){
+
+                        //hier ga je verder als ze gelijk zijn
+
+                    }else{
+
+                        //hier gga je verder als ze niet gelijk zijn
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+    }
+
+
+
+
+
+
+
+
+
 
 
     //set the anwser

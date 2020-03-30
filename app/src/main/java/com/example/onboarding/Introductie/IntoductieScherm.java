@@ -20,10 +20,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class IntoductieScherm extends AppCompatActivity {
-
-    private TextView txtPromoVraag;
-
 public class IntoductieScherm extends AppCompatActivity
 
 {
@@ -32,62 +28,11 @@ public class IntoductieScherm extends AppCompatActivity
     private TextView txtIntroText;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intoductiescherm);
-
-
-        txtPromoVraag = findViewById(R.id.txtPromoVraag);
-        Getpt("Vraag", txtPromoVraag );
-
-    }
-    /**
-     * @param Value
-     * @param idt
-     */
-    public void Getpt(String Value, TextView idt) {
-        String item = null;
-        TextView id = null;
-
-        id = idt;
-        item = Value;
-
-        final String finalItem = item;
-        final TextView finalId = id;
-
-        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
-        secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
-
-            @Override
-            public void onResponse(JSONObject response) {
-
-                try {
-
-                    JSONObject jsonObject = new JSONObject (response.toString());
-
-                    String promo = jsonObject.getString("Promo");
-                    JSONObject jsonObject1 = new JSONObject (promo);
-
-                    String promo1 = jsonObject1.getString(finalItem);
-                    finalId.setText(promo1);
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
-            }
-        });
-    }
-    public void openFeedback(View v) {
 
         txtIntroVraag = findViewById(R.id.txtIntroVraag);
         GetIT("Vraag", txtIntroVraag);
@@ -97,7 +42,6 @@ public class IntoductieScherm extends AppCompatActivity
     }
     public void openFeedback(View v)
     {
-
         Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);
     }
@@ -115,36 +59,36 @@ public class IntoductieScherm extends AppCompatActivity
         final TextView finalId = id;
 
         VolleyHelper helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
-                helper.get("index.php", null, new Response.Listener<JSONObject>() {
+        helper.get("index.php", null, new Response.Listener<JSONObject>() {
 
-                    @Override
-                    public void onResponse(JSONObject response)
-                    {
+            @Override
+            public void onResponse(JSONObject response)
+            {
 
-                        try {
+                try {
 
-                            JSONObject jsonObject = new JSONObject(response.toString());
+                    JSONObject jsonObject = new JSONObject(response.toString());
 
-                            String introductie = jsonObject.getString("Introductie");
-                            System.out.println(introductie);
-                            JSONObject jsonObject1 = new JSONObject(introductie);
-                            String intro1 = jsonObject1.getString(finalItem);
-                            finalId.setText(intro1);
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    }//implements Response.Listener<JSONObject>, Response.ErrorListener
+                    String introductie = jsonObject.getString("Introductie");
+                    System.out.println(introductie);
+                    JSONObject jsonObject1 = new JSONObject(introductie);
+                    String intro1 = jsonObject1.getString(finalItem);
+                    finalId.setText(intro1);
 
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }//implements Response.Listener<JSONObject>, Response.ErrorListener
 
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Locale error handling
-                    }
-                });
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handling
+            }
+        });
     }
 }
 

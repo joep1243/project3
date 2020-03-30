@@ -30,13 +30,6 @@ public class Code extends AppCompatActivity {
     public Integer getvid(){ return VID; }
 
 
-
-
-
-
-
-
-
     //set the anwser
     public void Setntw(Context context, String sid, Integer vid, String ntw) {
         Context Context = null;

@@ -36,19 +36,20 @@ public class Code extends AppCompatActivity {
 
     public void getVIDdb(Context context){
 
+        Context Context = null;
+        Context = context;
+        final Context finalContext = Context;
 
-        VolleyHelper secondHelper = new VolleyHelper(context, "https://adaonboarding.ml/t3/OnboardingAPI");
+        VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI");
         secondHelper.get("GetVID/index.php?SID=" + StudentID , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-               // System.out.println(response.toString());
+                System.out.println(response.toString());
                 try {
-
                     JSONObject jsonObject = new JSONObject(response.toString());
                     Integer result = Integer.parseInt(jsonObject.getString("result"));
                     VID = result;
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -60,7 +61,6 @@ public class Code extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // Locale error handlin
-                System.out.println("hrrrr");
             }
         });
     }

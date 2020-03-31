@@ -51,6 +51,7 @@ public class Promoinfoscherm extends AppCompatActivity {
 
             btnTerug = findViewById(R.id.btnTerug);
             btnmail = findViewById(R.id.btnmail);
+            code.Next(getBaseContext());
 
             txthead = findViewById(R.id.txthead);
             Getpt("Vraag", txthead );
@@ -74,7 +75,8 @@ public class Promoinfoscherm extends AppCompatActivity {
 
             public void Openmail(View v){
                 try {
-                    code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
+
+                     code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
 
                     Intent i = new Intent(Intent.ACTION_SENDTO);
                     i.setType("message/rfc822");

@@ -48,10 +48,6 @@
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
 
-
-
-
-
         <activity android:name=".Beginscherm.Beginscherm">
 
 

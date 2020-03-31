@@ -34,29 +34,29 @@ public class Code extends AppCompatActivity {
     public void Next(Context context){
 
 
-        Context Context = null;
-        Context = context;
-        final Context finalContext = Context;
 
-        VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI");
+        VolleyHelper secondHelper = new VolleyHelper(context, "https://adaonboarding.ml/t3/OnboardingAPI");
         secondHelper.get("GetVID/index.php?SID=" + StudentID , null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
-                System.out.println(response.toString());
+               // System.out.println(response.toString());
                 try {
+
+
                     JSONObject jsonObject = new JSONObject(response.toString());
-                    Integer result = jsonObject.getInt("vID");
+                    String result = jsonObject.getString("result");
 
-                    if(result == VID){
 
-                        //hier ga je verder als ze gelijk zijn
-
-                    }else{
-
-                        //hier gga je verder als ze niet gelijk zijn
-
-                    }
+//                    if(result == VID){
+//
+//                        //hier ga je verder als ze gelijk zijn
+//
+//                    }else{
+//
+//                        //hier gga je verder als ze niet gelijk zijn
+//
+//                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -68,6 +68,7 @@ public class Code extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 // Locale error handlin
+                System.out.println("hrrrr");
             }
         });
     }

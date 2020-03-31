@@ -34,7 +34,6 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
         StartDB("test");
         code.getVIDdb(getBaseContext());
         code.getCount(getBaseContext());
-        System.out.println(Code.iCount + "de teller");
     }
 
     public void openVragen(View v) {

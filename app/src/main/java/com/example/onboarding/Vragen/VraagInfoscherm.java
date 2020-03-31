@@ -139,16 +139,16 @@ public class VraagInfoscherm extends AppCompatActivity {
 
 
     public void openTerug(View v){
-        if (code.VID < 3) {
-            code.VID++;
+        if (Code.VID < Code.iCount) {
+            Code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
 //            Intent intent = new Intent(this, Vraagscherm.class);
 //            startActivity(intent);
             overridePendingTransition(R.anim.nothing, R.anim.slide_down);
 
-        } else if (code.VID == 3){
-            code.VID++;
+        } else if (Code.VID == Code.iCount){
+            Code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
             Intent intent = new Intent(this, Promoscherm.class);

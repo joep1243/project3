@@ -87,6 +87,7 @@ public class Code extends AppCompatActivity {
                         JSONObject jsonObject1 = new JSONObject (sVraag);
                         teller = jsonObject1.getInt("count");
                         iCount = teller;
+                        System.out.println(Code.iCount + " is de teller");
 
                 } catch (JSONException e) {
                     e.printStackTrace();

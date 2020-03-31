@@ -63,8 +63,8 @@ public class Promoscherm extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (Code.VID > 3) {
-            Code.VID = 3;
+        if (Code.VID > Code.iCount) {
+            Code.VID = Code.iCount;
             System.out.println(Code.VID);
             code.SetVIDdb(getBaseContext(), code.getsid(), code.getvid());
             Intent i = new Intent(this, Vraagscherm.class);

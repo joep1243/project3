@@ -22,9 +22,9 @@ import org.json.JSONObject;
 
 public class Code extends AppCompatActivity {
     public static int VID;
+    public static int iCount;
     String StudentID = "test";
     String StudentKlas = "";
-    //Integer VID = iTellerTest;// normaal is deze Null
     Boolean ESE = Boolean.FALSE;
 
     //get sid
@@ -50,8 +50,6 @@ public class Code extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response.toString());
                     Integer result = Integer.parseInt(jsonObject.getString("result"));
                     VID = result;
-                    System.out.println(VID + "TESTVID");
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -65,6 +63,45 @@ public class Code extends AppCompatActivity {
                 // Locale error handlin
             }
         });
+    }
+
+    public void getCount(Context context) {
+
+        Context Context = null;
+        Context = context;
+        final Context finalContext = Context;
+
+
+        VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
+        secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject (response.toString());
+                    String sVraag = null, sVraag1;
+                    Integer teller;
+
+                        sVraag = jsonObject.getString("Count");
+                        JSONObject jsonObject1 = new JSONObject (sVraag);
+                        teller = jsonObject1.getInt("count");
+                        iCount = teller;
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+
+
     }
 
     //set the anwser

@@ -20,7 +20,6 @@ import org.json.JSONObject;
 
 public class Vraagscherm extends AppCompatActivity {
 
-    public int iTotaalAantalVragen = 3; // erg belangrijk, zo weet het programma of het doormoet naar de volgende vraag of het volgende scherm
     public String sAntwoord;
     Code code = new Code();
 
@@ -62,8 +61,8 @@ public class Vraagscherm extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject (response.toString());
                     String sVraag = null, sVraag1;
 
-                    if (code.VID <= iTotaalAantalVragen) {
-                    sVraag = jsonObject.getString("Vraag"+code.VID);
+                    if (Code.VID <= Code.iCount) {
+                    sVraag = jsonObject.getString("Vraag"+Code.VID);
                     JSONObject jsonObject1 = new JSONObject (sVraag);
                     JSONObject jsonObject2 = new JSONObject (sVraag);
 
@@ -73,7 +72,7 @@ public class Vraagscherm extends AppCompatActivity {
                     }
 
                     else {
-                        code.VID++;
+                        Code.VID++;
                         Intent i = new Intent(Vraagscherm.this, Promoscherm.class);
                         startActivity(i);
                     }
@@ -102,20 +101,20 @@ public class Vraagscherm extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(R.anim.slide_up, R.anim.nothing);
         } else if (sAntwoord.equals("nee")) {
-            if (code.VID < iTotaalAantalVragen) {
-                code.VID++;
+            if (Code.VID < Code.iCount) {
+                Code.VID++;
                 code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
-                System.out.println(code.VID + " is vid na Ja IF");
+                System.out.println(Code.VID + " is vid na Ja IF");
                 finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 startActivity(getIntent());
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            } else if (code.VID == iTotaalAantalVragen){
-                code.VID++;
+            } else if (Code.VID == Code.iCount){
+                Code.VID++;
                 code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
-                System.out.println(code.VID + " is vid na Ja");
+                System.out.println(Code.VID + " is vid na Ja");
                 Intent intent = new Intent(this, Promoscherm.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -131,20 +130,20 @@ public class Vraagscherm extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
         } else if (sAntwoord.equals("ja")) {
-            if (code.VID < iTotaalAantalVragen) {
-                code.VID++;
+            if (Code.VID < Code.iCount) {
+                Code.VID++;
                 code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
-                System.out.println(code.VID + " is vid na Nee IF");
+                System.out.println(Code.VID + " is vid na Nee IF");
                 finish();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 startActivity(getIntent());
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            } else if (code.VID == iTotaalAantalVragen){
-                code.VID++;
+            } else if (Code.VID == Code.iCount){
+                Code.VID++;
                 code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
-                System.out.println(code.VID + " is vid na Nee");
+                System.out.println(Code.VID + " is vid na Nee");
                 Intent intent = new Intent(this, Promoscherm.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -154,13 +153,13 @@ public class Vraagscherm extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        if (code.VID == 1){
+        if (Code.VID == 1){
             Intent i = new Intent(Vraagscherm.this, Beginscherm.class);
             startActivity(i);
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
         else{
-            code.VID--;
+            Code.VID--;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
             finish();
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);

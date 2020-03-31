@@ -33,6 +33,8 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
         btnbegin = (Button) findViewById(R.id.btnbegin);
         StartDB("test");
         code.getVIDdb(getBaseContext());
+        code.getCount(getBaseContext());
+        System.out.println(Code.iCount + "de teller");
     }
 
     public void openVragen(View v) {

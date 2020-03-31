@@ -1,48 +1,28 @@
 package com.example.onboarding.Beginscherm;
 
-import android.os.AsyncTask;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import com.example.onboarding.Vragen.Vraagscherm;
-
+import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
+import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
 
 
 public class Beginscherm<$mysql_user> extends AppCompatActivity {
 
     private Button btnbegin;
     private android.content.Context Context;
+    Code code = new Code();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +32,8 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
         StartDB("test");
+        code.getVIDdb(getBaseContext());
+        code.getCount(getBaseContext());
     }
 
     public void openVragen(View v) {
@@ -79,7 +61,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(response.toString());
                     String result = jsonObject.getString("result");
 
-                    if(result =="false") {
+                    if(result.equals("false")) {
                         VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
                         secondHelper.get("StartDB/index.php?SID=" + finalSID, null, new Response.Listener<JSONObject>() {
 
@@ -107,7 +89,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
                         //hier nog toast
                         //============================================================
                         //
-                        btnbegin.setEnabled(false); }
+                        btnbegin.setEnabled(true); }// DEBUG deze moet dadelijk of false
 
 
                 } catch (JSONException e) {

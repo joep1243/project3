@@ -59,36 +59,36 @@ public class IntoductieScherm extends AppCompatActivity
         final TextView finalId = id;
 
         VolleyHelper helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
-                helper.get("index.php", null, new Response.Listener<JSONObject>() {
+        helper.get("index.php", null, new Response.Listener<JSONObject>() {
 
-                    @Override
-                    public void onResponse(JSONObject response)
-                    {
+            @Override
+            public void onResponse(JSONObject response)
+            {
 
-                        try {
+                try {
 
-                            JSONObject jsonObject = new JSONObject(response.toString());
+                    JSONObject jsonObject = new JSONObject(response.toString());
 
-                            String introductie = jsonObject.getString("Introductie");
-                            System.out.println(introductie);
-                            JSONObject jsonObject1 = new JSONObject(introductie);
-                            String intro1 = jsonObject1.getString(finalItem);
-                            finalId.setText(intro1);
-
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    }//implements Response.Listener<JSONObject>, Response.ErrorListener
+                    String introductie = jsonObject.getString("Introductie");
+                    System.out.println(introductie);
+                    JSONObject jsonObject1 = new JSONObject(introductie);
+                    String intro1 = jsonObject1.getString(finalItem);
+                    finalId.setText(intro1);
 
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }//implements Response.Listener<JSONObject>, Response.ErrorListener
 
-                }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        // Locale error handling
-                    }
-                });
+
+
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handling
+            }
+        });
     }
 }
 

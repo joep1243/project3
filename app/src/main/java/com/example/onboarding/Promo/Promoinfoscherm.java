@@ -50,7 +50,6 @@ public class Promoinfoscherm extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
-
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.promoinfoscherm);
 
@@ -88,7 +87,6 @@ public class Promoinfoscherm extends AppCompatActivity {
             public void Openmail(View v){
                 System.out.println(Code.VID + " is het VID nummer bij Promo Ja");
                 try {
-
                      code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
 
                     Intent i = new Intent(Intent.ACTION_SENDTO);

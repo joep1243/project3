@@ -87,8 +87,7 @@ public class Promoinfoscherm extends AppCompatActivity {
             public void Openmail(View v){
                 System.out.println(Code.VID + " is het VID nummer bij Promo Ja");
                 try {
-                     code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
-
+                    code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
                     Intent i = new Intent(Intent.ACTION_SENDTO);
                     i.setType("message/rfc822");
                     i.setData(Uri.parse("mailto: luuk.witters@gmail.com"));

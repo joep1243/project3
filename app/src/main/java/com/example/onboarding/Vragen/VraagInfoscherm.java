@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Model.Code;
+import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
 import com.squareup.picasso.Picasso;
@@ -22,15 +24,15 @@ public class VraagInfoscherm extends AppCompatActivity {
     private TextView txtInfo;
     private TextView txthead;
     private ImageView imgFoto;
-    private int iTeller;
-
+    Code code = new Code();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraaginfoscherm);
 
-        iTeller = Vraagscherm.iTeller;
+
+
 
         txthead = findViewById(R.id.txthead);
         Getpt("Vraag", txthead );
@@ -39,11 +41,11 @@ public class VraagInfoscherm extends AppCompatActivity {
         imgFoto = findViewById(R.id.imgFoto);
         Getpi("Image", imgFoto );
     }
-    public void openTerug(View v) {
+    @Override
+    public void onBackPressed() {
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_down_reverse, R.anim.slide_up_reverse);
-
+        overridePendingTransition(R.anim.nothing, R.anim.slide_down);
     }
 
     /**
@@ -70,7 +72,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag"+iTeller);
+                    String promo = jsonObject.getString("Vraag"+Code.VID);
                     JSONObject jsonObject1 = new JSONObject (promo);
 
                     String promo1 = jsonObject1.getString(finalItem);
@@ -115,7 +117,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag"+iTeller);
+                    String promo = jsonObject.getString("Vraag"+Code.VID);
                     JSONObject jsonObject1 = new JSONObject (promo);
                     String promo1 = jsonObject1.getString(finalItemi);
 
@@ -133,5 +135,25 @@ public class VraagInfoscherm extends AppCompatActivity {
                 // Locale error handlin
             }
         });
+    }
+
+
+    public void openTerug(View v){
+        if (Code.VID < Code.iCount) {
+            Code.VID++;
+            code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
+//            Intent intent = new Intent(this, Vraagscherm.class);
+//            startActivity(intent);
+            overridePendingTransition(R.anim.nothing, R.anim.slide_down);
+
+        } else if (Code.VID == Code.iCount){
+            Code.VID++;
+            code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
+
+            Intent intent = new Intent(this, Promoscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 }

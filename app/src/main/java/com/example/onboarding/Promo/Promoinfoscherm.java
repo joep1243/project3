@@ -74,6 +74,7 @@ public class Promoinfoscherm extends AppCompatActivity {
 
 
             public void Openmail(View v){
+                System.out.println(Code.VID + " is het VID nummer bij Promo Ja");
                 try {
 
                      code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
@@ -99,17 +100,13 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
 
 
-              public void NextScreen(){
+              public void NextScreen(View v){
+            System.out.println(Code.VID + " is het VID nummer bij Promo Nee");
                   code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"nee");
                   Intent intent = new Intent(this, IntoductieScherm.class);
                   startActivity(intent);
               }
 
-            //TEMP
-            public void openIntro(View v) {
-                Intent intent = new Intent(this, IntoductieScherm.class);
-                startActivity(intent);
-            }
 
             //We have our own back buttons so they don't need their own makes them more depended
 //            @Override
@@ -205,4 +202,5 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
         });
     }
+
 }

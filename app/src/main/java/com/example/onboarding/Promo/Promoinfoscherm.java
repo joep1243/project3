@@ -54,7 +54,7 @@ public class Promoinfoscherm extends AppCompatActivity {
                 setContentView(R.layout.promoinfoscherm);
 
                 btnTerug = findViewById(R.id.btnTerug);
-                btnTerug = findViewById(R.id.btnTerug);
+                //btnTerug = findViewById(R.id.btnTerug);
                 btnmail = findViewById(R.id.btnmail);
 
                 txthead = findViewById(R.id.txthead);
@@ -104,9 +104,9 @@ public class Promoinfoscherm extends AppCompatActivity {
 
                     System.out.println(e);
                 }
-
-
             }
+
+
 
 
               public void NextScreen(View v){

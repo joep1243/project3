@@ -10,44 +10,56 @@
 
     <Button
         android:id="@+id/btnTerug"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="openTerug"
+        android:layout_width="128dp"
+        android:layout_height="39dp"
+        android:background="@drawable/btn_round_corners"
+        android:fontFamily="@font/frutiger_lt_std_bold_cn"
+        android:onClick="openVolgendeV"
+        android:padding="10dp"
         android:text="Volgende vraag"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.924"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.918" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <TextView
         android:id="@+id/txtInfo"
-        android:layout_width="376dp"
-        android:layout_height="449dp"
+        android:layout_width="378dp"
+        android:layout_height="349dp"
         android:fontFamily="@font/frutiger_lt_std_light"
+        android:scrollbars="vertical"
         android:text="Hier komt de text van het infoscherm"
         android:textColor="#000000"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txthead" />
+        app:layout_constraintTop_toBottomOf="@+id/txthead"
+        app:layout_constraintVertical_bias="0.503" />
 
     <TextView
         android:id="@+id/txthead"
-        android:layout_width="374dp"
-        android:layout_height="44dp"
+        android:layout_width="378dp"
+        android:layout_height="62dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/frutiger_lt_std_light"
+        android:fontFamily="@font/frutiger_lt_std_bold_cn"
         android:text="Kopje"
-        android:textColor="#000000"
+        android:textColor="#4D5693"
         android:textSize="36sp"
+        app:autoSizeMaxTextSize="24sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgFoto" />
+        app:layout_constraintTop_toBottomOf="@+id/imgFoto"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imgFoto"

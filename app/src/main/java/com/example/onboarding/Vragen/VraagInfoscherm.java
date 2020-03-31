@@ -2,6 +2,7 @@ package com.example.onboarding.Vragen;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,12 +32,10 @@ public class VraagInfoscherm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.vraaginfoscherm);
 
-
-
-
         txthead = findViewById(R.id.txthead);
         Getpt("Vraag", txthead );
         txtInfo = findViewById(R.id.txtInfo);
+        txtInfo.setMovementMethod(new ScrollingMovementMethod());
         Getpt("InfoText", txtInfo );
         imgFoto = findViewById(R.id.imgFoto);
         Getpi("Image", imgFoto );
@@ -117,11 +116,11 @@ public class VraagInfoscherm extends AppCompatActivity {
 
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag"+Code.VID);
-                    JSONObject jsonObject1 = new JSONObject (promo);
-                    String promo1 = jsonObject1.getString(finalItemi);
+                    String vraag = jsonObject.getString("Vraag"+Code.VID);
+                    JSONObject jsonObject1 = new JSONObject (vraag);
+                    String vraag1 = jsonObject1.getString(finalItemi);
 
-                    Picasso.get().load(promo1).resize(412, 161).into(finalIdi);
+                    Picasso.get().load(vraag1).resize(412, 161).into(finalIdi);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -138,13 +137,13 @@ public class VraagInfoscherm extends AppCompatActivity {
     }
 
 
-    public void openTerug(View v){
+    public void openVolgendeV(View v){
         if (Code.VID < Code.iCount) {
             Code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
 
-//            Intent intent = new Intent(this, Vraagscherm.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this, Vraagscherm.class);
+            startActivity(intent);
             overridePendingTransition(R.anim.nothing, R.anim.slide_down);
 
         } else if (Code.VID == Code.iCount){

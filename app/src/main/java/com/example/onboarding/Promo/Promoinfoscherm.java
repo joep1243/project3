@@ -5,7 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -50,14 +54,24 @@ public class Promoinfoscherm extends AppCompatActivity {
             setContentView(R.layout.promoinfoscherm);
 
             btnTerug = findViewById(R.id.btnTerug);
+            btnTerug = findViewById(R.id.btnTerug);
             btnmail = findViewById(R.id.btnmail);
 
             txthead = findViewById(R.id.txthead);
             Getpt("Vraag", txthead );
             txtInfo = findViewById(R.id.txtInfo);
+            txtInfo.setMovementMethod(new ScrollingMovementMethod());
             Getpt("InfoText", txtInfo );
             imgFoto = findViewById(R.id.imgFoto);
             Getpi("Image", imgFoto );
+
+            Animation mAnimation = new AlphaAnimation(1, 0);
+            mAnimation.setDuration(800);
+            mAnimation.setInterpolator(new LinearInterpolator());
+            mAnimation.setRepeatCount(Animation.INFINITE);
+            mAnimation.setRepeatMode(Animation.REVERSE);
+            btnmail.startAnimation(mAnimation);
+
 
 
 

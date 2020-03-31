@@ -12,9 +12,9 @@
         android:id="@+id/cPink"
         android:layout_width="371dp"
         android:layout_height="284dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="480dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="132dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtVraagNmr"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cpink" />
 
@@ -22,9 +22,9 @@
         android:id="@+id/cBlue"
         android:layout_width="339dp"
         android:layout_height="401dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="420dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtVraagNmr"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/cblue" />
 
@@ -42,8 +42,8 @@
 
     <TextView
         android:id="@+id/txtVraagNmr"
-        android:layout_width="146dp"
-        android:layout_height="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Vraag #"
         android:textColor="#4D5693"
@@ -64,20 +64,22 @@
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnNee"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintTop_toBottomOf="@+id/txtVraagNmr" />
+
 
     <Button
         android:id="@+id/btnJa"
-        android:onClick="openJa"
         android:layout_width="129dp"
         android:layout_height="48dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="112dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
+        android:onClick="openJa"
         android:text="Ja"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
@@ -87,20 +89,19 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785"
-        />
-
+        app:layout_constraintTop_toBottomOf="@+id/txtVraag"
+        app:layout_constraintVertical_bias="0.941" />
 
     <Button
         android:id="@+id/btnNee"
-        android:onClick="openNee"
         android:layout_width="131dp"
         android:layout_height="45dp"
+        android:layout_marginBottom="112dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
+        android:onClick="openNee"
         android:text="Nee"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
@@ -110,10 +111,8 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.85"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.785" />
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

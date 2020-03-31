@@ -58,6 +58,7 @@ public class Promoscherm extends AppCompatActivity {
     public void openinfoPromo(View v){
         Intent intent = new Intent(this, Promoinfoscherm.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_up, R.anim.nothing);
     }
 
 

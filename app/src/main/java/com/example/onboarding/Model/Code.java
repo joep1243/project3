@@ -21,7 +21,7 @@ import org.json.JSONObject;
  */
 
 public class Code extends AppCompatActivity {
-    public static int VID;
+    public static int VID = 2;
     public static int iCount;
     String StudentID = "test";
     String StudentKlas = "";

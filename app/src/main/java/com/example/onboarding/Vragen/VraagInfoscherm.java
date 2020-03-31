@@ -143,7 +143,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
             Intent intent = new Intent(this, Vraagscherm.class);
             startActivity(intent);
-            overridePendingTransition(R.anim.nothing, R.anim.slide_down);
+           overridePendingTransition(R.anim.nothing, R.anim.slide_down);
 
         } else if (Code.VID == Code.iCount){
             Code.VID++;

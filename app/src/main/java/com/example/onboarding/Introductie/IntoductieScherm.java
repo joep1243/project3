@@ -72,6 +72,7 @@ public class IntoductieScherm extends AppCompatActivity
                     String introductie = jsonObject.getString("Introductie");
                     System.out.println(introductie);
                     JSONObject jsonObject1 = new JSONObject(introductie);
+
                     String intro1 = jsonObject1.getString(finalItem);
                     finalId.setText(intro1);
 

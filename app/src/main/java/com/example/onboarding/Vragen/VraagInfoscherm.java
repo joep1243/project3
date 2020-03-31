@@ -35,7 +35,6 @@ public class VraagInfoscherm extends AppCompatActivity {
         txthead = findViewById(R.id.txthead);
         Getpt("Vraag", txthead );
         txtInfo = findViewById(R.id.txtInfo);
-        txtInfo.setMovementMethod(new ScrollingMovementMethod());
         Getpt("InfoText", txtInfo );
         imgFoto = findViewById(R.id.imgFoto);
         Getpi("Image", imgFoto );

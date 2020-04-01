@@ -41,6 +41,8 @@ public class IntoductieScherm extends AppCompatActivity
     }
     public void openFeedback(View v)
     {
+        code.VID++;
+        code.SetVIDdb(getBaseContext(), code.getsid(), code.getvid());
         Intent intent = new Intent(this, Feedback.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

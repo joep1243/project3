@@ -101,8 +101,7 @@ public class Promoinfoscherm extends AppCompatActivity {
                     }
 
                 }catch (Exception e){
-
-                    System.out.println(e);
+                    code.toast(getApplicationContext());
                 }
             }
 
@@ -165,7 +164,7 @@ public class Promoinfoscherm extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Locale error handlin
+                        code.toast(getApplicationContext());
                     }
                 });
             }
@@ -210,7 +209,7 @@ public class Promoinfoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                code.toast(getApplicationContext());
             }
         });
     }

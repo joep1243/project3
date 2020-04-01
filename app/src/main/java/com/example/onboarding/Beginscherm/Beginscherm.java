@@ -31,10 +31,9 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
-        code.toast(getApplicationContext());
-        //StartDB("waltertest");
-        //code.getVIDdb(getBaseContext());
-        //code.getCount(getBaseContext());
+        StartDB("waltertest");
+        code.getVIDdb(getBaseContext());
+        code.getCount(getBaseContext());
     }
 
     public void openVragen(View v) {

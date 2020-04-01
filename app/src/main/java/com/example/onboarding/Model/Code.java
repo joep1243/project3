@@ -27,6 +27,7 @@ public class Code extends AppCompatActivity {
     String StudentKlas = "";
     Boolean ESE = Boolean.FALSE;
 
+    public void setsid(String sid){ StudentID = sid;}
     //get sid
     public String getsid(){ return StudentID; }
     //get vid
@@ -83,11 +84,11 @@ public class Code extends AppCompatActivity {
                     String sVraag = null, sVraag1;
                     Integer teller;
 
-                        sVraag = jsonObject.getString("Count");
-                        JSONObject jsonObject1 = new JSONObject (sVraag);
-                        teller = jsonObject1.getInt("count");
-                        iCount = teller;
-                        System.out.println(Code.iCount + " is de teller");
+                    sVraag = jsonObject.getString("Count");
+                    JSONObject jsonObject1 = new JSONObject (sVraag);
+                    teller = jsonObject1.getInt("count");
+                    iCount = teller;
+                    System.out.println(Code.iCount + " is de teller");
 
                 } catch (JSONException e) {
                     e.printStackTrace();

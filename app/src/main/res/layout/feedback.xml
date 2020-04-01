@@ -132,8 +132,8 @@
 
     <Button
         android:id="@+id/btnIntakeOneens"
-        android:layout_width="131dp"
-        android:layout_height="45dp"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Oneens"
@@ -177,8 +177,8 @@
 
     <Button
         android:id="@+id/btnOpenOneens"
-        android:layout_width="131dp"
-        android:layout_height="45dp"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Oneens"

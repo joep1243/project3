@@ -9,7 +9,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Feedback.Feedback;
+import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.Model.Code;
+import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.R;
 import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
@@ -38,9 +41,27 @@ public class Beginscherm extends AppCompatActivity {
     }
 
     public void openVragen(View v) {
-        Intent intent = new Intent(this, Vraagscherm.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        if(Code.VID <= Code.iCount) {
+            Intent intent = new Intent(this, Vraagscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+
+        else if (Code.VID == Code.iCount + 1){
+            Intent intent = new Intent(this, Promoscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+        else if (Code.VID == 100){
+            Intent intent = new Intent(this, IntoductieScherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+        else if (Code.VID == 101){
+            Intent intent = new Intent(this, Feedback.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
     }
 
     //i Don't know why this works but it does it's some Demon Shit
@@ -53,7 +74,7 @@ public class Beginscherm extends AppCompatActivity {
         final String finalSID = SID;
 
         VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
-        secondHelper.get("GetSID/index.php?SID=" + finalSID , null, new Response.Listener<JSONObject>() {
+        secondHelper.get("GetSID/index.php?SID=" + finalSID, null, new Response.Listener<JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {

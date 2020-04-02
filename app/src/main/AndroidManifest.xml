@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Eindscherm.Eindscherm"></activity>
+
         <activity
             android:name=".Introductie.IntoductieScherm"
             android:exported="true"
@@ -34,6 +34,11 @@
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Vragen.Vraagscherm"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".Eindscherm.Eindscherm"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />

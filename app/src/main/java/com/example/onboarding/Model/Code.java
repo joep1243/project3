@@ -32,8 +32,6 @@ public class Code extends AppCompatActivity {
     //get vid
     public Integer getvid(){ return VID; }
 
-
-
     public void getVIDdb(Context context){
 
         Context Context = null;

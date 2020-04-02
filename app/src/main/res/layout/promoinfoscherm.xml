@@ -26,6 +26,7 @@
             android:onClick="NextScreen"
             android:padding="10dp"
             android:text="Volgende vraag"
+            android:visibility="invisible"
             android:textColor="#FFFFFF"
             android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@+id/imgFoto"

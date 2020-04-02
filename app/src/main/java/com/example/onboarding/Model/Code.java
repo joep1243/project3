@@ -4,6 +4,7 @@ package com.example.onboarding.Model;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,23 +17,35 @@ import com.example.onboarding.helpers.VolleyHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Random;
+
 /**
  *
  */
 
 public class Code extends AppCompatActivity {
+    // create instance of Random class
+    Random rand = new Random();
     public static int VID = 2;
     public static int iCount;
     String StudentID = "test";
     String StudentKlas = "";
     Boolean ESE = Boolean.FALSE;
 
+    //set StudentID
+    public void setsid(String sid){ StudentID = sid;}
     //get sid
     public String getsid(){ return StudentID; }
     //get vid
     public Integer getvid(){ return VID; }
 
 
+    //this is the toast message that shows when a error is called
+    public void toast(Context context){ String[] message = {"WAT DOE JE NU??!!", "Dit is duidelijk niet onze fout", "Tosti ham kaas", "Ja shit, nu is alles kapot. Goed gedaan.", "sigh"};
+        // Generate random integers in range 0 to 999
+        int rand_int1 = rand.nextInt(5);
+        Toast.makeText(context, message[rand_int1],Toast.LENGTH_LONG).show();
+    }
 
     public void getVIDdb(Context context){
 
@@ -83,11 +96,11 @@ public class Code extends AppCompatActivity {
                     String sVraag = null, sVraag1;
                     Integer teller;
 
-                        sVraag = jsonObject.getString("Count");
-                        JSONObject jsonObject1 = new JSONObject (sVraag);
-                        teller = jsonObject1.getInt("count");
-                        iCount = teller;
-                        System.out.println(Code.iCount + " is de teller");
+                    sVraag = jsonObject.getString("Count");
+                    JSONObject jsonObject1 = new JSONObject (sVraag);
+                    teller = jsonObject1.getInt("count");
+                    iCount = teller;
+                    System.out.println(Code.iCount + " is de teller");
 
                 } catch (JSONException e) {
                     e.printStackTrace();

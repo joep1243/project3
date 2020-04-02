@@ -31,7 +31,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
-        StartDB("test");
+        StartDB("waltertest");
         code.getVIDdb(getBaseContext());
         code.getCount(getBaseContext());
     }
@@ -43,7 +43,7 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
     }
 
     //i Don't know why this works but it does it's some Demon Shit
-    public void StartDB(String sid) {
+    public void StartDB(final String sid) {
 
         String SID = null;
 
@@ -67,7 +67,11 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
 
                             @Override
                             public void onResponse(JSONObject response) {
-                                System.out.println(response.toString());
+
+                                //set sid in code file
+                                code.setsid(finalSID);
+                                //System.out.println(response.toString());
+
                                 try {
                                     JSONObject jsonObject = new JSONObject(response.toString());
 

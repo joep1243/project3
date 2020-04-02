@@ -9,7 +9,6 @@
     <application
         android:allowBackup="true"
         android:supportsRtl="true"
-
         android:theme="@style/Theme.AppCompat"
         android:usesCleartextTraffic="true">
 
@@ -23,45 +22,38 @@
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
             android:name=".Feedback.Feedback"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
-        <activity android:name=".Vragen.VraagInfoscherm"
+        <activity
+            android:name=".Vragen.VraagInfoscherm"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
         <activity
             android:name=".Vragen.Vraagscherm"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
-
+        <activity
+            android:name=".Eindscherm.Eindscherm"
+            android:exported="true"
+            android:screenOrientation="sensorPortrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Promo.Promoinfoscherm"
             android:exported="true"
             android:screenOrientation="sensorPortrait"
             tools:ignore="LockedOrientationActivity" />
-
-
-
-
-
         <activity android:name=".Beginscherm.Beginscherm">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

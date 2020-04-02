@@ -12,9 +12,9 @@
         android:id="@+id/cPink"
         android:layout_width="371dp"
         android:layout_height="284dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="480dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="132dp"
+        android:layout_marginBottom="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtVraagNmr"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cpink" />
 
@@ -22,9 +22,9 @@
         android:id="@+id/cBlue"
         android:layout_width="339dp"
         android:layout_height="401dp"
-        android:layout_marginEnd="176dp"
-        android:layout_marginBottom="420dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="36dp"
+        app:layout_constraintBottom_toTopOf="@+id/txtVraagNmr"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/cblue" />
 
@@ -42,8 +42,8 @@
 
     <TextView
         android:id="@+id/txtVraagNmr"
-        android:layout_width="146dp"
-        android:layout_height="65dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Feedback"
         android:textColor="#4D5693"
@@ -53,7 +53,8 @@
         app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.408" />
+        app:layout_constraintVertical_bias="0.408"
+        />
 
     <TextView
         android:id="@+id/txtIntake"
@@ -65,11 +66,11 @@
         android:textColor="@android:color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenEens"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586" />
+        app:layout_constraintTop_toBottomOf="@+id/txtVraagNmr"/>
 
     <TextView
         android:id="@+id/txtOpendag"
@@ -82,16 +83,17 @@
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenEens"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586" />
+        app:layout_constraintTop_toBottomOf="@+id/txtVraagNmr"/>
 
     <TextView
         android:id="@+id/txtOpenVraag"
         android:layout_width="317dp"
         android:layout_height="102dp"
+        android:layout_marginTop="229dp"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Geef feedback over het intakegesprek en opendag."
         android:textAlignment="center"
@@ -99,11 +101,11 @@
         android:textSize="24sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintBottom_toTopOf="@+id/btnOpenEens"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.553"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.586" />
+        app:layout_constraintTop_toBottomOf="@+id/txtVraagNmr"/>
 
     <Button
         android:id="@+id/btnIntakeEens"
@@ -130,8 +132,8 @@
 
     <Button
         android:id="@+id/btnIntakeOneens"
-        android:layout_width="131dp"
-        android:layout_height="45dp"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Oneens"
@@ -175,8 +177,8 @@
 
     <Button
         android:id="@+id/btnOpenOneens"
-        android:layout_width="131dp"
-        android:layout_height="45dp"
+        android:layout_width="129dp"
+        android:layout_height="48dp"
         android:background="@drawable/btn_stroke"
         android:fontFamily="@font/frutiger_lt_std_light"
         android:text="Oneens"
@@ -224,14 +226,16 @@
         android:layout_height="138dp"
         android:backgroundTint="@android:color/background_dark"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Dit is tekst"
+        android:inputType="textPersonName"
         android:textColor="#000000"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnNext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtOpendag"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

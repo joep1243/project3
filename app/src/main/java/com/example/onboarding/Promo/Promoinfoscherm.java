@@ -1,18 +1,22 @@
 package com.example.onboarding.Promo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
@@ -21,13 +25,6 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import com.example.onboarding.R;
 
 public class Promoinfoscherm extends AppCompatActivity {
     //private com.example.onboarding.Model.PromoModel PromoModel;
@@ -46,36 +43,44 @@ public class Promoinfoscherm extends AppCompatActivity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.promoinfoscherm);
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.promoinfoscherm);
 
-            btnTerug = findViewById(R.id.btnTerug);
-            btnmail = findViewById(R.id.btnmail);
+                btnTerug = findViewById(R.id.btnTerug);
+                //btnTerug = findViewById(R.id.btnTerug);
+                btnmail = findViewById(R.id.btnmail);
 
-            txthead = findViewById(R.id.txthead);
-            Getpt("Vraag", txthead );
-            txtInfo = findViewById(R.id.txtInfo);
-            Getpt("InfoText", txtInfo );
-            imgFoto = findViewById(R.id.imgFoto);
-            Getpi("Image", imgFoto );
+                txthead = findViewById(R.id.txthead);
+                Getpt("Vraag", txthead);
+                txtInfo = findViewById(R.id.txtInfo);
+                txtInfo.setMovementMethod(new ScrollingMovementMethod());
+                Getpt("InfoText", txtInfo);
+                imgFoto = findViewById(R.id.imgFoto);
+                Getpi("Image", imgFoto);
+
+                Animation mAnimation = new AlphaAnimation(1, 0);
+                mAnimation.setDuration(800);
+                mAnimation.setInterpolator(new LinearInterpolator());
+                mAnimation.setRepeatCount(Animation.INFINITE);
+                mAnimation.setRepeatMode(Animation.REVERSE);
+                btnmail.startAnimation(mAnimation);
 
 
-
-
-            //Button delay because nobody likes to read text but i'm a evil developer so they need to read the text
-            btnTerug.postDelayed(new Runnable() {
-                @Override
-                public void run() {
+                //Button delay because nobody likes to read text but i'm a evil developer so they need to read the text
+                btnTerug.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
                         btnTerug.setVisibility(View.VISIBLE);
-                }
-            }, 1000 * 15);
-        }
+                    }
+                }, 1000 * 15);
+            }
+
 
 
             public void Openmail(View v){
+                System.out.println(Code.VID + " is het VID nummer bij Promo Ja");
                 try {
                     code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
-
                     Intent i = new Intent(Intent.ACTION_SENDTO);
                     i.setType("message/rfc822");
                     i.setData(Uri.parse("mailto: luuk.witters@gmail.com"));
@@ -89,25 +94,23 @@ public class Promoinfoscherm extends AppCompatActivity {
                     }
 
                 }catch (Exception e){
-
-                    System.out.println(e);
+                    code.toast(getApplicationContext());
                 }
-
-
             }
 
 
-              public void NextScreen(){
+
+
+              public void NextScreen(View v){
+            System.out.println(Code.VID + " is het VID nummer bij Promo Nee");
                   code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"nee");
+                  Code.VID = 100;
+                  code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
                   Intent intent = new Intent(this, IntoductieScherm.class);
                   startActivity(intent);
+                  overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
               }
 
-            //TEMP
-            public void openIntro(View v) {
-                Intent intent = new Intent(this, IntoductieScherm.class);
-                startActivity(intent);
-            }
 
             //We have our own back buttons so they don't need their own makes them more depended
 //            @Override
@@ -154,7 +157,7 @@ public class Promoinfoscherm extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Locale error handlin
+                        code.toast(getApplicationContext());
                     }
                 });
             }
@@ -199,8 +202,9 @@ public class Promoinfoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                code.toast(getApplicationContext());
             }
         });
     }
+
 }

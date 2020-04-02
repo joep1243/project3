@@ -1,50 +1,29 @@
 package com.example.onboarding.Beginscherm;
 
-import android.os.AsyncTask;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-
-import com.example.onboarding.Vragen.Vraagscherm;
-
+import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
+import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
 
-
-public class Beginscherm<$mysql_user> extends AppCompatActivity {
+public class Beginscherm extends AppCompatActivity {
 
     private Button btnbegin;
     private android.content.Context Context;
-    private EditText StudentID;
-    private TextView txtwelkom;
+
+
 
 
 
@@ -52,51 +31,89 @@ public class Beginscherm<$mysql_user> extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beginscherm);
-//Ik heb hier alvast student id weggehaalt
+
+        //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
 
-
-//        btnbegin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
- //               if (validate()) {
-//
-
-                    // db check true/false hier
-
-                    //SELECT * FROM studentminuutdatumvraag WHERE sID = "%s"', $SID
-                    //INSERT INTO studentminuutdatumvraag VALUES(StudentID, current_timestamp(), NULL, NULL)';
-                }
-//            }
-//        });
-//    }
-//    private void setupUIViews() {
-//        StudentID = (EditText) findViewById(R.id.StudentID);
-//        btnbegin = (Button) findViewById(R.id.btnbegin);
-//    }
-
-//    private Boolean validate( ){
-//        Boolean result = false;
-//        String student = StudentID.getText().toString();
-//       if(student.isEmpty()) {
-//            Toast.makeText(this, "Vul je student id in", Toast.LENGTH_SHORT).show();
-//        }else{
-//            result = true;
-//        }
-//        return result;
-//}
-//        @Override
-//        protected void onPostExecute(String result) {
-//            txtwelkom.setText(result);
-//        }
-
-
-//    }
+        StartDB("waltertest");
+        code.getVIDdb(getBaseContext());
+        code.getCount(getBaseContext());
+    }
 
     public void openVragen(View v) {
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
+    //i Don't know why this works but it does it's some Demon Shit
+    public void StartDB(final String sid) {
+
+        String SID = null;
+
+        SID = sid;
+
+        final String finalSID = SID;
+
+        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
+        secondHelper.get("GetSID/index.php?SID=" + finalSID , null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response.toString());
+                    String result = jsonObject.getString("result");
+
+                    if(result.equals("false")) {
+                        VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
+                        secondHelper.get("StartDB/index.php?SID=" + finalSID, null, new Response.Listener<JSONObject>() {
+
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                //set sid in code file
+                                code.setsid(finalSID);
+                                //System.out.println(response.toString());
+
+                                try {
+                                    JSONObject jsonObject = new JSONObject(response.toString());
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // Locale error handlin
+                            }
+                        });
+
+                    }else {
+
+                        //hier nog toast
+                        //============================================================
+                        //
+                        btnbegin.setEnabled(true); }// DEBUG deze moet dadelijk of false
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
+    }
+
+
 }
 

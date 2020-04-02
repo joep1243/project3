@@ -18,11 +18,15 @@ import org.json.JSONObject;
 
 public class Eindscherm extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
+    //Objecten Aanmaken
     private Button btnEind;
     private VolleyHelper helper;
     private String sStudent;
     Code code = new Code();
 
+    /**
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,9 @@ public class Eindscherm extends AppCompatActivity implements Response.Listener<J
         sStudent = code.getsid();
     }
 
+    /** Functie om de app te 'Beëindigen' en Einddatum te setten in Database
+     * @param v
+     */
     public void eindApp(View v)
     {
         Toast.makeText(this, "Eind Onboarding", Toast.LENGTH_LONG).show();
@@ -40,16 +47,18 @@ public class Eindscherm extends AppCompatActivity implements Response.Listener<J
     }
 
     /**
-     * @param error Als er een error is met het ophalen van json
+     * @param error
      */
     @Override
     public void onErrorResponse(VolleyError error) {
-        System.out.println(error);
-        //Tosti
+        code.toast(getApplicationContext());
     }
 
-    /**
-     * @param response Wat er gebeurt als er json teruggegeven wordt uit de api
+
+
+
+    /** response Wat er gebeurt als er json teruggegeven wordt uit de api
+     * @param response
      */
     @Override
     public void onResponse(JSONObject response) {

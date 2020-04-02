@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.android.volley.VolleyError;
 import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.Model.Code;
+import com.example.onboarding.Promo.Promoscherm;
 import com.example.onboarding.R;
 import com.example.onboarding.Vragen.Vraagscherm;
 
@@ -53,7 +54,7 @@ public class IntoductieScherm extends AppCompatActivity
             Code.VID = iVergelijk + 1;
             System.out.println(Code.VID );
             code.SetVIDdb(getBaseContext(), code.getsid(), code.getvid());
-            Intent i = new Intent(this, Vraagscherm.class);
+            Intent i = new Intent(this, Promoscherm.class);
             startActivity(i);
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }

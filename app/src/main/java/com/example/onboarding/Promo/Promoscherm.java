@@ -130,7 +130,7 @@ public class Promoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                code.toast(getApplicationContext());
             }
         });
     }

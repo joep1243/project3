@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.onboarding.Eindscherm.Eindscherm;
+import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
 import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
@@ -22,6 +23,7 @@ import org.json.JSONObject;
 
 public class Feedback extends AppCompatActivity implements Response.Listener<JSONObject>, Response.ErrorListener {
 
+        //Objecten aanmaken
         private Button btnIntakeEens;
         private Button btnIntakeOneens;
         private Button btnOpenEens;
@@ -33,9 +35,9 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
         private TextView txtOpenVraag;
         private int iTeller = 0;
         Boolean bIntakeEens = Boolean.FALSE;
-        Boolean bIntakeOneens = Boolean.FALSE;
         Boolean bOpenEens = Boolean.FALSE;
-        Boolean bOpenOneens = Boolean.FALSE;
+
+        Code code = new Code();
 
         private VolleyHelper helper;
 
@@ -45,6 +47,7 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             super.onCreate(savedInstanceState);
             setContentView(R.layout.feedback);
 
+            //Objecten koppelen aan layout objecten
             btnIntakeEens = findViewById(R.id.btnIntakeEens);
             btnIntakeOneens = findViewById(R.id.btnIntakeOneens);
             btnOpenEens = findViewById(R.id.btnOpenEens);
@@ -54,11 +57,11 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             txtIntake = findViewById(R.id.txtIntake);
             txtOpenDag = findViewById(R.id.txtOpendag);
             txtOpenVraag = findViewById(R.id.txtOpenVraag);
-
             txtFeedback.addTextChangedListener(feedbackTextWatcher);
 
         }
 
+        //Functie die btnNext niet klikbaar maakt wanneer txtFeedback leeg is
         private TextWatcher feedbackTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -78,7 +81,8 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             }
         };
 
-
+        //Button press maakt buttons en vraag van vraag 1 onzichtbaar en haalt vraag 2 tevoorschijn
+        //BIntakeEens wordt true
         public void IntakeEens(View v) {
             System.out.println("Eens Intake");
             btnIntakeEens.setVisibility(View.INVISIBLE);
@@ -87,9 +91,11 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenOneens.setVisibility(View.VISIBLE);
             txtIntake.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.VISIBLE);
+            bIntakeEens = true;
 
         }
 
+        //Button press maakt buttons en vraag van vraag 1 onzichtbaar en haalt vraag 2 tevoorschijn
         public void IntakeOneens(View v) {
             System.out.println("Oneens Intake");
             btnIntakeEens.setVisibility(View.INVISIBLE);
@@ -99,7 +105,11 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             txtIntake.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.VISIBLE);
 
+
         }
+
+        //Button press maakt buttons en vraag van vraag 2 onzichtbaar en haalt de open vraag tevoorschijn
+        //BOpenEens wordt true
 
         public void OpenEens(View v) {
             System.out.println("Eens Open");
@@ -109,9 +119,11 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenEens.setVisibility(View.INVISIBLE);
             btnOpenOneens.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.INVISIBLE);
+            bOpenEens = true;
 
         }
 
+        //Button press maakt buttons en vraag van vraag 2 onzichtbaar en haalt de open vraag tevoorschijn
         public void OpenOneens(View v) {
             System.out.println("Oneens Open");
             txtOpenVraag.setVisibility(View.VISIBLE);
@@ -122,6 +134,8 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             txtOpenDag.setVisibility(View.INVISIBLE);
         }
 
+        //Checkt de Booleans om t weten welke variabele hij moet doorsturen
+        //Submit Feedback
         public void Verder(View v) {
             TextView tvFeedback = findViewById(R.id.txtFeedback);
             String txtFeedback = tvFeedback.getText().toString();
@@ -139,10 +153,11 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
                 sOpenDag = "Eens";
             }
 
-
+            //API functie SetFB aanspreken
             helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
             helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
 
+            //Open Eindscherm
             Intent intent = new Intent(this, Eindscherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
@@ -156,7 +171,7 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
         @Override
         public void onErrorResponse(VolleyError error) {
             System.out.println(error);
-            //Tosti
+
         }
 
         /**

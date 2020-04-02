@@ -54,7 +54,7 @@ public class Promoinfoscherm extends AppCompatActivity {
                 setContentView(R.layout.promoinfoscherm);
 
                 btnTerug = findViewById(R.id.btnTerug);
-                btnTerug = findViewById(R.id.btnTerug);
+                //btnTerug = findViewById(R.id.btnTerug);
                 btnmail = findViewById(R.id.btnmail);
 
                 txthead = findViewById(R.id.txthead);
@@ -88,7 +88,6 @@ public class Promoinfoscherm extends AppCompatActivity {
                 System.out.println(Code.VID + " is het VID nummer bij Promo Ja");
                 try {
                     code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
-
                     Intent i = new Intent(Intent.ACTION_SENDTO);
                     i.setType("message/rfc822");
                     i.setData(Uri.parse("mailto: luuk.witters@gmail.com"));
@@ -102,12 +101,11 @@ public class Promoinfoscherm extends AppCompatActivity {
                     }
 
                 }catch (Exception e){
-
-                    System.out.println(e);
+                    code.toast(getApplicationContext());
                 }
-
-
             }
+
+
 
 
               public void NextScreen(View v){
@@ -166,7 +164,7 @@ public class Promoinfoscherm extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // Locale error handlin
+                        code.toast(getApplicationContext());
                     }
                 });
             }
@@ -211,7 +209,7 @@ public class Promoinfoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                code.toast(getApplicationContext());
             }
         });
     }

@@ -1,8 +1,6 @@
 package com.example.onboarding.Promo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -13,10 +11,12 @@ import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
@@ -25,13 +25,6 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
-import com.example.onboarding.R;
 
 public class Promoinfoscherm extends AppCompatActivity {
     //private com.example.onboarding.Model.PromoModel PromoModel;

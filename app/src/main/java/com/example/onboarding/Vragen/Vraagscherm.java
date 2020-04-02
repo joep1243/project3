@@ -31,7 +31,6 @@ public class Vraagscherm extends AppCompatActivity {
         TextView txtVraag = findViewById(R.id.txtVraag);
         TextView txtVraagNummer = findViewById(R.id.txtVraagNmr);
 
-
         txtVraagNummer.setText("Vraag "+ code.VID);
         Getpt("Vraag", txtVraag);
 

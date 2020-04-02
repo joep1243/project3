@@ -39,6 +39,7 @@ public class Code extends AppCompatActivity {
     //get vid
     public Integer getvid(){ return VID; }
 
+
     //this is the toast message that shows when a error is called
     public void toast(Context context){ String[] message = {"WAT DOE JE NU??!!", "Dit is duidelijk niet onze fout", "Tosti ham kaas", "Ja shit, nu is alles kapot. Goed gedaan.", "sigh"};
         // Generate random integers in range 0 to 999

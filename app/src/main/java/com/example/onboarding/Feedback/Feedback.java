@@ -2,6 +2,7 @@ package com.example.onboarding.Feedback;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,7 +12,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Eindscherm.Eindscherm;
 import com.example.onboarding.R;
+import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,7 +87,6 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenOneens.setVisibility(View.VISIBLE);
             txtIntake.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.VISIBLE);
-            bIntakeEens = true;
 
         }
 
@@ -96,27 +98,17 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenOneens.setVisibility(View.VISIBLE);
             txtIntake.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.VISIBLE);
-            iTeller = 1;
-            bIntakeOneens = true;
+
         }
 
         public void OpenEens(View v) {
             System.out.println("Eens Open");
-            bOpenEens = true;
-
-            if (iTeller == 0) {
-                System.out.println("Next Screen");
-                btnOpenEens.setVisibility(View.INVISIBLE);
-                btnOpenOneens.setVisibility(View.INVISIBLE);
-                txtOpenDag.setVisibility(View.INVISIBLE);
-            } else {
-                txtOpenVraag.setVisibility(View.VISIBLE);
-                txtFeedback.setVisibility(View.VISIBLE);
-                btnNext.setVisibility(View.VISIBLE);
-                btnOpenEens.setVisibility(View.INVISIBLE);
-                btnOpenOneens.setVisibility(View.INVISIBLE);
-                txtOpenDag.setVisibility(View.INVISIBLE);
-            }
+            txtOpenVraag.setVisibility(View.VISIBLE);
+            txtFeedback.setVisibility(View.VISIBLE);
+            btnNext.setVisibility(View.VISIBLE);
+            btnOpenEens.setVisibility(View.INVISIBLE);
+            btnOpenOneens.setVisibility(View.INVISIBLE);
+            txtOpenDag.setVisibility(View.INVISIBLE);
 
         }
 
@@ -128,8 +120,6 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             btnOpenEens.setVisibility(View.INVISIBLE);
             btnOpenOneens.setVisibility(View.INVISIBLE);
             txtOpenDag.setVisibility(View.INVISIBLE);
-            bOpenOneens = true;
-
         }
 
         public void Verder(View v) {
@@ -153,7 +143,9 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
             helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
 
-            //System.out.println("Intake is " + sIntake + " en open dag is " + sOpenDag);
+            Intent intent = new Intent(this, Eindscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
             System.out.println("Button works");
         }
@@ -164,6 +156,7 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
         @Override
         public void onErrorResponse(VolleyError error) {
             System.out.println(error);
+            //Tosti
         }
 
         /**

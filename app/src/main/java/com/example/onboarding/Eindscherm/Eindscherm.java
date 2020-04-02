@@ -38,13 +38,12 @@ public class Eindscherm extends AppCompatActivity implements Response.Listener<J
         helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
         helper.get("SetEDT/index.php?SID=" + sStudent, null, this, this);
 
-        this.btnEind.setOnClickListener(new View.OnClickListener() {
+        btnEind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
     }
 
     /**

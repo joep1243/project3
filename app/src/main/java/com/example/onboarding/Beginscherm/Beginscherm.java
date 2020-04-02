@@ -22,10 +22,7 @@ public class Beginscherm extends AppCompatActivity {
 
     private Button btnbegin;
     private android.content.Context Context;
-
-
-
-
+    Code code = new Code();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -28,7 +28,9 @@ public class Eindscherm extends AppCompatActivity implements Response.Listener<J
         super.onCreate(savedInstanceState);
         setContentView(R.layout.eindscherm);
         sStudent = code.getsid();
+
         btnEind = (Button) findViewById(R.id.btnEind);
+
     }
 
     public void eindApp(View v)
@@ -37,13 +39,6 @@ public class Eindscherm extends AppCompatActivity implements Response.Listener<J
 
         helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
         helper.get("SetEDT/index.php?SID=" + sStudent, null, this, this);
-
-//       btnEind.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//               finish();
-//            }
-//        });
     }
 
     /**

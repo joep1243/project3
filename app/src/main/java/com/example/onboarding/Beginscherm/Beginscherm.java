@@ -9,10 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+
 import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.Model.Code;
 import com.example.onboarding.Promo.Promoscherm;
+
+import com.example.onboarding.Model.Code;
+
 import com.example.onboarding.R;
 import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
@@ -21,7 +25,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Beginscherm extends AppCompatActivity {
 
     private Button btnbegin;
     private android.content.Context Context;
@@ -31,6 +34,7 @@ public class Beginscherm extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beginscherm);
+
 
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
@@ -121,17 +125,6 @@ public class Beginscherm extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
-            }
-        });
-    }
-
 
 }
 

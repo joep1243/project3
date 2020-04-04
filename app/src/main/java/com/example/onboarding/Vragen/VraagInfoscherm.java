@@ -38,7 +38,9 @@ public class VraagInfoscherm extends AppCompatActivity {
         Getpt("InfoText", txtInfo );
         imgFoto = findViewById(R.id.imgFoto);
         Getpi("Image", imgFoto );
+        // Aanmaken van het vraaginfoscherm en het aanspreken van de methodes die gebruikt moeten worden zodra deze activity opent
     }
+    //wanneer er op de ingebouwde terugknop wordt gedrukt dan wordt je teruggestuurd naar het vraagscherm
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, Vraagscherm.class);
@@ -50,6 +52,7 @@ public class VraagInfoscherm extends AppCompatActivity {
      * @param Value
      * @param idt
      */
+    // Deze methode haalt de infotekst uit de JSON
     public void Getpt(String Value, TextView idt) {
         String item = null;
         TextView id = null;
@@ -59,7 +62,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
         final String finalItem = item;
         final TextView finalId = id;
-
+        // Aanspreken van de API om de gevraagde gegevens op te halen vanuit de JSON
         VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
         secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
 
@@ -67,14 +70,14 @@ public class VraagInfoscherm extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
-
+                    //Setten van de gegevens die opgehaald worden uit de JSON
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String promo = jsonObject.getString("Vraag"+Code.VID);
-                    JSONObject jsonObject1 = new JSONObject (promo);
+                    String infotext = jsonObject.getString("Vraag"+Code.VID);
+                    JSONObject jsonObject1 = new JSONObject (infotext);
 
-                    String promo1 = jsonObject1.getString(finalItem);
-                    finalId.setText(promo1);
+                    String infotext1 = jsonObject1.getString(finalItem);
+                    finalId.setText(infotext1);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -95,6 +98,7 @@ public class VraagInfoscherm extends AppCompatActivity {
      * @param Value
      * @param id
      */
+    // Deze methode haalt de URL van de fotos die horen bij infotext uit de JSON
     public void Getpi(String Value, ImageView id) {
         String itemi = null;
         ImageView idi = null;
@@ -104,7 +108,7 @@ public class VraagInfoscherm extends AppCompatActivity {
 
         final String finalItemi = itemi;
         final ImageView finalIdi = idi;
-
+        // Aanspreken van de API om de gevraagde gegevens op te halen vanuit de JSON
         VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
         secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
 
@@ -112,14 +116,14 @@ public class VraagInfoscherm extends AppCompatActivity {
             public void onResponse(JSONObject response) {
 
                 try {
-
+                    //Setten van de gegevens die opgehaald worden uit de JSON
                     JSONObject jsonObject = new JSONObject (response.toString());
 
-                    String vraag = jsonObject.getString("Vraag"+Code.VID);
-                    JSONObject jsonObject1 = new JSONObject (vraag);
-                    String vraag1 = jsonObject1.getString(finalItemi);
+                    String photoURL = jsonObject.getString("Vraag"+Code.VID);
+                    JSONObject jsonObject1 = new JSONObject (photoURL);
+                    String photoURL1 = jsonObject1.getString(finalItemi);
 
-                    Picasso.get().load(vraag1).resize(412, 161).into(finalIdi);
+                    Picasso.get().load(photoURL1).resize(412, 161).into(finalIdi);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -135,8 +139,14 @@ public class VraagInfoscherm extends AppCompatActivity {
         });
     }
 
+//Deze methode wordt aangesproken wanneer er op de volgende knop gedrukt wordt
 
+    /**
+     *
+     * @param v
+     */
     public void openVolgendeV(View v){
+        //als VID lager dan iCount is wordt het VID opgehoogd met 1 en wordt er een nieuw vraagscherm getoond
         if (Code.VID < Code.iCount) {
             Code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
@@ -144,7 +154,7 @@ public class VraagInfoscherm extends AppCompatActivity {
             Intent intent = new Intent(this, Vraagscherm.class);
             startActivity(intent);
            overridePendingTransition(R.anim.nothing, R.anim.slide_down);
-
+// als VID gelijk is aan iCount wordt VID opgehoogd met 1 en wordt het volgende scherm getoond.
         } else if (Code.VID == Code.iCount){
             Code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());

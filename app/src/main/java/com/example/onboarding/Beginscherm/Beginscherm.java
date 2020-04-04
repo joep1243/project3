@@ -40,7 +40,7 @@ public class Beginscherm extends AppCompatActivity {
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
 
-        StartDB("waltertest");
+        StartDB("Vraagtest");
         code.getVIDdb(getBaseContext());
         code.getCount(getBaseContext());
     }

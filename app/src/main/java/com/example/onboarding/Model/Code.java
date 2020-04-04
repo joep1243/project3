@@ -26,7 +26,7 @@ import java.util.Random;
 public class Code extends AppCompatActivity {
     // create instance of Random class
     Random rand = new Random();
-    public static int VID = 2;
+    public static int VID;
     public static int iCount;
     String StudentID = "test";
     String StudentKlas = "";

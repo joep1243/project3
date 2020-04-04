@@ -1,5 +1,6 @@
 package com.example.onboarding.Eindscherm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.onboarding.Feedback.Feedback;
+import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
 import com.example.onboarding.helpers.VolleyHelper;
@@ -39,6 +42,18 @@ public class Eindscherm extends AppCompatActivity implements Response.Listener<J
 
         helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
         helper.get("SetEDT/index.php?SID=" + sStudent, null, this, this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (Code.VID == 102) {
+            Code.VID--;
+            System.out.println(Code.VID );
+            code.SetVIDdb(getBaseContext(), code.getsid(), code.getvid());
+            Intent i = new Intent(this, Feedback.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
     }
 
     /**

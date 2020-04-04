@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.onboarding.Eindscherm.Eindscherm;
+import com.example.onboarding.Introductie.IntoductieScherm;
+import com.example.onboarding.Model.Code;
 import com.example.onboarding.R;
 import com.example.onboarding.Vragen.Vraagscherm;
 import com.example.onboarding.helpers.VolleyHelper;
@@ -36,6 +38,7 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
         Boolean bIntakeOneens = Boolean.FALSE;
         Boolean bOpenEens = Boolean.FALSE;
         Boolean bOpenOneens = Boolean.FALSE;
+        Code code = new Code();
 
         private VolleyHelper helper;
 
@@ -77,6 +80,18 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
 
             }
         };
+
+    @Override
+    public void onBackPressed() {
+        if (Code.VID == 101) {
+            Code.VID--;
+            System.out.println(Code.VID );
+            code.SetVIDdb(getBaseContext(), code.getsid(), code.getvid());
+            Intent i = new Intent(this, IntoductieScherm.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
+    }
 
 
         public void IntakeEens(View v) {
@@ -143,6 +158,8 @@ public class Feedback extends AppCompatActivity implements Response.Listener<JSO
             helper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
             helper.get("SetFB/indexVis.php?SID=" + sStudent + "&mrk1=" + sIntake + "&mrk2=" + sOpenDag + "&fdb=" + txtFeedback, null, this, this);
 
+            Code.VID++;
+            code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());
             Intent intent = new Intent(this, Eindscherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);

@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
+import com.example.onboarding.Eindscherm.Eindscherm;
 import com.example.onboarding.Feedback.Feedback;
 import com.example.onboarding.Introductie.IntoductieScherm;
 import com.example.onboarding.Model.Code;
@@ -24,7 +25,7 @@ import com.example.onboarding.helpers.VolleyHelper;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
+public class Beginscherm extends AppCompatActivity {
 
     private Button btnbegin;
     private android.content.Context Context;
@@ -39,33 +40,33 @@ import org.json.JSONObject;
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
 
-        StartDB("waltertest");
+        StartDB("Vraagtest");
         code.getVIDdb(getBaseContext());
         code.getCount(getBaseContext());
     }
 
     public void openVragen(View v) {
-        if(Code.VID <= Code.iCount) {
+        if (Code.VID <= Code.iCount) {
             Intent intent = new Intent(this, Vraagscherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
-
-        else if (Code.VID == Code.iCount + 1){
+        } else if (Code.VID == Code.iCount + 1) {
             Intent intent = new Intent(this, Promoscherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
-        else if (Code.VID == 100){
+        } else if (Code.VID == 100) {
             Intent intent = new Intent(this, IntoductieScherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
-        else if (Code.VID == 101){
+        } else if (Code.VID == 101) {
             Intent intent = new Intent(this, Feedback.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
+        } else if (Code.VID == 102) {
+            Intent intent = new Intent(this, Eindscherm.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
     }
 
     //i Don't know why this works but it does it's some Demon Shit
@@ -87,7 +88,7 @@ import org.json.JSONObject;
                     JSONObject jsonObject = new JSONObject(response.toString());
                     String result = jsonObject.getString("result");
 
-                    if(result.equals("false")) {
+                    if (result.equals("false")) {
                         VolleyHelper secondHelper = new VolleyHelper(getBaseContext(), "https://adaonboarding.ml/t3/OnboardingAPI");
                         secondHelper.get("StartDB/index.php?SID=" + finalSID, null, new Response.Listener<JSONObject>() {
 
@@ -114,17 +115,27 @@ import org.json.JSONObject;
                             }
                         });
 
-                    }else {
+                    } else {
 
                         //hier nog toast
                         //============================================================
                         //
-                        btnbegin.setEnabled(true); }// DEBUG deze moet dadelijk of false
+                        btnbegin.setEnabled(true);
+                    }// DEBUG deze moet dadelijk of false
 
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
-}
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // Locale error handlin
+            }
+        });
 
+
+    }
+}

@@ -26,9 +26,9 @@ import java.util.Random;
 public class Code extends AppCompatActivity {
     // create instance of Random class
     Random rand = new Random();
-    public static int VID = 2;
+    public static int VID;
     public static int iCount;
-    String StudentID = "test";
+    String StudentID = "Vraagtest";
     String StudentKlas = "";
     Boolean ESE = Boolean.FALSE;
 
@@ -47,12 +47,13 @@ public class Code extends AppCompatActivity {
         Toast.makeText(context, message[rand_int1],Toast.LENGTH_LONG).show();
     }
 
+    // Deze methode haalt het vID op uit de database
     public void getVIDdb(Context context){
 
         Context Context = null;
         Context = context;
         final Context finalContext = Context;
-
+        // Aanspreken van de API en zo de SQL-query uit te voeren
         VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI");
         secondHelper.get("GetVID/index.php?SID=" + StudentID , null, new Response.Listener<JSONObject>() {
 
@@ -62,6 +63,7 @@ public class Code extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response.toString());
                     Integer result = Integer.parseInt(jsonObject.getString("result"));
+                    //VID wordt Het resultaat van de query. Hierdier is VID te gebruiken in de applicatie als waarde
                     VID = result;
 
                 } catch (JSONException e) {
@@ -77,14 +79,14 @@ public class Code extends AppCompatActivity {
             }
         });
     }
-
+// Deze methode haalt de totale hoeveelheid vragen uit de JSON via de API
     public void getCount(Context context) {
 
         Context Context = null;
         Context = context;
         final Context finalContext = Context;
 
-
+        // Aanspreken van de API en zo de SQL-query uit te voeren
         VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI/GetTEXT");
         secondHelper.get("index.php", null, new Response.Listener<JSONObject>() {
 
@@ -99,6 +101,7 @@ public class Code extends AppCompatActivity {
                     sVraag = jsonObject.getString("Count");
                     JSONObject jsonObject1 = new JSONObject (sVraag);
                     teller = jsonObject1.getInt("count");
+                    //iCount wordt Het resultaat van de query. Hierdier is iCount te gebruiken in de applicatie als waarde
                     iCount = teller;
                     System.out.println(Code.iCount + " is de teller");
 
@@ -158,7 +161,7 @@ public class Code extends AppCompatActivity {
             }
         });
     }
-
+// Deze methode zet het VID in de database via de API
     public void SetVIDdb(Context context, String sid, Integer vid) {
         Context Context = null;
         String SID = null;
@@ -171,7 +174,7 @@ public class Code extends AppCompatActivity {
         final Context finalContext = Context;
         final String finalSID = SID;
         final Integer finalVID = VID;
-
+        // Aanspreken van de API en zo de SQL-query uit te voeren
         VolleyHelper secondHelper = new VolleyHelper(finalContext, "https://adaonboarding.ml/t3/OnboardingAPI");
         secondHelper.get("SetVID/?SID=" + finalSID + "&VID=" + finalVID , null, new Response.Listener<JSONObject>() {
 

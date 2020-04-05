@@ -19,35 +19,48 @@ import org.json.JSONObject;
 
 import java.util.Random;
 
-/**
- *
- */
-
 public class Code extends AppCompatActivity {
-    // create instance of Random class
+
+    /**
+     * @param Random create instance of Random class
+     * @param VID
+     * @param iCount
+     * @param StudentID
+     */
     Random rand = new Random();
     public static int VID;
     public static int iCount;
     public static String StudentID;
-    //String StudentKlas = "";
-    //Boolean ESE = Boolean.FALSE;
 
-    //set StudentID
+
+    /** set StudentID
+     * @param sid
+     */
     public void setsid(String sid){ StudentID = sid;}
-    //get sid
+
+    /** get sid
+     * @return
+     */
     public String getsid(){ return StudentID; }
-    //get vid
+
+    /** get vid
+     * @return
+     */
     public Integer getvid(){ return VID; }
 
 
-    //this is the toast message that shows when a error is called
+    /** this is the toast message that shows when a error is called
+     * @param context
+     */
     public void toast(Context context){ String[] message = {"WAT DOE JE NU??!!", "Dit is duidelijk niet onze fout", "Tosti ham kaas", "Ja shit, nu is alles kapot. Goed gedaan.", "sigh"};
         // Generate random integers in range 0 to 999
         int rand_int1 = rand.nextInt(5);
         Toast.makeText(context, message[rand_int1],Toast.LENGTH_LONG).show();
     }
 
-    // Deze methode haalt het vID op uit de database
+    /** Deze methode haalt het vID op uit de database
+     * @param context
+     */
     public void getVIDdb(Context context){
 
         Context Context = null;
@@ -79,7 +92,11 @@ public class Code extends AppCompatActivity {
             }
         });
     }
-// Deze methode haalt de totale hoeveelheid vragen uit de JSON via de API
+
+
+    /** Deze methode haalt de totale hoeveelheid vragen uit de JSON via de API
+     * @param context
+     */
     public void getCount(Context context) {
 
         Context Context = null;
@@ -121,7 +138,13 @@ public class Code extends AppCompatActivity {
 
     }
 
-    //set the anwser
+
+    /** set the anwser
+     * @param context
+     * @param sid
+     * @param vid
+     * @param ntw
+     */
     public void Setntw(Context context, String sid, Integer vid, String ntw) {
         Context Context = null;
         String SID = null;
@@ -161,7 +184,12 @@ public class Code extends AppCompatActivity {
             }
         });
     }
-// Deze methode zet het VID in de database via de API
+
+    /** Deze methode zet het VID in de database via de API
+     * @param context
+     * @param sid
+     * @param vid
+     */
     public void SetVIDdb(Context context, String sid, Integer vid) {
         Context Context = null;
         String SID = null;

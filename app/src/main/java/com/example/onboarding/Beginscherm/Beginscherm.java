@@ -130,6 +130,8 @@ public class Beginscherm extends AppCompatActivity {
                         //this is to set the diffrent values
                         code.getVIDdb(getBaseContext());
                         code.getCount(getBaseContext());
+
+
                         CheckScherm();
 
                        // btnbegin.setEnabled(true);

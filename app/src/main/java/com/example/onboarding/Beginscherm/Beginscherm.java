@@ -40,12 +40,17 @@ public class Beginscherm extends AppCompatActivity {
         //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
 
-        StartDB("Vraagtest");
-        code.getVIDdb(getBaseContext());
-        code.getCount(getBaseContext());
+        StartDB("walter");
     }
 
-    public void openVragen(View v) {
+    public void openVragen(View v){
+        Intent intent = new Intent(this, Vraagscherm.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    //function to look on what screen somebody was
+    public void CheckScherm() {
         if (Code.VID <= Code.iCount) {
             Intent intent = new Intent(this, Vraagscherm.class);
             startActivity(intent);
@@ -66,7 +71,7 @@ public class Beginscherm extends AppCompatActivity {
             Intent intent = new Intent(this, Eindscherm.class);
             startActivity(intent);
             overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    }
+        }
     }
 
     //i Don't know why this works but it does it's some Demon Shit
@@ -97,6 +102,9 @@ public class Beginscherm extends AppCompatActivity {
 
                                 //set sid in code file
                                 code.setsid(finalSID);
+                                //this is to set the diffrent values
+                                code.getVIDdb(getBaseContext());
+                                code.getCount(getBaseContext());
                                 //System.out.println(response.toString());
 
                                 try {
@@ -117,11 +125,15 @@ public class Beginscherm extends AppCompatActivity {
 
                     } else {
 
-                        //hier nog toast
-                        //============================================================
-                        //
-                        btnbegin.setEnabled(true);
-                    }// DEBUG deze moet dadelijk of false
+                        //this is was happens when teh student already opened the app
+                        code.setsid(finalSID);
+                        //this is to set the diffrent values
+                        code.getVIDdb(getBaseContext());
+                        code.getCount(getBaseContext());
+                        CheckScherm();
+
+                       // btnbegin.setEnabled(true);
+                    }
 
 
                 } catch (JSONException e) {

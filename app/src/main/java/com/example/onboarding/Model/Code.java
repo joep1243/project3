@@ -28,9 +28,9 @@ public class Code extends AppCompatActivity {
     Random rand = new Random();
     public static int VID;
     public static int iCount;
-    String StudentID = "Vraagtest";
-    String StudentKlas = "";
-    Boolean ESE = Boolean.FALSE;
+    public static String StudentID;
+    //String StudentKlas = "";
+    //Boolean ESE = Boolean.FALSE;
 
     //set StudentID
     public void setsid(String sid){ StudentID = sid;}

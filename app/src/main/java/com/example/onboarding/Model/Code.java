@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class Code extends AppCompatActivity {
 
-    /**
+    /**@author Walter Blaauw & Joep Zegers
      * @param Random create instance of Random class
      * @param VID
      * @param iCount

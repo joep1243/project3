@@ -32,6 +32,15 @@ import org.json.JSONObject;
 
 
 public class Promoscherm extends AppCompatActivity {
+
+    /**
+     * @param helper
+     * @param Nothing
+     * @param txtPromoVraag
+     * @param btnPinfo
+     * @param btnnothing
+     * @param Code
+     */
     private VolleyHelper helper;
     private Integer Nothing;
     private TextView txtPromoVraag;
@@ -40,7 +49,9 @@ public class Promoscherm extends AppCompatActivity {
     Code code = new Code();
 
 
-
+    /**
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +66,9 @@ public class Promoscherm extends AppCompatActivity {
 
     }
 
+    /** open info screen
+     * @param v
+     */
     public void openinfoPromo(View v){
         Intent intent = new Intent(this, Promoinfoscherm.class);
         startActivity(intent);
@@ -62,6 +76,9 @@ public class Promoscherm extends AppCompatActivity {
     }
 
 
+    /**
+     * back press function
+     */
     @Override
     public void onBackPressed() {
         if (Code.VID > Code.iCount) {
@@ -75,7 +92,9 @@ public class Promoscherm extends AppCompatActivity {
     }
 
 
-    //Nothing to see here
+    /** Nothing to see here
+     * @param v
+     */
     public void Nothing(View v){
         if(Nothing == 7){
             LayoutInflater inflater = getLayoutInflater();
@@ -90,8 +109,7 @@ public class Promoscherm extends AppCompatActivity {
     }
 
 
-    //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE OwO
-    /**
+    /** Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE
      * @param Value
      * @param idt
      */

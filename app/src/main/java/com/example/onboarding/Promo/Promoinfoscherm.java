@@ -29,18 +29,28 @@ import org.json.JSONObject;
 public class Promoinfoscherm extends AppCompatActivity {
     //private com.example.onboarding.Model.PromoModel PromoModel;
 
-    private VolleyHelper helper;
-    Code code = new Code();
 
 
+        /**
+         * @param helper
+         * @param btnTerug
+         * @param btnmail
+         * @param txtInfo
+         * @param txthead
+         * @param imgFoto
+         * @param Code
+         */
+        private VolleyHelper helper;
         private Button btnTerug;
         private Button btnmail;
         private TextView txtInfo;
         private TextView txthead;
         private ImageView imgFoto;
+        Code code = new Code();
 
-
-
+        /**
+         * @param savedInstanceState
+         */
         @Override
         protected void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
@@ -76,17 +86,19 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
 
 
-
+            /** send mail to
+             * @param v
+             */
             public void Openmail(View v){
                 System.out.println(Code.VID + " is het VID nummer bij Promo Ja");
                 try {
                     code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"ja");
                     Intent i = new Intent(Intent.ACTION_SENDTO);
                     i.setType("message/rfc822");
-                    i.setData(Uri.parse("mailto: luuk.witters@gmail.com"));
+                    i.setData(Uri.parse("mailto: team03@adaonboarding.ml"));
                     //i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"recipient@example.com"});
-                    i.putExtra(Intent.EXTRA_SUBJECT, "Test mail");
-                    i.putExtra(Intent.EXTRA_TEXT   , "kan nu mailen via de app");
+                    i.putExtra(Intent.EXTRA_SUBJECT, "Aamelding PromoStudent");
+                    i.putExtra(Intent.EXTRA_TEXT   , "Hierbij zou ik me graag willen aanmelden als promostudent");
                     try {
                         startActivity(Intent.createChooser(i, "Send mail..."));
                     } catch (android.content.ActivityNotFoundException ex) {
@@ -99,8 +111,9 @@ public class Promoinfoscherm extends AppCompatActivity {
             }
 
 
-
-
+            /** go to next screen
+             * @param v
+             */
               public void NextScreen(View v){
             System.out.println(Code.VID + " is het VID nummer bij Promo Nee");
                   code.Setntw(getBaseContext(),code.getsid(),code.getvid(),"nee");
@@ -112,13 +125,13 @@ public class Promoinfoscherm extends AppCompatActivity {
               }
 
 
-            //We have our own back buttons so they don't need their own makes them more depended
-//            @Override
-//            public void onBackPressed(){}
-
-
-            //Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE
             /**
+             * We have our own back buttons so they don't need their own makes them more depended
+             */
+            @Override
+            public void onBackPressed(){}
+
+            /** Below this there are api functions they are there because android and java are both assholes and don't wanna listen . ps DON'T TOUCH THE FUNCTIONS THEY BITE
              * @param Value
              * @param idt
              */

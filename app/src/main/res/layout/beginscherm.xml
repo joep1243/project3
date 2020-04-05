@@ -82,6 +82,7 @@
         android:fontFamily="@font/frutiger_lt_std_light"
         android:onClick="openVragen"
         android:text="Start Onboarding"
+        android:visibility="invisible"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textColorHighlight="@android:color/background_light"

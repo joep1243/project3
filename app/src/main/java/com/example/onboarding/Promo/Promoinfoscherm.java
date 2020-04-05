@@ -31,7 +31,7 @@ public class Promoinfoscherm extends AppCompatActivity {
 
 
 
-        /**
+        /**@author Joep Zegers
          * @param helper
          * @param btnTerug
          * @param btnmail

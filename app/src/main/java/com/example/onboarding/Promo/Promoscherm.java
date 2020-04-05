@@ -33,7 +33,7 @@ import org.json.JSONObject;
 
 public class Promoscherm extends AppCompatActivity {
 
-    /**
+    /**@author Joep Zegers
      * @param helper
      * @param Nothing
      * @param txtPromoVraag

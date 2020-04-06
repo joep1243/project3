@@ -2,6 +2,7 @@ package com.example.onboarding.Beginscherm;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
@@ -36,11 +37,17 @@ public class Beginscherm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.beginscherm);
 
-
-        //Ik heb hier alvast student id weggehaalt
         btnbegin = (Button) findViewById(R.id.btnbegin);
 
-        StartDB("walter");
+        StartDB("jeeeee");
+
+        //delay wait for onresponce
+        btnbegin.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                btnbegin.setVisibility(View.VISIBLE);
+            }
+        }, 500);
     }
 
     public void openVragen(View v){
@@ -130,12 +137,16 @@ public class Beginscherm extends AppCompatActivity {
                         //this is to set the diffrent values
                         code.getVIDdb(getBaseContext());
                         code.getCount(getBaseContext());
-                        CheckScherm();
-
-                       // btnbegin.setEnabled(true);
+                        
+                        //delay wait for onresponce
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                CheckScherm();
+                            }
+                        }, 500);
                     }
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

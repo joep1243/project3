@@ -22,9 +22,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class IntoductieScherm extends AppCompatActivity
+public class IntoductieScherm extends AppCompatActivity {
 
-{
+    /**@author Luuk Witters & Walter Blaauw & Joep Zegers
+     * @param btnbegin
+     * @param Context
+     * @param Code
+     */
     private VolleyHelper helper;
     private TextView txtIntroVraag;
     Code code = new Code();
@@ -40,6 +44,10 @@ public class IntoductieScherm extends AppCompatActivity
         GetIT("Vraag", txtIntroVraag);
 
     }
+
+    /**
+     * @param v
+     */
     public void openFeedback(View v)
     {
         Code.VID++;
@@ -49,6 +57,9 @@ public class IntoductieScherm extends AppCompatActivity
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
+    /**
+     *
+     */
     @Override
     public void onBackPressed() {
         if (Code.VID == 100) {
@@ -63,7 +74,10 @@ public class IntoductieScherm extends AppCompatActivity
     }
 
 
-
+    /**
+     * @param Value
+     * @param idt
+     */
     public void GetIT(String Value, TextView idt) {
         String item = null;
         TextView id = null;
@@ -103,7 +117,7 @@ public class IntoductieScherm extends AppCompatActivity
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handling
+                code.toast(getApplicationContext());
             }
         });
     }

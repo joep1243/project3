@@ -28,6 +28,11 @@ import org.json.JSONObject;
 
 public class Beginscherm extends AppCompatActivity {
 
+    /**@author Rick mertens & Joep Zegers
+     * @param btnbegin
+     * @param Context
+     * @param Code
+     */
     private Button btnbegin;
     private android.content.Context Context;
     Code code = new Code();
@@ -39,6 +44,9 @@ public class Beginscherm extends AppCompatActivity {
 
         btnbegin = (Button) findViewById(R.id.btnbegin);
 
+        /**
+         *  set de student in db or app
+         */
         StartDB("jeeeee");
 
         //delay wait for onresponce
@@ -50,13 +58,18 @@ public class Beginscherm extends AppCompatActivity {
         }, 500);
     }
 
+    /**
+     * @param v
+     */
     public void openVragen(View v){
         Intent intent = new Intent(this, Vraagscherm.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
-    //function to look on what screen somebody was
+    /**
+     * function to look on what screen somebody was
+     */
     public void CheckScherm() {
         if (Code.VID <= Code.iCount) {
             Intent intent = new Intent(this, Vraagscherm.class);
@@ -81,7 +94,9 @@ public class Beginscherm extends AppCompatActivity {
         }
     }
 
-    //i Don't know why this works but it does it's some Demon Shit
+    /** i Don't know why this works but it does it's some Demon Shit
+     * @param sid
+     */
     public void StartDB(final String sid) {
 
         String SID = null;

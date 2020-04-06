@@ -126,7 +126,7 @@ public class Beginscherm extends AppCompatActivity {
                         }, new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                // Locale error handlin
+                                code.toast(getApplicationContext());
                             }
                         });
 
@@ -155,7 +155,7 @@ public class Beginscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                code.toast(getApplicationContext());
             }
         });
 

@@ -22,6 +22,12 @@ import org.json.JSONObject;
 
 public class VraagInfoscherm extends AppCompatActivity {
 
+    /**@author Walter Blaauw
+     * @param txtInfo
+     * @param txthead
+     * @param imgFoto
+     * @param Code
+     */
     private TextView txtInfo;
     private TextView txthead;
     private ImageView imgFoto;
@@ -40,7 +46,10 @@ public class VraagInfoscherm extends AppCompatActivity {
         Getpi("Image", imgFoto );
         // Aanmaken van het vraaginfoscherm en het aanspreken van de methodes die gebruikt moeten worden zodra deze activity opent
     }
-    //wanneer er op de ingebouwde terugknop wordt gedrukt dan wordt je teruggestuurd naar het vraagscherm
+
+    /**
+     * wanneer er op de ingebouwde terugknop wordt gedrukt dan wordt je teruggestuurd naar het vraagscherm
+     */
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this, Vraagscherm.class);
@@ -48,11 +57,10 @@ public class VraagInfoscherm extends AppCompatActivity {
         overridePendingTransition(R.anim.nothing, R.anim.slide_down);
     }
 
-    /**
+    /** Deze methode haalt de infotekst uit de JSON
      * @param Value
      * @param idt
      */
-    // Deze methode haalt de infotekst uit de JSON
     public void Getpt(String Value, TextView idt) {
         String item = null;
         TextView id = null;
@@ -88,17 +96,16 @@ public class VraagInfoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handling
+                code.toast(getApplicationContext());
             }
         });
     }
 
 
-    /**
+    /** Deze methode haalt de URL van de fotos die horen bij infotext uit de JSON
      * @param Value
      * @param id
      */
-    // Deze methode haalt de URL van de fotos die horen bij infotext uit de JSON
     public void Getpi(String Value, ImageView id) {
         String itemi = null;
         ImageView idi = null;
@@ -134,15 +141,14 @@ public class VraagInfoscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                code.toast(getApplicationContext());
             }
         });
     }
 
-//Deze methode wordt aangesproken wanneer er op de volgende knop gedrukt wordt
 
     /**
-     *
+     * Deze methode wordt aangesproken wanneer er op de volgende knop gedrukt wordt
      * @param v
      */
     public void openVolgendeV(View v){
@@ -154,7 +160,7 @@ public class VraagInfoscherm extends AppCompatActivity {
             Intent intent = new Intent(this, Vraagscherm.class);
             startActivity(intent);
            overridePendingTransition(R.anim.nothing, R.anim.slide_down);
-// als VID gelijk is aan iCount wordt VID opgehoogd met 1 en wordt het volgende scherm getoond.
+            // als VID gelijk is aan iCount wordt VID opgehoogd met 1 en wordt het volgende scherm getoond.
         } else if (Code.VID == Code.iCount){
             Code.VID++;
             code.SetVIDdb(getBaseContext(),code.getsid(),code.getvid());

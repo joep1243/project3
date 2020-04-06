@@ -20,6 +20,10 @@ import org.json.JSONObject;
 
 public class Vraagscherm extends AppCompatActivity {
 
+    /**@author Walter Blaauw
+     * @param sAntwoord
+     * @param Code
+     */
     public String sAntwoord;
     Code code = new Code();
 
@@ -36,11 +40,10 @@ public class Vraagscherm extends AppCompatActivity {
 
 
     }
-    /**
+    /** Deze methode haalt de vraag en het antwoord uit de JSON
      * @param Value
      * @param idt
      */
-    // Deze methode haalt de vraag en het antwoord uit de JSON
     public void Getpt(String Value, TextView idt) {
         String item = null;
         TextView id = null;
@@ -86,16 +89,15 @@ public class Vraagscherm extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // Locale error handlin
+                code.toast(getApplicationContext());
             }
         });
 
 
     }
-// Deze methode wordt aangesproken nadat er op de jaKnop gedrukt wordt
 
     /**
-     *
+     * Deze methode wordt aangesproken nadat er op de jaKnop gedrukt wordt
       * @param v
      */
     public void openJa(View v) {
@@ -130,10 +132,9 @@ public class Vraagscherm extends AppCompatActivity {
             }
         }
     }
-    // Deze methode wordt aangesproken nadat er op de NeeKnop gedrukt wordt
 
     /**
-     *
+     * Deze methode wordt aangesproken nadat er op de NeeKnop gedrukt wordt
       * @param v
      */
     public void openNee(View v) {
@@ -168,9 +169,11 @@ public class Vraagscherm extends AppCompatActivity {
             }
         }
     }
-//Deze methode wordt aangesproken wanneer de ingebouwde terugknop wordt gebruikt
+
+    /**
+     *  Deze methode wordt aangesproken wanneer de ingebouwde terugknop wordt gebruikt
+     */
     @Override
-    
     public void onBackPressed(){
         //als code VID gelijk is aan 1 word je teruggestuurd naar het beginscherm
         if (Code.VID == 1){

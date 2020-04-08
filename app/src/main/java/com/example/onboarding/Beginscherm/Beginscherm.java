@@ -48,13 +48,13 @@ public class Beginscherm extends AppCompatActivity {
          *  set de student in db or app
          *
          *
-         *
+         *To make a new accoun change this
          *
          *
          *
          *
          */
-        StartDB("jeeeee");
+        StartDB("test");
         /**
          *  set de student in db or app
          *

@@ -46,8 +46,25 @@ public class Beginscherm extends AppCompatActivity {
 
         /**
          *  set de student in db or app
+         *
+         *
+         *
+         *
+         *
+         *
+         *
          */
         StartDB("jeeeee");
+        /**
+         *  set de student in db or app
+         *
+         *
+         *
+         *
+         *
+         *
+         *
+         */
 
         //delay wait for onresponce
         btnbegin.postDelayed(new Runnable() {
